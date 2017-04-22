@@ -43,3 +43,15 @@ Route::get('/', 'AuthController@login')->name('login');
 Route::post('/', 'AuthController@datosLogin')->name('datosLogin');
 
 Route::get('/salir', 'AuthController@salir')->name('salir');
+
+//Rutas del Coordinador Academico!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Route::get('/coordinador/index', 'CoordinadorController@index')->name('coordinador');
+
+Route::get('/coordinador/asignar_validar_usuarios', 'CoordinadorController@validarAsignarUsuarios')->name('validarAsignarUsuarios');
+
+Route::put('/coordinador/asignar_validar_usuarios/{id}', 'CoordinadorController@formvalidarAsignarUsuarios')->name('formvalidarAsignarUsuarios');
+
+//Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');

@@ -46,7 +46,20 @@ class AuthController extends Controller
              return redirect()->back()->with('info', 'Datos Incorrectos');
          }
 
-        return "Estas Adentro";
+      
+       if (Auth::check()) 
+       {
+        
+        $user = Auth::user();
+        $roles = $user->rol;
+        $rol = explode(',', $roles);
+
+        if ($rol[0] == 1 && $rol[1] == 4) 
+        {
+            return redirect()->route('nivel1');
+        }
+
+       }
     }
 
     public function salir()
