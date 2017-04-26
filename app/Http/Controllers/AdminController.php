@@ -79,4 +79,29 @@ class AdminController extends Controller
 
         }
 
+        public function reasignarCoordinador()
+        {
+            $docentes = User::all();
+
+            //$coordinador = User::where('rol', 1)->first();
+
+            return view('admin.paginas.reasignarCoordinador', compact('docentes'));
+        }
+
+        public function quitarCoordinadorForm(Request $request, $id)
+        {
+           $roles = implode(',', $request->input('rol'));
+           DB::table('users')->where('id', $id)->update(['rol' => $roles]);
+
+           return redirect()->route('reasignarCoordinador');
+        }
+
+        public function reasignarCoordinadorForm(Request $request, $id)
+        {
+            $roles = implode(',', $request->input('rol'));
+            DB::table('users')->where('id', $id)->update(['rol' => $roles]);
+
+            return redirect()->route('reasignarCoordinador');
+        }
+
 }

@@ -32,6 +32,12 @@ Route::put('admin/datos/validar_coordinador/{id}', 'AdminController@formValidarC
 
 Route::put('/admin/datos/cambiar_roles/{id}', 'AdminController@datosCambiarRoles')->name('datosCambiarRoles');
 
+Route::get('/admin/reasignar_coordinador', 'AdminController@reasignarCoordinador')->name('reasignarCoordinador');
+
+Route::put('/admin/quitar_coordinador/{id}', 'AdminController@quitarCoordinadorForm')->name('quitarCoordinadorForm');
+
+Route::put('/admin/reasignar_coordinador/{id}', 'AdminController@reasignarCoordinadorForm')->name('reasignarCoordinadorForm');
+
 //Rutas del sistema en general!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/registro', 'AuthController@registro')->name('registro');
@@ -51,6 +57,10 @@ Route::get('/coordinador/index', 'CoordinadorController@index')->name('coordinad
 Route::get('/coordinador/asignar_validar_usuarios', 'CoordinadorController@validarAsignarUsuarios')->name('validarAsignarUsuarios');
 
 Route::put('/coordinador/asignar_validar_usuarios/{id}', 'CoordinadorController@formvalidarAsignarUsuarios')->name('formvalidarAsignarUsuarios');
+
+Route::get('/coordinador/asignar_coordinador_carrera/{id}', 'CoordinadorController@asignarCoordinadorCarrera')->name('asignarCoordinadorCarrera');
+
+Route::put('/coordinador/asignar_coordinador_carrera/{id}', 'CoordinadorController@formAsignarCoordinadorCarrera')->name('formAsignarCoordinadorCarrera');
 
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

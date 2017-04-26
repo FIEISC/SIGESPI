@@ -12,6 +12,9 @@
 
 <div class="col-md-10 col-md-offset-1">
 <h1>Válidar Coordinador</h1>
+
+<a class="text-right" href="{{ route('reasignarCoordinador') }}">Cordinador Asignado</a>
+
 	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
@@ -26,26 +29,32 @@
 				@if ($docente->activo == 0)
 				<tr>
 					<td>{{ $docente->nom_docente }}</td>
-					<td>{{ $docente->rol }}</td>
+					@if ($docente->rol == 4)
+					<td>Sólo docente</td>
+					@elseif($docente->rol == 1)
+					<td>Coordinador y docente</td>
+					@endif
 					<td>
 						<div style="display: inline-flex;">
-							<form action="{{ route('formValidarCoordinador', $docente->id) }}" method="POST">
-							{!! csrf_field() !!}
-							{!! method_field('PUT') !!}
+							
+						<form action="{{ route('datosCambiarRoles', $docente->id) }}" method="POST">
+								{!! csrf_field() !!}
+								{!! method_field('PUT') !!}
 
-							<input type="hidden" name="activo" value="1">
-							<button type="submit" class="btn btn-info btn-xs">Válidar</button>
-						</form>
+								<input type="hidden" name="rol[]" value="1">
+								<input type="hidden" name="rol[]" value="4">
 
-						<form style="margin-left: 20px;" action="{{ route('datosCambiarRoles', $docente->id) }}" method="POST">
-							{!! csrf_field() !!}
-	                    	{!! method_field('PUT') !!}
+								<button type="submit" class="btn btn-warning btn-xs">Asigar</button>
+							</form>
 
-	                    	<input type="hidden" name="rol[]" value="1">
-	                    	<input type="hidden" name="rol[]" value="4">
+							<form style="margin-left: 20px;" action="{{ route('formValidarCoordinador', $docente->id) }}" method="POST">
+								{!! csrf_field() !!}
+								{!! method_field('PUT') !!}
 
-	                    	<button type="submit" class="btn btn-warning btn-xs">Asigar</button>
-						</form>
+								<input type="hidden" name="activo" value="1">
+								<button type="submit" class="btn btn-info btn-xs">Válidar</button>
+							</form>
+
 						</div>
 					</td>
 				</tr>

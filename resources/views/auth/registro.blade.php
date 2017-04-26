@@ -8,7 +8,9 @@
 	<h1>Registro</h1>
 
 	<form action="{{ route('datosRegistro') }}" method="POST">
+
 		{!! csrf_field() !!}
+		
 		<div class="form-group{{ $errors->has('nom_docente') ? ' has-error' : '' }}">
 			<label for="nom_docente">Nombre Completo</label>
 			<input type="text" name="nom_docente" class="form-control" value="{{ old('nom_docente')}}">
@@ -52,7 +54,7 @@
 			</select>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Registrarse</button>
+		<button type="submit" class="btn btn-primary btn-block">Registrarse</button>
 	</form>
 </div>
 

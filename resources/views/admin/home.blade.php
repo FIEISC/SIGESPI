@@ -10,6 +10,8 @@
 	</div>
 @endif
 
-<h1>Home Admin</h1>
+<div class="page-header">
+  <h1>Admin Home <small>Bienvenido</small></h1>
+</div>
 @endsection
 

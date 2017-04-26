@@ -16,8 +16,8 @@
     </div>    
   </header>
 
-{{--   @include('modulos.navbar')
- --}}	<div class="container">
+  @include('modulos.navbar')
+	<div class="container">
 		@yield('contenido')
 	</div>
 

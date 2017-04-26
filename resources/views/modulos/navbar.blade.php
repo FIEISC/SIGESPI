@@ -1,3 +1,4 @@
+  @if (Auth::guest())
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,7 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
 
-    @if (Auth::check())
+  {{--   @if (Auth::check())
 
     <ul class="nav navbar-nav">
       <li><a href="">Enviar Mensaje</a></li>
@@ -25,15 +26,15 @@
     <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ route('salir') }}">Salir</a></li>
       </ul>
-    @endif
+    @endif --}}
 
-    @if (Auth::guest())
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ route('registro') }}">Registro</a></li>
         <li><a href="{{ route('login') }}">Login</a></li> 
       </ul>  
-    @endif
          
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+@endif

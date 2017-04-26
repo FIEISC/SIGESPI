@@ -8,6 +8,10 @@
    <div class="alert alert-danger">
    	{{ Session::get('info') }}
    </div>
+   @elseif(Session::has('info2'))
+   <div class="alert alert-success">
+   	{{ Session::get('info2') }}
+   </div>
 @endif
 
 <div class="col-md-4 col-md-offset-4">
@@ -33,7 +37,7 @@
 		      @endif
 		</div>
 
-		<button type="submit" class="btn btn-primary">Entrar</button>
+		<button type="submit" class="btn btn-primary btn-block">Entrar</button>
 	</form>
 	<br>
 	<p>Eres admin?... <a href="{{ route('loginAdmin') }}">Entra aquí</a></p>

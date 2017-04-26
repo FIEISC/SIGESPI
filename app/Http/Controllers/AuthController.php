@@ -29,6 +29,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->input('password')),
             'plantel' => $request->input('plantel')
     		]);
+
+        return redirect()->route('login')->with('info2', 'Registro exitoso, ponte en contacto con el coordinador académico para la activación de tu cuenta.');
     }
 
     public function login()
