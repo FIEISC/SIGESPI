@@ -10,6 +10,7 @@
 	$admin->rol = 0;
 	$admin->plantel = 'fie';
 	$admin->c_carr = 'Z';
+	$admin->t_proy = 'Z';
 	$admin->activo = 1;
 	$admin->save();
 
@@ -38,6 +39,16 @@ Route::put('/admin/quitar_coordinador/{id}', 'AdminController@quitarCoordinadorF
 
 Route::put('/admin/reasignar_coordinador/{id}', 'AdminController@reasignarCoordinadorForm')->name('reasignarCoordinadorForm');
 
+Route::get('/admin/alta_campus', 'AdminController@altaCampus')->name('altaCampus');
+
+Route::get('/admin/alta_campus/lista', 'AdminController@listaCampus')->name('listaCampus');
+
+Route::post('/admin/alta_campus', 'AdminController@altaCampusForm')->name('altaCampusForm');
+
+Route::get('/admin/alta_planteles', 'AdminController@altaPlanteles')->name('altaPlanteles');
+
+Route::post('/admin/alta_planteles', 'AdminController@altaPlantelesForm')->name('altaPlantelesForm');
+
 //Rutas del sistema en general!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/registro', 'AuthController@registro')->name('registro');
@@ -61,6 +72,10 @@ Route::put('/coordinador/asignar_validar_usuarios/{id}', 'CoordinadorController@
 Route::get('/coordinador/asignar_coordinador_carrera/{id}', 'CoordinadorController@asignarCoordinadorCarrera')->name('asignarCoordinadorCarrera');
 
 Route::put('/coordinador/asignar_coordinador_carrera/{id}', 'CoordinadorController@formAsignarCoordinadorCarrera')->name('formAsignarCoordinadorCarrera');
+
+Route::get('/coordinador/baja_reasignacion', 'CoordinadorController@darBajaReasignarCoordinadorCarrera')->name('darBajaReasignarCoordinadorCarrera');
+
+Route::put('/coordinador/baja_docente/{id}', 'CoordinadorController@bajaDocenteForm')->name('bajaDocenteForm');
 
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

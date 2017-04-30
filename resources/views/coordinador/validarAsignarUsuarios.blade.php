@@ -14,8 +14,9 @@
  </div>
 @endif
 
-<h1>Validar y Asignar Usuarios</h1>
+<h1>Validar y dar de alta a coordinadores de carrera</h1>
 
+<a href="{{ route('darBajaReasignarCoordinadorCarrera') }}">Dar de baja y reasignar</a>
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr>
@@ -31,8 +32,11 @@
 		@if ($docente->activo == 0)
 		<tr>
 			<td>{{ $docente->nom_docente }}</td>
+
 			@if ($docente->rol == 4)
 				<td>Docente</td>
+			@elseif($docente->rol == 2)
+			<td>C. Carrera y Docente</td>
 			@endif
 			
 			@if ($docente->c_carr == 'A')
@@ -55,7 +59,8 @@
 
 						<input type="hidden" name="activo" value="1">
 
-						<button type="submit" class="btn btn-primary btn-xs">Válidar</button>
+						<button type="submit" class="btn btn-primary btn-xs">Válidar  <span class="glyphicon glyphicon-ok
+"></span></button>
 					</form>
 
 					<a style="margin-left: 20px;" href="{{ route('asignarCoordinadorCarrera', $docente->id) }}" class="btn btn-default btn-xs">Asignar</a>

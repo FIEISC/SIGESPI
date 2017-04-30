@@ -52,6 +52,9 @@
 			</div>
 		</div>
 
+		<input type="hidden" name="rol[]" value="2">
+		<input type="hidden" name="rol[]" value="4">
+
 		<button type="submit" class="btn btn-primary">Asignar</button>
 	</form>
 </div>

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('rol')->default(4);
             $table->string('plantel');
             $table->string('c_carr')->default('N');
+            $table->string('t_proy')->default('N');
             $table->boolean('activo')->default(0);
             $table->rememberToken();
             $table->timestamps();

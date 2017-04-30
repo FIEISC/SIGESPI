@@ -1,6 +1,5 @@
-@if (Auth::check())
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav style="margin-top: 20px;" class="navbar navbar-default">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -9,27 +8,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="">Brand</a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
+
+    @if (Auth::check())
+
     <ul class="nav navbar-nav">
-      <li><a href="{{ route('validarCoordinador') }}">Válidar Coordinador</a></li>
-      <li><a href="#">Crear Carreras</a></li>
-      <li><a href="#">Crear Ciclos</a></li>
-      <li><a href="#">Crear Materias</a></li>
-      <li><a href="{{ route('altaCampus') }}">Alta Campus</a></li>
-      <li><a href="{{ route('altaPlanteles') }}">Alta Planteles</a></li>
+      <li><a href="#">Dar de alta Tutores de Proyecto</a></li>
+      <li><a href="#">Ver Protocolos</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ route('salirAdmin') }}">Salir</a></li>
+        <li><a href="{{ route('salir') }}">Salir</a></li>
       </ul>
-  
+    @endif
+         
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-@endif

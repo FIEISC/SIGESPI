@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 
 use sigespi\Http\Requests\LoginAdminRequest;
 
+use sigespi\User;
+
+use sigespi\Campus;
+
+use sigespi\Plantel;
+
 use Auth;
 
 use DB;
 
-use sigespi\User;
 
 class AdminController extends Controller
 {
@@ -103,5 +108,65 @@ class AdminController extends Controller
 
             return redirect()->route('reasignarCoordinador');
         }
+
+        //Dada de alta a los campus de la universidad
+
+        public function altaCampus()
+        {
+            return view('admin.paginas.altaCampus');
+        }
+
+        public function listaCampus()
+        {
+            $campus = Campus::all();
+
+            return view('admin.paginas.listaCampus', compact('campus'));
+        }
+
+        public function altaCampusForm(Request $request)
+        {
+            $this->validate($request,
+                [
+                'nom_campus' => 'required',
+                'delegacion' => 'required',
+                'nom_universidad' => 'required',
+                ]);
+
+            $nom_campus = strtoupper($request->input('nom_campus'));
+            $delegacion = strtoupper($request->input('delegacion'));
+            $nom_universidad = strtoupper($request->input('nom_universidad'));
+
+            Campus::create(['nom_campus' => $nom_campus, 'delegacion' => $delegacion, 'nom_universidad' => $nom_universidad]);
+
+            return redirect()->route('altaCampus')->with('info', 'El campus ha sido dado de alta exitosamente');
+        }
+
+        //Dada de alta de los planteles
+
+        public function altaPlanteles()
+        {
+            $campus = Campus::all();
+
+            return view('admin.paginas.altaPlanteles', compact('campus'));
+        }
+
+        public function altaPlantelesForm(Request $request)
+        {
+            $this->validate($request, [
+                'nom_plantel' => 'required',
+                'siglas' => 'required',
+                'campus_id' => 'required'
+                ]);
+
+            $nom_plantel = strtoupper($request->input('nom_plantel'));
+            $siglas = strtoupper($request->input('siglas'));
+            $campus_id = $request->input('campus_id');
+
+            Plantel::create(['nom_plantel' => $nom_plantel, 'siglas' => $siglas, 'campus_id' => $campus_id]);
+
+            return redirect()->route('altaPlanteles')->with('info', 'El plantel ha sido dado de alta exitosamente');
+        }
+
+
 
 }
