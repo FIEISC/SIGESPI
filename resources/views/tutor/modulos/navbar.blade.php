@@ -8,18 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-      @php
-        $roles = Auth::user()->rol;
-        $rol = explode(',', $roles);
-      @endphp
-
-      @if ($rol[0] == 2 && $rol[1] == 4)
-      <a class="navbar-brand" href="{{ route('nivel2') }}"><span class="glyphicon glyphicon-home"></span></a>
-
-      @elseif($rol[0] == 2 && $rol[1] == 3 && $rol[2] == 4)
-      <a class="navbar-brand" href="{{ route('nivel3') }}"><span class="glyphicon glyphicon-home"></span></a>
-      @endif
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,8 +18,7 @@
     @if (Auth::check())
 
     <ul class="nav navbar-nav">
-      {{-- <li><a href="{{ route('altaTutoresProyecto') }}">Dar de alta Tutores de Proyecto</a></li> --}}
-      <li><a href="{{ route('listaTutores') }}">Ver Tutores</a></li>
+      <li><a href="#">Crear Protocolo</a></li>
       <li><a href="#">Ver Protocolos</a></li>
     </ul>
 

@@ -10,7 +10,7 @@
   </div>
 
   <div class="btn-group" role="group">
-    <a href="" class="btn btn-default">Tutor</a>
+    <a href="{{ route('tutor') }}" class="btn btn-default">Tutor</a>
   </div>
 
   <div class="btn-group" role="group">

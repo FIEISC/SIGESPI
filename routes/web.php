@@ -99,6 +99,9 @@ Route::get('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraControll
 
 Route::put('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraController@asignarAltaTutoresProyectoForm')->name('asignarAltaTutoresProyectoForm');*/
 
+//Rutas del Tutor de Proyecto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Route::get('/tutor/index', 'TutorController@index')->name('tutor');
 
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
