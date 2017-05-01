@@ -9,7 +9,7 @@
       <a href="{{ route('c_carrera') }}" class="btn btn-default">Coordinador Carrera</a>
   </div>
   <div class="btn-group" role="group">
-    <a href="" class="btn btn-default">Docente</a>
+    <a href="{{ route('docente') }}" class="btn btn-default">Docente</a>
   </div>
 
    <a href="{{ route('salir') }}" class="btn btn-default">Salir   <span class="glyphicon glyphicon-log-out"></span></a>

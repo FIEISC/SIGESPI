@@ -103,6 +103,10 @@ Route::put('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraControll
 
 Route::get('/tutor/index', 'TutorController@index')->name('tutor');
 
+//Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Route::get('/docente/index', 'DocenteController@index')->name('docente');
+
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');
@@ -110,3 +114,7 @@ Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');
 Route::get('/n2', 'PaginasController@nivel2')->name('nivel2');
 
 Route::get('/n3', 'PaginasController@nivel3')->name('nivel3');
+
+Route::get('/n4', 'PaginasController@nivel4')->name('nivel4');
+
+Route::get('/n5', 'PaginasController@nivel5')->name('nivel5');

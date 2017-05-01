@@ -26,4 +26,14 @@ class PaginasController extends Controller
     {
         return view('niveles.nivel3');
     }
+
+    public function nivel4()
+    {
+        return view('niveles.nivel4');
+    }
+
+    public function nivel5()
+    {
+        return view('niveles.nivel5');
+    }
 }

@@ -4,15 +4,15 @@ namespace sigespi\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TutorController extends Controller
+class DocenteController extends Controller
 {
-	function __construct()
+	function __contruct()
 	{
 		return $this->middleware('auth');
 	}
 	
     public function index()
     {
-    	return view('tutor.index');
+    	return view('docente.index');
     }
 }

@@ -70,6 +70,16 @@ class AuthController extends Controller
             return redirect()->route('nivel3');
         }
 
+        elseif ($rol[0] == 3 && $rol[1] == 4) 
+        {
+            return redirect()->route('nivel4');
+        }
+
+        elseif ($rol[0] == 4) 
+        {
+            return redirect()->route('nivel5');
+        }
+
        }
     }
 

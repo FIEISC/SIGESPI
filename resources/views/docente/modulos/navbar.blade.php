@@ -14,11 +14,20 @@
         $rol = explode(',', $roles);
       @endphp
 
-      @if ($rol[0] == 2 && $rol[1] == 3 && $rol[2] == 4)
+      @if ($rol[0] == 1 && $rol[1] == 4)
+      <a class="navbar-brand" href="{{ route('nivel1') }}"><span class="glyphicon glyphicon-home"></span></a>
+
+      @elseif($rol[0] == 2 && $rol[1] == 4)
+      <a class="navbar-brand" href="{{ route('nivel2') }}"><span class="glyphicon glyphicon-home"></span></a>
+
+      @elseif($rol[0] == 2 && $rol[1] == 3 && $rol[2] == 4)
       <a class="navbar-brand" href="{{ route('nivel3') }}"><span class="glyphicon glyphicon-home"></span></a>
 
       @elseif($rol[0] == 3 && $rol[1] == 4)
       <a class="navbar-brand" href="{{ route('nivel4') }}"><span class="glyphicon glyphicon-home"></span></a>
+
+      @elseif($rol[0] == 4)
+      <a class="navbar-brand" href="{{ route('nivel5') }}"><span class="glyphicon glyphicon-home"></span></a>    
       @endif
     </div>
 
@@ -29,8 +38,7 @@
     @if (Auth::check())
 
     <ul class="nav navbar-nav">
-      <li><a href="#">Crear Protocolo</a></li>
-      <li><a href="#">Ver Protocolos</a></li>
+      <li><a href="#">Editar Protocolo</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

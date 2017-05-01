@@ -16,7 +16,6 @@
     
 
     @if (Auth::check())
-
     <ul class="nav navbar-nav">
       <li><a href="{{ route('validarAsignarUsuarios') }}">Válidar y Asignar Usuarios</a></li>
       <li><a href="{{ route('altaTutores') }}">Alta Tutores</a></li>
