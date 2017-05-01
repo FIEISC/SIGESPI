@@ -60,6 +60,10 @@ class AuthController extends Controller
         {
             return redirect()->route('nivel1');
         }
+        elseif ($rol[0] == 2 && $rol[1] == 4) 
+        {
+            return redirect()->route('nivel2');
+        }
 
        }
     }

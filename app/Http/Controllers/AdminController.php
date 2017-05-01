@@ -12,6 +12,8 @@ use sigespi\Campus;
 
 use sigespi\Plantel;
 
+use sigespi\Carrera;
+
 use Auth;
 
 use DB;
@@ -165,6 +167,34 @@ class AdminController extends Controller
             Plantel::create(['nom_plantel' => $nom_plantel, 'siglas' => $siglas, 'campus_id' => $campus_id]);
 
             return redirect()->route('altaPlanteles')->with('info', 'El plantel ha sido dado de alta exitosamente');
+        }
+
+        //Dada de alta de las carreras!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        public function altaCarreras()
+        {
+            $planteles = Plantel::all();
+
+            return view('admin.paginas.altaCarreras', compact('planteles'));
+        }
+
+        public function altaCarrerasForm(Request $request)
+        {
+            $this->validate($request, [
+                 'nom_carrera' => 'required',
+                 'siglas' => 'required',
+                 'grupo' => 'required',
+                 'plantel_id' => 'required'
+                ]);
+            
+            $nom_carrera = strtoupper($request->input('nom_carrera'));
+            $siglas = strtoupper($request->input('siglas'));
+            $grupo = $request->input('grupo');
+            $plantel_id = $request->input('plantel_id');
+
+            Carrera::create(['nom_carrera' => $nom_carrera, 'siglas' => $siglas, 'grupo' => $grupo, 'plantel_id' => $plantel_id]);
+
+            return redirect()->route('altaCarrerasForm')->with('info', 'Carrera creada exitosamente');
         }
 
 

@@ -5,25 +5,23 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCarrerasTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+{  
     public function up()
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nom_carrera');
+            $table->string('siglas');
+            $table->string('grupo')->unique();
+            $table->boolean('activo')->default(1);
+            //Llave foranea de plantel
+
+           $table->integer('plantel_id')->unsigned();
+           $table->foreign('plantel_id')->references('id')->on('planteles');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('carreras');

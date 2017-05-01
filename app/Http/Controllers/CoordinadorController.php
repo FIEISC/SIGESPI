@@ -75,4 +75,33 @@ class CoordinadorController extends Controller
 
         return redirect()->route('darBajaReasignarCoordinadorCarrera')->with('info', 'Docente dado de baja exitosamente, para darlo de alta ir a la sección "válidar y dar de alta"');
     }
+
+    //Alta de tutores!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    public function altaTutores()
+    {
+        $docentes = User::orderBy('c_carr', 'ASC')->get();
+        $tutores = User::all();
+
+        return view('coordinador.altaTutores', compact('docentes', 'tutores'));
+    }
+
+    public function asignarTutores($id)
+    {
+        $cc = User::findOrFail($id);
+
+        $tutores = User::all();
+
+        return view('coordinador.asignarTutores', compact('tutores', 'cc'));
+    }
+
+    public function asignarTutoresForm(Request $request, $id)
+    {
+        $roles = implode(',', $request->input('rol'));
+        $t_proy = $request->input('t_proy');
+
+        DB::table('users')->where('id', $id)->update(['t_proy' => $t_proy, 'rol' => $roles]);
+
+        return redirect()->route('altaTutores')->with('info', 'Tutor asignado');
+    }
 }

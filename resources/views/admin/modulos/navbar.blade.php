@@ -1,4 +1,5 @@
 @if (Auth::check())
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,11 +18,11 @@
     
     <ul class="nav navbar-nav">
       <li><a href="{{ route('validarCoordinador') }}">Válidar Coordinador</a></li>
-      <li><a href="#">Crear Carreras</a></li>
-      <li><a href="#">Crear Ciclos</a></li>
-      <li><a href="#">Crear Materias</a></li>
       <li><a href="{{ route('altaCampus') }}">Alta Campus</a></li>
       <li><a href="{{ route('altaPlanteles') }}">Alta Planteles</a></li>
+      <li><a href="{{ route('altaCarreras') }}">Crear Carreras</a></li>
+      <li><a href="#">Crear Materias</a></li>
+      <li><a href="#">Crear Ciclos</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

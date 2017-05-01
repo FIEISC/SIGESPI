@@ -29,7 +29,8 @@
 
 	<tbody>
 		@foreach ($docentes as $docente)
-		@if ($docente->activo == 0)
+		<!-- Para que solo muestre los usuarios en activo 0 y que son del plantel que es el coordinador academico -->
+		@if ($docente->activo == 0 && Auth::user()->plantel == $docente->plantel)
 		<tr>
 			<td>{{ $docente->nom_docente }}</td>
 
@@ -53,6 +54,9 @@
 
 			<td>
 				<div style="display: inline-flex;">
+
+				<a style="margin-right: 100px;" href="{{ route('asignarCoordinadorCarrera', $docente->id) }}" class="btn btn-default btn-xs">Asignar   <span class="glyphicon glyphicon-pencil"></span></a>
+
 					<form action="{{ route('formvalidarAsignarUsuarios', $docente->id) }}" method="POST">
 						{!! csrf_field() !!}
 						{!! method_field('PUT') !!}
@@ -62,8 +66,6 @@
 						<button type="submit" class="btn btn-primary btn-xs">Válidar  <span class="glyphicon glyphicon-ok
 "></span></button>
 					</form>
-
-					<a style="margin-left: 20px;" href="{{ route('asignarCoordinadorCarrera', $docente->id) }}" class="btn btn-default btn-xs">Asignar</a>
 				</div>
 			</td>
 		</tr>

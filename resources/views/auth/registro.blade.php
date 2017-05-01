@@ -50,7 +50,7 @@
 		<div class="form-group">
 			<label for="plantel">Plantel</label>
 			<select name="plantel" id="plantel" class="form-control">
-				<option value="fie">Facultad de Ingeniería Electromecánica</option>
+				<option value="FIE">Facultad de Ingeniería Electromecánica</option>
 			</select>
 		</div>
 

@@ -23,7 +23,7 @@
 
 	<tbody>
 		@foreach ($docentes as $docente)
-			@if ($docente->activo == 1 && $docente->rol != 1 && $docente->rol != 0)
+			@if ($docente->activo == 1 && $docente->rol != 1 && $docente->rol != 0 && Auth::user()->plantel == $docente->plantel)
 				<tr>
 					<td>{{ $docente->nom_docente }}</td>
 					@if ($docente->c_carr == 'A')

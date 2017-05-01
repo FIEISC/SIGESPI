@@ -49,6 +49,10 @@ Route::get('/admin/alta_planteles', 'AdminController@altaPlanteles')->name('alta
 
 Route::post('/admin/alta_planteles', 'AdminController@altaPlantelesForm')->name('altaPlantelesForm');
 
+Route::get('/admin/alta_carreras', 'AdminController@altaCarreras')->name('altaCarreras');
+
+Route::post('/admin/alta_carreras', 'AdminController@altaCarrerasForm')->name('altaCarrerasForm');
+
 //Rutas del sistema en general!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/registro', 'AuthController@registro')->name('registro');
@@ -77,6 +81,24 @@ Route::get('/coordinador/baja_reasignacion', 'CoordinadorController@darBajaReasi
 
 Route::put('/coordinador/baja_docente/{id}', 'CoordinadorController@bajaDocenteForm')->name('bajaDocenteForm');
 
+Route::get('/coordinador/alta_tutores', 'CoordinadorController@altaTutores')->name('altaTutores');
+
+Route::get('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarTutores')->name('asignarTutores');
+
+Route::put('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarTutoresForm')->name('asignarTutoresForm');
+
+//Rutas Coordinador de Carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Route::get('/coordinador_carrera/index', 'CoordinadorCarreraController@index')->name('c_carrera');
+
+Route::get('/coordinador_carrera/alta_tutores', 'CoordinadorCarreraController@altaTutoresProyecto')->name('altaTutoresProyecto');
+
+Route::get('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraController@asignarAltaTutoresProyecto')->name('asignarAltaTutoresProyecto');
+
+Route::put('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraController@asignarAltaTutoresProyectoForm')->name('asignarAltaTutoresProyectoForm');
+
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');
+
+Route::get('/n2', 'PaginasController@nivel2')->name('nivel2');
