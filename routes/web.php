@@ -91,14 +91,19 @@ Route::put('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarT
 
 Route::get('/coordinador_carrera/index', 'CoordinadorCarreraController@index')->name('c_carrera');
 
-Route::get('/coordinador_carrera/alta_tutores', 'CoordinadorCarreraController@altaTutoresProyecto')->name('altaTutoresProyecto');
+Route::get('/coordinador_carrera/tutores', 'CoordinadorCarreraController@listaTutores')->name('listaTutores');
+
+/*Route::get('/coordinador_carrera/alta_tutores', 'CoordinadorCarreraController@altaTutoresProyecto')->name('altaTutoresProyecto');
 
 Route::get('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraController@asignarAltaTutoresProyecto')->name('asignarAltaTutoresProyecto');
 
-Route::put('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraController@asignarAltaTutoresProyectoForm')->name('asignarAltaTutoresProyectoForm');
+Route::put('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraController@asignarAltaTutoresProyectoForm')->name('asignarAltaTutoresProyectoForm');*/
+
 
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');
 
 Route::get('/n2', 'PaginasController@nivel2')->name('nivel2');
+
+Route::get('/n3', 'PaginasController@nivel3')->name('nivel3');

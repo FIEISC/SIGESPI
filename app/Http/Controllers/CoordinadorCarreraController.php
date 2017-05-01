@@ -21,7 +21,14 @@ class CoordinadorCarreraController extends Controller
     	return view('coordinadorCarrera.index');
     }
 
-    public function altaTutoresProyecto()
+    public function listaTutores()
+    {
+        $tutores = User::orderBy('nom_docente', 'ASC')->get();
+
+        return view('coordinadorCarrera.listaTutores', compact('tutores'));
+    }
+
+  /*  public function altaTutoresProyecto()
     {
     	$docentes = User::all();
 
@@ -40,5 +47,7 @@ class CoordinadorCarreraController extends Controller
         dd($request->all());
 
        // DB::table('users')->where('id', $id)->update(['t_proy'$request->inpu])
-    }
+    }*/
+
+    
 }
