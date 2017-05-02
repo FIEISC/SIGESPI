@@ -14,6 +14,8 @@ use sigespi\Plantel;
 
 use sigespi\Carrera;
 
+use sigespi\Ciclo;
+
 use Auth;
 
 use DB;
@@ -197,6 +199,19 @@ class AdminController extends Controller
             return redirect()->route('altaCarrerasForm')->with('info', 'Carrera creada exitosamente');
         }
 
+        public function altaCiclos()
+        {
+            return view('admin.paginas.altaCiclos');
+        }
 
+        public function altaCiclosForm(Request $request)
+        {
+            //dd($request->all());
 
+            Ciclo::create($request->all());
+
+            return redirect()->route('altaCiclos')->with('info', 'Ciclo creado!');
+        }
 }
+
+

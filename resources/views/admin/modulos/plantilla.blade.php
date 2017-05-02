@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>@yield('title', 'Default')</title>
-	<link rel="stylesheet" href="{{ asset('estilos/css/my-style.css') }}">
+  <meta charset="UTF-8">
+  <title>@yield('title', 'Default')</title>
+  <link rel="stylesheet" href="{{ asset('estilos/css/my-style.css') }}">
     <link rel="stylesheet" href="{{ asset('estilos/css/bootstrap.min.css') }}">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker3.css') }}">
+  <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker.standalone.css') }}">
+  <script src="{{ asset('datePicker/js/bootstrap-datepicker.js') }}"></script>
+  <script src="{{ asset('datePicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
 </head>
 <body>
 <header>
@@ -18,16 +24,28 @@
   <br>
 @include('admin.modulos.navbar')
 <div class="container">
-	@yield('contenido')
+  @yield('contenido')
 </div>
 
 <footer class="footer-distributed">
-	<div class="footer-left">
-		<p class="footer-links">
-			<a href="#">Link1</a> - <a href="#">Link2</a> - <a href="#">Link3</a>
-		</p>
-		<p>SIGESPI 2017 | Developed by Naty <span class="glyphicon glyphicon-heart-empty"></span></p>
-	</div>
+  <div class="footer-left">
+    <p class="footer-links">
+      <a href="#">Link1</a> - <a href="#">Link2</a> - <a href="#">Link3</a>
+    </p>
+    <p>SIGESPI 2017 | Developed by Naty <span class="glyphicon glyphicon-heart-empty"></span></p>
+  </div>
 </footer>
+
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    format: "yyyy-mm-dd",
+    language: "es",
+    autoclose: true
+  });
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

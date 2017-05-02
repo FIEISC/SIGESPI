@@ -54,6 +54,10 @@ Route::get('/admin/alta_carreras', 'AdminController@altaCarreras')->name('altaCa
 
 Route::post('/admin/alta_carreras', 'AdminController@altaCarrerasForm')->name('altaCarrerasForm');
 
+Route::get('/admin/alta_ciclos', 'AdminController@altaCiclos')->name('altaCiclos');
+
+Route::post('/admin/alta_ciclos', 'AdminController@altaCiclosForm')->name('altaCiclosForm');
+
 //Rutas del sistema en general!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/registro', 'AuthController@registro')->name('registro');
