@@ -45,6 +45,27 @@
 								{!! csrf_field() !!}
 								{!! method_field('PUT') !!}
 
+								<div class="radio">
+									<label id="1">
+									<input type="radio" name="t_semestre" id="1" value="1">
+										1
+									</label>
+								</div>
+
+								<div class="radio">
+									<label id="3">
+									<input type="radio" name="t_semestre" id="3" value="3">
+										3
+									</label>
+								</div>
+
+								<div class="radio">
+									<label id="5">
+									<input type="radio" name="t_semestre" id="5" value="5">
+										5
+									</label>
+								</div>
+
 								<input type="hidden" name="t_proy" value="{{ $cc->c_carr }}">
 
 								@php

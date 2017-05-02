@@ -81,7 +81,7 @@ class CoordinadorController extends Controller
     public function altaTutores()
     {
         $docentes = User::orderBy('c_carr', 'ASC')->get();
-        $tutores = User::all();
+        $tutores = User::orderBy('nom_docente', 'ASC')->get();
 
         return view('coordinador.altaTutores', compact('docentes', 'tutores'));
     }
@@ -89,8 +89,9 @@ class CoordinadorController extends Controller
     public function asignarTutores($id)
     {
         $cc = User::findOrFail($id);
-
-        $tutores = User::all();
+        //$tutores = User::all();
+        //Para pasar todos los tutores menos el cc elegido
+        $tutores = User::where('id', '!=', $id)->get();
 
         return view('coordinador.asignarTutores', compact('tutores', 'cc'));
     }
@@ -98,9 +99,10 @@ class CoordinadorController extends Controller
     public function asignarTutoresForm(Request $request, $id)
     {
         $roles = implode(',', $request->input('rol'));
+        $t_semestre = $request->input('t_semestre');
         $t_proy = $request->input('t_proy');
 
-        DB::table('users')->where('id', $id)->update(['t_proy' => $t_proy, 'rol' => $roles]);
+        DB::table('users')->where('id', $id)->update(['t_proy' => $t_proy, 'rol' => $roles, 't_semestre' => $t_semestre]);
 
         return redirect()->route('altaTutores')->with('info', 'Tutor asignado');
     }

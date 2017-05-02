@@ -1,6 +1,6 @@
 <?php
 
-/*Route::get('/registro/admin', function()
+Route::get('/registro/admin', function()
 {
 	$admin = new sigespi\User;
 	$admin->nom_docente = 'Admin';
@@ -8,13 +8,14 @@
 	$admin->email = 'naty_snuff@hotmail.com';
 	$admin->password = bcrypt('nath123');
 	$admin->rol = 0;
-	$admin->plantel = 'fie';
+	$admin->plantel = 'FIE';
 	$admin->c_carr = 'Z';
 	$admin->t_proy = 'Z';
+	$admin->t_semestre = 0;
 	$admin->activo = 1;
 	$admin->save();
 
-});*/
+});
 
 //Rutas Administrador!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Route::get('/admin/login', 'AdminController@login')->name('loginAdmin');

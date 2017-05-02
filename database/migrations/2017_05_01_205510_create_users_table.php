@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('plantel');
             $table->string('c_carr')->default('N');
             $table->string('t_proy')->default('N');
+            $table->integer('t_semestre')->default(0);
             $table->boolean('activo')->default(0);
             $table->rememberToken();
             $table->timestamps();
