@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/registro/admin', function()
+/*Route::get('/registro/admin', function()
 {
 	$admin = new sigespi\User;
 	$admin->nom_docente = 'Admin';
@@ -15,7 +15,7 @@ Route::get('/registro/admin', function()
 	$admin->activo = 1;
 	$admin->save();
 
-});
+});*/
 
 //Rutas Administrador!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Route::get('/admin/login', 'AdminController@login')->name('loginAdmin');
@@ -92,11 +92,15 @@ Route::get('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarT
 
 Route::put('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarTutoresForm')->name('asignarTutoresForm');
 
+Route::get('/coordinador/protocolos', 'CoordinadorController@verProtocolos')->name('verProtocolosCoordinador');
+
 //Rutas Coordinador de Carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/coordinador_carrera/index', 'CoordinadorCarreraController@index')->name('c_carrera');
 
 Route::get('/coordinador_carrera/tutores', 'CoordinadorCarreraController@listaTutores')->name('listaTutores');
+
+Route::get('coordinador_carrera/protocolos', 'CoordinadorCarreraController@protocolosTutores')->name('protocolosTutores');
 
 /*Route::get('/coordinador_carrera/alta_tutores', 'CoordinadorCarreraController@altaTutoresProyecto')->name('altaTutoresProyecto');
 
@@ -107,6 +111,24 @@ Route::put('/coordinador_carrera/alta_tutores/{id}', 'CoordinadorCarreraControll
 //Rutas del Tutor de Proyecto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/tutor/index', 'TutorController@index')->name('tutor');
+
+Route::get('/tutor/elegir_ciclo', 'TutorController@elegirCicloProtocolo')->name('elegirCicloProtocolo');
+
+Route::get('/tutor/crear_protocolo/{id}', 'TutorController@crearProtocolo')->name('crearProtocolo');
+
+Route::post('/tutor/crear_protocolo', 'TutorController@crearProtocoloForm')->name('crearProtocoloForm');
+
+Route::get('/tutor/ver_protocolos', 'TutorController@verProtocolos')->name('verProtocolos');
+
+Route::get('/tutor/ver_protocolo/{id}', 'TutorController@verOnlyProtocolo')->name('verOnlyProtocolo');
+
+Route::get('/tutor/editar_protocolo/{id}', 'TutorController@editarOnlyProtocolo')->name('editarOnlyProtocolo');
+
+Route::put('/tutor/editar_protocolo_datos/{id}', 'TutorController@editarOnlyProtocoloForm')->name('editarOnlyProtocoloForm');
+
+Route::get('/tutor/asignar_docentes', 'TutorController@asignarDocentesProtocolo')->name('asignarDocentesProtocolo');
+
+Route::get('/tutor/asignar_docentes/{id}', 'TutorController@asignarDocentesProtocoloForm')->name('asignarDocentesProtocoloForm');
 
 //Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

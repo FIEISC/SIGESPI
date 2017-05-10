@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ asset('estilos/css/bootstrap.min.css') }}">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 <body>
 
@@ -30,6 +32,16 @@
 		<p>SIGESPI 2017 | Developed by Naty <span class="glyphicon glyphicon-heart-empty"></span></p>
 	</div>
 </footer>
-	
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>	
+
+<script>
+	$(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
 </body>
 </html>

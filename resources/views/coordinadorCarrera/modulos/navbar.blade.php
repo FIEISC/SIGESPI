@@ -31,7 +31,7 @@
     <ul class="nav navbar-nav">
       {{-- <li><a href="{{ route('altaTutoresProyecto') }}">Dar de alta Tutores de Proyecto</a></li> --}}
       <li><a href="{{ route('listaTutores') }}">Ver Tutores</a></li>
-      <li><a href="#">Ver Protocolos</a></li>
+      <li><a href="{{ route('protocolosTutores') }}">Ver Protocolos</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

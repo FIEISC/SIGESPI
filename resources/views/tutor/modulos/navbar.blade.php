@@ -29,8 +29,9 @@
     @if (Auth::check())
 
     <ul class="nav navbar-nav">
-      <li><a href="#">Crear Protocolo</a></li>
-      <li><a href="#">Ver Protocolos</a></li>
+      <li><a href="{{ route('elegirCicloProtocolo') }}">Crear Protocolo</a></li>
+      <li><a href="{{ route('verProtocolos') }}">Ver Protocolos</a></li>
+      <li><a href="{{ route('asignarDocentesProtocolo') }}">Asignar Docentes</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

@@ -8,6 +8,8 @@ use sigespi\User;
 
 use sigespi\Carrera;
 
+use sigespi\Protocolo;
+
 class CoordinadorCarreraController extends Controller
 {
 
@@ -26,6 +28,12 @@ class CoordinadorCarreraController extends Controller
         $tutores = User::orderBy('nom_docente', 'ASC')->get();
 
         return view('coordinadorCarrera.listaTutores', compact('tutores'));
+    }
+
+    public function protocolosTutores()
+    {
+        $protocolos = Protocolo::all();
+        return view('coordinadorCarrera.protocolosTutores', compact('protocolos'));
     }
 
   /*  public function altaTutoresProyecto()

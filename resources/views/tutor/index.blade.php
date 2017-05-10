@@ -54,24 +54,5 @@
 </div>
 @endif
 
-
-{{-- <div class="page-header">
-
-@if (Auth::user()->t_proy == 'A')
-	<h3>Bienvenido {{ Auth::user()->nom_docente }} eres tutor de la carrera Ing. Mecánico Electricista en el semestre {{ Auth::user()->t_semestre }}</h3>
-
-@elseif(Auth::user()->t_proy == 'B')
-    <h3>Bienvenido {{ Auth::user()->nom_docente }} eres tutor de la carrera Ing. en Tecnologías Electrónicas en el semestre {{ Auth::user()->t_semestre }}</h3>
-
-@elseif(Auth::user()->t_proy == 'C')
-    <h3>Bienvenido {{ Auth::user()->nom_docente }} eres tutor de la carrera Ing. en Mecatrónica en el semestre {{ Auth::user()->t_semestre }}</h3>
-
-@elseif(Auth::user()->t_proy == 'D')
-    <h3>Bienvenido {{ Auth::user()->nom_docente }} eres tutor de la carrera Ing. en Sistemas Computacionales en el semestre {{ Auth::user()->t_semestre }}</h3>
-@endif
-
-</div>
-
---}}
 @endsection
 

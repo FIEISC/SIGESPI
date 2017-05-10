@@ -38,14 +38,14 @@
 						@foreach ($tutores as $tutor)
 							@if ($docente->c_carr == $tutor->t_proy)
 								<ul>
-									<li>{{ $tutor->nom_docente }}</li>
+									<li>{{ $tutor->nom_docente }} <b>{{ $tutor->t_proy }}, {{ $tutor->t_semestre }}</b></li>
 								</ul>
 							@endif
 						@endforeach
 					</td>
 
 					<td>
-						<a href="{{ route('asignarTutores', $docente->id) }}" class="btn btn-primary btn-xs">Asignar</a>
+						<a href="{{ route('asignarTutores', $docente->id) }}" class="btn btn-primary btn-xs">Asignar</a>			
 					</td>
 				</tr>
 			@endif

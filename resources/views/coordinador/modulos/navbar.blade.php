@@ -20,7 +20,7 @@
       <li><a href="{{ route('validarAsignarUsuarios') }}">Válidar y Asignar Usuarios</a></li>
       <li><a href="{{ route('altaTutores') }}">Alta Tutores</a></li>
       <li><a href="#">Asignar Materias</a></li>
-      <li><a href="#">Ver Protocolos</a></li>
+      <li><a href="{{ route('verProtocolosCoordinador') }}">Ver Protocolos</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
