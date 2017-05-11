@@ -12,6 +12,8 @@ use sigespi\Protocolo;
 
 use sigespi\User;
 
+use Alert;
+
 use Auth;
 
 use DB;
@@ -115,6 +117,16 @@ class TutorController extends Controller
       $protocolo->manyUsers()->sync($request->get('users', []));
 
       return redirect()->route('asignarDocentesProtocolo')->with('info2', 'Docentes Modificados!!');
+   }
+
+   public function bajaProtocolos(Request $request, $id)
+   {
+       $activo = $request->input('activo');
+       DB::table('protocolos')->where('id', $id)->update(['activo' => $activo]);
+       
+       Alert::info('Protocolo dado de baja exitosamente', 'Baja Exitosa');
+       //alert()->success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
+       return redirect()->route('verProtocolos');
    }
 
 }

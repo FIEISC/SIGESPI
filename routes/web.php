@@ -136,6 +136,8 @@ Route::get('/tutor/editar_docentes/{id}', 'TutorController@editarDocentesProtoco
 
 Route::put('/tutor/editar_docentes/datos/{id}', 'TutorController@datosEditarDocentesProtocolo')->name('datosEditarDocentesProtocolo');
 
+Route::put('/tutor/baja_protocolo/{id}', 'TutorController@bajaProtocolos')->name('bajaProtocolos');
+
 //Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/docente/index', 'DocenteController@index')->name('docente');

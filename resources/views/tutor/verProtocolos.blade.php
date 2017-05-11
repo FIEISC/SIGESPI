@@ -23,15 +23,26 @@
 
     <tbody>
       @foreach ($protocolos as $protocolo)
-       @if ($protocolo->user_id == Auth::user()->id)
+       @if ($protocolo->user_id == Auth::user()->id && $protocolo->activo == 1)
          <tr>
            <td>{{ $protocolo->nom_protocolo }}</td>
            <td>
-           <a style="margin-left: 170px;" href="{{ route('verOnlyProtocolo', $protocolo->id) }}" class="btn btn-primary btn-sm">Ver   <span class="glyphicon glyphicon-eye-open"></span></a>
+           <a style="margin-left: 150px;" href="{{ route('verOnlyProtocolo', $protocolo->id) }}" class="btn btn-primary btn-sm">Ver   <span class="glyphicon glyphicon-eye-open"></span></a>
 
            <a style="margin-left: 60px;" href="{{ route('editarOnlyProtocolo', $protocolo->id) }}" class="btn btn-warning btn-sm">Editar   <span class="glyphicon glyphicon-edit"></span></a>
+          
+           <div style="display: inline-flex; margin-left: 50px;">
+           <form action="{{ route('bajaProtocolos', $protocolo->id) }}" method="POST">
+              {!! csrf_field() !!}
+              {!! method_field('PUT') !!}
 
-           </td>
+              <input type="hidden" name="activo" value="0">
+
+              <button type="submit" class="bnt btn-danger btn-sm">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
+            </form>
+           </div>
+
+          </td>
          </tr>
        @endif
       @endforeach
