@@ -4,6 +4,7 @@
 
 @section('contenido')
 
-<h1>Docente</h1>
+<h1>Bienvenido {{ Auth::user()->nom_docente }}</h1>
+<h3>Ahora estas como Docente</h3>
 
 @endsection

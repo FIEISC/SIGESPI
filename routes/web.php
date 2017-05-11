@@ -140,6 +140,8 @@ Route::put('/tutor/editar_docentes/datos/{id}', 'TutorController@datosEditarDoce
 
 Route::get('/docente/index', 'DocenteController@index')->name('docente');
 
+Route::get('/docente/protocolos', 'DocenteController@protocolosAsignados')->name('protocolosAsignados');
+
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');
