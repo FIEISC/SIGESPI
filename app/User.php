@@ -14,9 +14,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    //Relacion 1:N con protocolos!!!!!!
+    public function hasProtocolos()
+    {
+    	return $this->hasMany(Protocolo::class);
+    }
+
+    //Relacion N:M con protocolos!!!!!!
 
     public function protocolos()
     {
-    	return $this->hasMany(Protocolo::class);
+    	return $this->belongsToMany(Protocolo::class);
     }
 }

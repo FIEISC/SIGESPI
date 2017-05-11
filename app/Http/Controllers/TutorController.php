@@ -10,7 +10,11 @@ use sigespi\Carrera;
 
 use sigespi\Protocolo;
 
+use sigespi\User;
+
 use Auth;
+
+use DB;
 
 class TutorController extends Controller
 {
@@ -82,8 +86,37 @@ class TutorController extends Controller
    public function asignarDocentesProtocoloForm($id)
    {
       $protocolo = Protocolo::findOrFail($id);
-      return view('tutor.asignarDocentesProtocoloForm', compact('protocolo'));
+      $users = User::where('rol', '>', 1)->orderBy('nom_docente', 'ASC')->pluck('nom_docente', 'id');
+      return view('tutor.asignarDocentesProtocoloForm', compact('protocolo', 'users'));
    }
+
+   public function datosAsignarDocentesProtocolo(Request $request, $id)
+   {
+     // dd($request->all());
+
+      $protocolo = Protocolo::find($id);
+      $protocolo->manyUsers()->sync($request->get('users', []));
+
+      return redirect()->route('asignarDocentesProtocolo')->with('info', 'Docentes Asignados!!');
+   }
+
+   public function editarDocentesProtocoloForm($id)
+   {
+      $protocolo = Protocolo::findOrFail($id);
+      $users = User::where('rol', '>', 1)->orderBy('nom_docente', 'ASC')->pluck('nom_docente', 'id');
+       return view('tutor.editarDocentesProtocoloForm', compact('protocolo', 'users'));
+   }
+
+    public function datosEditarDocentesProtocolo(Request $request, $id)
+   {
+     // dd($request->all());
+
+      $protocolo = Protocolo::find($id);
+      $protocolo->manyUsers()->sync($request->get('users', []));
+
+      return redirect()->route('asignarDocentesProtocolo')->with('info2', 'Docentes Modificados!!');
+   }
+
 }
 
 

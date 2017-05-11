@@ -10,7 +10,7 @@
   
   <p><b>{{ $protocolo->nom_protocolo }}</b></p>
 
-{!! Form::open(['route' => ['datosAsignarDocentesProtocolo', $protocolo->id], 'method' => 'POST']) !!}
+{!! Form::model($protocolo, ['route' => ['datosEditarDocentesProtocolo', $protocolo->id], 'method' => 'PUT']) !!}
 
   <div>
     {!! Form::label('docentes', 'Docentes:') !!}

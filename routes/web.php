@@ -130,6 +130,12 @@ Route::get('/tutor/asignar_docentes', 'TutorController@asignarDocentesProtocolo'
 
 Route::get('/tutor/asignar_docentes/{id}', 'TutorController@asignarDocentesProtocoloForm')->name('asignarDocentesProtocoloForm');
 
+Route::post('/tutor/asignar_docentes/datos/{id}', 'TutorController@datosAsignarDocentesProtocolo')->name('datosAsignarDocentesProtocolo');
+
+Route::get('/tutor/editar_docentes/{id}', 'TutorController@editarDocentesProtocoloForm')->name('editarDocentesProtocoloForm');
+
+Route::put('/tutor/editar_docentes/datos/{id}', 'TutorController@datosEditarDocentesProtocolo')->name('datosEditarDocentesProtocolo');
+
 //Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/docente/index', 'DocenteController@index')->name('docente');

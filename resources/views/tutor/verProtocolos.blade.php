@@ -15,9 +15,9 @@
 
   <table class="table table-bordered table-hover table-responsive">
     <thead>
-      <tr>
-        <th>Título</th>
-        <th>Acción</th>
+      <tr class="bg-success">
+        <th class="text-center">Título</th>
+        <th class="text-center">Acción</th>
       </tr>
     </thead>
 
@@ -27,9 +27,9 @@
          <tr>
            <td>{{ $protocolo->nom_protocolo }}</td>
            <td>
-           <a href="{{ route('verOnlyProtocolo', $protocolo->id) }}" class="btn btn-primary btn-xs">Ver   <span class="glyphicon glyphicon-eye-open"></span></a>
+           <a style="margin-left: 170px;" href="{{ route('verOnlyProtocolo', $protocolo->id) }}" class="btn btn-primary btn-sm">Ver   <span class="glyphicon glyphicon-eye-open"></span></a>
 
-           <a href="{{ route('editarOnlyProtocolo', $protocolo->id) }}" class="btn btn-warning btn-xs">Editar   <span class="glyphicon glyphicon-edit"></span></a>
+           <a style="margin-left: 60px;" href="{{ route('editarOnlyProtocolo', $protocolo->id) }}" class="btn btn-warning btn-sm">Editar   <span class="glyphicon glyphicon-edit"></span></a>
 
            </td>
          </tr>
