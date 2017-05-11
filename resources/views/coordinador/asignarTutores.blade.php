@@ -4,6 +4,13 @@
 
 @section('contenido')
 
+{{-- @foreach ($ciclos as $ciclo)
+	@if ($ciclo->activo == 1)
+	<p>{{ $ciclo->nom_ciclo }}</p>
+	<p>{{ $ciclo->ciclo }}</p>
+	@endif
+@endforeach --}}
+
 <div class="col-md-8 col-md-offset-2">
 	<h2>Asignar Tutores a: </h2>
 	<p><b>{{ $cc->nom_docente }}</b></p>
@@ -45,7 +52,9 @@
 								{!! csrf_field() !!}
 								{!! method_field('PUT') !!}
 
-								<div class="radio">
+							    @foreach ($ciclos as $ciclo)
+							    	@if ($ciclo->activo == 1 && $ciclo->ciclo == 1)
+							    			<div class="radio">
 									<label id="1">
 									<input type="radio" name="t_semestre" id="1" value="1">
 										1
@@ -65,6 +74,31 @@
 										5
 									</label>
 								</div>
+
+								@elseif($ciclo->activo == 1 && $ciclo->ciclo == 2)
+
+								  	<div class="radio">
+									<label id="2">
+									<input type="radio" name="t_semestre" id="2" value="2">
+										2
+									</label>
+								</div>
+
+								<div class="radio">
+									<label id="4">
+									<input type="radio" name="t_semestre" id="4" value="4">
+										4
+									</label>
+								</div>
+
+								<div class="radio">
+									<label id="6">
+									<input type="radio" name="t_semestre" id="6" value="6">
+										6
+									</label>
+								</div>
+							    	@endif
+							    @endforeach
 
 								<input type="hidden" name="t_proy" value="{{ $cc->c_carr }}">
 

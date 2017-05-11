@@ -8,6 +8,8 @@ use sigespi\User;
 
 use sigespi\Protocolo;
 
+use sigespi\Ciclo;
+
 use DB;
 
 class CoordinadorController extends Controller
@@ -21,7 +23,8 @@ class CoordinadorController extends Controller
     {
     	return view('coordinador.index');
     }
-
+    
+    //Para activar la cuenta de los usuarios!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function validarAsignarUsuarios()
     {
     	$docentes = User::all();
@@ -36,13 +39,14 @@ class CoordinadorController extends Controller
 
         return redirect()->route('validarAsignarUsuarios')->with('info', 'Usuario Validado');
     }
-
+    
+   //Para asignar a los coordinadores de carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function asignarCoordinadorCarrera($id)
     {
     	$docente = User::findOrFail($id);
     	return view('coordinador.asignarCoordinadorCarrera', compact('docente'));
     }
-
+    
     public function formAsignarCoordinadorCarrera(Request $request, $id)
     {
 
@@ -64,6 +68,7 @@ class CoordinadorController extends Controller
     	return redirect()->route('validarAsignarUsuarios')->with('info2', 'Coordinador de Carrera Asignado');
     }
 
+    //Para dar de baja o reasignar coordinadores de carrrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function darBajaReasignarCoordinadorCarrera()
     { 
         $docentes = User::all();
@@ -94,8 +99,9 @@ class CoordinadorController extends Controller
         //$tutores = User::all();
         //Para pasar todos los tutores menos el cc elegido
         $tutores = User::where('id', '!=', $id)->get();
+        $ciclos = Ciclo::all();
 
-        return view('coordinador.asignarTutores', compact('tutores', 'cc'));
+        return view('coordinador.asignarTutores', compact('tutores', 'cc', 'ciclos'));
     }
 
     public function asignarTutoresForm(Request $request, $id)
