@@ -20,37 +20,37 @@ use DB;
 
 class TutorController extends Controller
 {
-	function __construct()
-	{
-		return $this->middleware('auth');
-	}
-	
+  function __construct()
+  {
+    return $this->middleware('auth');
+  }
+  
     public function index()
     {
-    	return view('tutor.index');
+      return view('tutor.index');
     }
 
     public function elegirCicloProtocolo()
     {
-    	$ciclos = Ciclo::all();
+      $ciclos = Ciclo::all();
 
-    	return view('tutor.elegirCicloProtocolo', compact('ciclos'));
+      return view('tutor.elegirCicloProtocolo', compact('ciclos'));
     }
 
     public function crearProtocolo($id)
    {
-   	   $ciclo = Ciclo::findOrFail($id);
-   	   $carrera = Carrera::where('grupo', '=', Auth::user()->t_proy)->first();
+       $ciclo = Ciclo::findOrFail($id);
+       $carrera = Carrera::where('grupo', '=', Auth::user()->t_proy)->first();
 
-   	   return view('tutor.crearProtocolo', compact('ciclo', 'carrera'));
+       return view('tutor.crearProtocolo', compact('ciclo', 'carrera'));
    }
 
    public function crearProtocoloForm(Request $request)
    {
-   	   //dd($request->all());
-   	   Protocolo::create($request->all());
+       //dd($request->all());
+       Protocolo::create($request->all());
 
-   	   return redirect()->route('verProtocolos')->with('info', 'Protocolo creado exitosamente');
+       return redirect()->route('verProtocolos')->with('info', 'Protocolo creado exitosamente');
    }
 
    public function verProtocolos()
@@ -94,12 +94,17 @@ class TutorController extends Controller
 
    public function datosAsignarDocentesProtocolo(Request $request, $id)
    {
-     // dd($request->all());
+      if ($request->input('users') == null) 
+      {
+        Alert::warning('Por favor elige docentes', 'Elegir docentes!');
+        return redirect()->back();
+      }
 
       $protocolo = Protocolo::find($id);
       $protocolo->manyUsers()->sync($request->get('users', []));
-
-      return redirect()->route('asignarDocentesProtocolo')->with('info', 'Docentes Asignados!!');
+      
+      Alert::success('Los docentes han sido asignados a este protocolo', 'Docentes asignados!');
+      return redirect()->route('asignarDocentesProtocolo');
    }
 
    public function editarDocentesProtocoloForm($id)
@@ -111,12 +116,17 @@ class TutorController extends Controller
 
     public function datosEditarDocentesProtocolo(Request $request, $id)
    {
-     // dd($request->all());
-
+      if ($request->input('users') == null) 
+      {
+        Alert::warning('Por favor elige docentes', 'Elegir docentes!');
+        return redirect()->back();
+      }
+      
       $protocolo = Protocolo::find($id);
       $protocolo->manyUsers()->sync($request->get('users', []));
-
-      return redirect()->route('asignarDocentesProtocolo')->with('info2', 'Docentes Modificados!!');
+      
+      Alert::info('Se modificó la asignación de docentes en el protocolo ', 'Docentes Modificados');
+      return redirect()->route('asignarDocentesProtocolo');
    }
 
    public function bajaProtocolos(Request $request, $id)
@@ -124,7 +134,7 @@ class TutorController extends Controller
        $activo = $request->input('activo');
        DB::table('protocolos')->where('id', $id)->update(['activo' => $activo]);
        
-       Alert::info('Protocolo dado de baja exitosamente', 'Baja Exitosa');
+       Alert::success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
        //alert()->success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
        return redirect()->route('verProtocolos');
    }
