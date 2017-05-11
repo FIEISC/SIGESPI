@@ -14,6 +14,7 @@
 				<th>Nombre</th>
 				<th>Carrera</th>
 				<th>Semestre</th>
+				<th>Ciclo</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -24,6 +25,12 @@
 					<td>{{ $protocolo->nom_protocolo }}</td>
 					<td>{{ $protocolo->carrera }}</td>
 					<td>{{ $protocolo->semestre }}</td>
+
+					@if ($protocolo->ciclo->ciclo == 1)
+						<td>AGO-DIC</td>
+					@elseif($protocolo->ciclo->ciclo == 2)
+					     <td>ENE-JUL</td>
+					@endif
 					<td>Acciones</td>
 				</tr>
 			@endforeach
