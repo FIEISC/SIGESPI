@@ -100,6 +100,8 @@ Route::put('/coordinador/datos/baja_protocolos/{id}', 'CoordinadorController@dat
 
 Route::get('/tutor/eliminarProtocolos', 'CoordinadorController@eliminarProtocolos')->name('eliminarProtocolos');
 
+Route::delete('/tutor/eliminarProtocolo/{id}', 'CoordinadorController@datosEliminarProtocolo')->name('datosEliminarProtocolo');
+
 //Rutas Coordinador de Carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/coordinador_carrera/index', 'CoordinadorCarreraController@index')->name('c_carrera');

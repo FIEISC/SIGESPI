@@ -38,7 +38,13 @@
 					@endif
 					<td>
 
-					eliminar
+					<form action="{{ route('datosEliminarProtocolo', $protocolo->id) }}" method="POST">
+                       {!! csrf_field() !!}
+                       {!! method_field('DELETE') !!}
+
+						<button type="submit" class="btn btn-danger btn-sm">Eliminar  <span class="glyphicon glyphicon-remove"></span></button>
+			
+					</form>
 					</td>
 				</tr>
 			@endif

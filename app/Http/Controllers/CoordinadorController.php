@@ -137,7 +137,6 @@ class CoordinadorController extends Controller
         $activo = $request->input('activo');
         DB::table('protocolos')->where('id', $id)->update(['activo' => $activo]);
         Alert::success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
-       //alert()->success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
        return redirect()->route('bajaProtocolosCoordinador');
     }
 
@@ -145,5 +144,13 @@ class CoordinadorController extends Controller
     {
         $protocolos = Protocolo::all();
         return view('coordinador.eliminarProtocolos', compact('protocolos'));
+    }
+
+    public function datosEliminarProtocolo(Request $request, $id)
+    {
+        DB::table('protocolos')->where('id', $id)->delete();
+        Alert::success('Protocolo eliminado exitosamente', 'Eliminación Exitosa!');
+       return redirect()->route('eliminarProtocolos');
+
     }
 }
