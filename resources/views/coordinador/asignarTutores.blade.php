@@ -121,7 +121,7 @@
 									@endif
 								
 
-								<button type="submit" class="btn btn-info btn-xs">Asignar</button>
+								<button type="submit" class="btn btn-info btn-xs">Asignar  <span class="glyphicon glyphicon-ok"></span></button>
 							</form>
 						</td>
 					</tr>

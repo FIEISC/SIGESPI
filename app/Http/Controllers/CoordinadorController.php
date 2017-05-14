@@ -88,7 +88,7 @@ class CoordinadorController extends Controller
     public function altaTutores()
     {
         $docentes = User::orderBy('c_carr', 'ASC')->get();
-        $tutores = User::orderBy('nom_docente', 'ASC')->get();
+        $tutores = User::orderBy('t_semestre', 'ASC')->get();
 
         return view('coordinador.altaTutores', compact('docentes', 'tutores'));
     }

@@ -43,8 +43,14 @@
            </div> --}}
 
            {{-- <a data-target="#ventana" class="btn btn-danger btn-sm" data-togle="modal">Baja  <span class="glyphicon glyphicon-arrow-down"></span></a> --}}
+
+
+
+
+
+
            
-           <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ventana">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
+ {{--           <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ventana">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
 
            <div class="modal fade" id="ventana">
              <div class="modal-dialog">
@@ -73,9 +79,14 @@
                   </div>
 
                  </div>
+
                </div>
              </div>
-           </div>
+           </div> --}}  {{-- fin del modal --}}
+
+           <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="Ponte en contacto con el Coordinador académico para llevar acabo esta acción!">
+            Baja  <span class="glyphicon glyphicon-arrow-down"></span>
+          </button>
 
           </td>
          </tr>

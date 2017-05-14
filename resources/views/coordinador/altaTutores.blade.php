@@ -15,10 +15,10 @@
 <table class="table table-hover table-bordered table-responsive">
 	
 	<thead>
-		<tr>
+		<tr class="bg-success">
 			<th>Docente</th>
-			<th>Roles</th>
-			<th>C. Carrera</th>
+{{-- 			<th>Roles</th>
+ --}}			<th>C. Carrera</th>
 			<th>Tutores de la Carrera</th>
 			<th>Acciones</th>
 		</tr>
@@ -30,9 +30,17 @@
 				<tr>
 					<td>{{ $docente->nom_docente }}</td>
 
-					<td>{{ $docente->rol }}</td>
+					{{-- <td>{{ $docente->rol }}</td> --}}
 
-					<td>{{ $docente->c_carr }}</td>
+					@if ($docente->c_carr == 'A')
+                       <td>Ing. Mécanico</td>
+                    @elseif($docente->c_carr == 'B')
+                       <td>Ing. Tecnologías</td>
+                    @elseif($docente->c_carr == 'C')
+                       <td>Ing. Mecatrónica</td>
+                    @elseif($docente->c_carr == 'D')
+                       <td>Ing. Sistemas</td>
+					@endif
 
 					<td>
 						@foreach ($tutores as $tutor)
@@ -45,7 +53,7 @@
 					</td>
 
 					<td>
-						<a href="{{ route('asignarTutores', $docente->id) }}" class="btn btn-primary btn-xs">Asignar</a>			
+						<a href="{{ route('asignarTutores', $docente->id) }}" class="btn btn-primary btn-xs">Asignar   <span class="glyphicon glyphicon-pencil"></span></a>			
 					</td>
 				</tr>
 			@endif

@@ -47,8 +47,30 @@ class TutorController extends Controller
 
    public function crearProtocoloForm(Request $request)
    {
-       //dd($request->all());
-       Protocolo::create($request->all());
+    // dd($request->all());
+
+/*       Protocolo::create($request->all());
+*/       
+Protocolo::create([
+   'nom_protocolo' => $request->input('nom_protocolo'),
+   'universidad' => $request->input('universidad'),
+   'facultad' => $request->input('facultad'),
+   'carrera' => $request->input('carrera'),
+   'introduccion' => $request->input('introduccion'),
+   'antecedentes' => $request->input('antecedentes'),
+   'objetivos' => $request->input('objetivos'),
+   'obj_particulares' => $request->input('obj_particulares'),
+   'justificacion' => $request->input('justificacion'),
+   'herramientas' => $request->input('herramientas'),
+   'entregables' => $request->input('entregables'),
+   'preguntas_guia' => $request->input('preguntas_guia'),
+   'semestre' => $request->input('semestre'),
+   'fec_ini' => $request->input('fec_ini'),
+   'fec_fin' => $request->input('fec_fin'),
+   'carrera_id' => $request->input('carrera_id'),
+   'ciclo_id' => $request->input('ciclo_id'),
+   'user_id' => $request->input('user_id')
+  ]);
 
        return redirect()->route('verProtocolos')->with('info', 'Protocolo creado exitosamente');
    }
