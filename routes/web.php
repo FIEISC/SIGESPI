@@ -94,6 +94,12 @@ Route::put('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarT
 
 Route::get('/coordinador/protocolos', 'CoordinadorController@verProtocolos')->name('verProtocolosCoordinador');
 
+Route::get('/coordinador/bajaProtocolos', 'CoordinadorController@bajaProtocolos')->name('bajaProtocolosCoordinador');
+
+Route::put('/coordinador/datos/baja_protocolos/{id}', 'CoordinadorController@datosProtocolosBaja')->name('datosProtocolosBaja');
+
+Route::get('/tutor/eliminarProtocolos', 'CoordinadorController@eliminarProtocolos')->name('eliminarProtocolos');
+
 //Rutas Coordinador de Carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/coordinador_carrera/index', 'CoordinadorCarreraController@index')->name('c_carrera');

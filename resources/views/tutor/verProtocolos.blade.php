@@ -50,7 +50,7 @@
 
 
            
- {{--           <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ventana">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
+           <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ventana">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
 
            <div class="modal fade" id="ventana">
              <div class="modal-dialog">
@@ -82,11 +82,11 @@
 
                </div>
              </div>
-           </div> --}}  {{-- fin del modal --}}
+           </div>  {{-- fin del modal --}}
 
-           <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="Ponte en contacto con el Coordinador académico para llevar acabo esta acción!">
+          {{--  <button style="margin-left: 50px;" type="button" class="btn btn-danger btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="Ponte en contacto con el Coordinador académico para llevar acabo esta acción!">
             Baja  <span class="glyphicon glyphicon-arrow-down"></span>
-          </button>
+          </button> --}}
 
           </td>
          </tr>

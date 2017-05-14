@@ -152,7 +152,8 @@ Protocolo::create([
    }
 
    public function bajaProtocolos(Request $request, $id)
-   {
+   {    
+       dd($id);
        $activo = $request->input('activo');
        DB::table('protocolos')->where('id', $id)->update(['activo' => $activo]);
        

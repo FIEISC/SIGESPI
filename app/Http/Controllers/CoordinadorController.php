@@ -12,6 +12,8 @@ use sigespi\Ciclo;
 
 use DB;
 
+use Alert;
+
 class CoordinadorController extends Controller
 {
 	function __construct()
@@ -121,5 +123,27 @@ class CoordinadorController extends Controller
     {
         $protocolos = Protocolo::all();
         return view('coordinador.verProtocolos', compact('protocolos'));
+    }
+
+    public function bajaProtocolos()
+    {   
+        $protocolos = Protocolo::all();
+        return view('coordinador.bajaProtocolos', compact('protocolos'));
+    }
+
+    public function datosProtocolosBaja(Request $request, $id)
+    {
+        //dd($id);
+        $activo = $request->input('activo');
+        DB::table('protocolos')->where('id', $id)->update(['activo' => $activo]);
+        Alert::success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
+       //alert()->success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
+       return redirect()->route('bajaProtocolosCoordinador');
+    }
+
+    public function eliminarProtocolos()
+    {
+        $protocolos = Protocolo::all();
+        return view('coordinador.eliminarProtocolos', compact('protocolos'));
     }
 }
