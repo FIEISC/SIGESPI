@@ -108,7 +108,9 @@ Route::get('/coordinador_carrera/index', 'CoordinadorCarreraController@index')->
 
 Route::get('/coordinador_carrera/tutores', 'CoordinadorCarreraController@listaTutores')->name('listaTutores');
 
-Route::get('coordinador_carrera/protocolos', 'CoordinadorCarreraController@protocolosTutores')->name('protocolosTutores');
+Route::get('/coordinador_carrera/protocolos', 'CoordinadorCarreraController@protocolosTutores')->name('protocolosTutores');
+
+Route::get('/coordinador_carrera/protocolo/{id}', 'CoordinadorCarreraController@verProtocolo')->name('verProtocolocc');
 
 /*Route::get('/coordinador_carrera/alta_tutores', 'CoordinadorCarreraController@altaTutoresProyecto')->name('altaTutoresProyecto');
 
@@ -145,6 +147,14 @@ Route::get('/tutor/editar_docentes/{id}', 'TutorController@editarDocentesProtoco
 Route::put('/tutor/editar_docentes/datos/{id}', 'TutorController@datosEditarDocentesProtocolo')->name('datosEditarDocentesProtocolo');
 
 Route::put('/tutor/baja_protocolo/{id}', 'TutorController@bajaProtocolos')->name('bajaProtocolos');
+
+Route::get('/tutor/crear_equipos', 'TutorController@crearEquipos')->name('crearEquipos');
+
+Route::get('/tutor/crear_equipos/form/{id}', 'TutorController@crearEquiposForm')->name('crearEquiposForm');
+
+Route::post('/tutor/datos_crear_equipos', 'TutorController@datosCrearEquipos')->name('datosCrearEquipos');
+
+Route::get('/tutor/asigar_alumnos_equipos/{id}', 'TutorController@asignarAlumnosEquipos')->name('asignarAlumnosEquipos');
 
 //Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

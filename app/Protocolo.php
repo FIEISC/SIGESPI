@@ -46,4 +46,9 @@ class Protocolo extends Model
         return $this->manyUsers()->pluck('user_id')->toArray();
     }
 
+    public function equipos()
+    {
+        return $this->hasMany(Equipo::class);
+    }
+
 }

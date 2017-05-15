@@ -1,6 +1,6 @@
 @extends('coordinadorCarrera.modulos.plantilla')
 
-@section('title', 'Coordinador Carrera')
+@section('title', 'Protocolos')
 
 @section('contenido')
 
@@ -12,7 +12,7 @@
 	@endif
 @endforeach --}}
 
-<div class="col-md-8">
+<div class="col-md-8 col-md-offset-2">
 	<h1>Protocolos de los tutores asignados</h1>
     
     <table class="table table-hover table-bordered table-responsive">
@@ -30,7 +30,7 @@
     			<tr>
     				<td>{{ $protocolo->nom_protocolo }}</td>
     				<td>{{ $protocolo->user->nom_docente }}</td>
-    				<td><a href="" class="btn btn-info btn-xs">Ver <span class="glyphicon glyphicon-eye-open"></span></a></td>
+    				<td><a href="{{ route('verProtocolocc', $protocolo->id) }}" class="btn btn-info btn-xs">Ver <span class="glyphicon glyphicon-eye-open"></span></a></td>
     			</tr>
     			@endif
     		@endforeach

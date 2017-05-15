@@ -15,7 +15,7 @@
   {{ Session::get('info2') }}
 </div>
 @endif
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-12 col-md-offset-0">
   <h1>Asignar Docentes</h1>
 
   <table class="table table-hover table-bordered table-responsive">

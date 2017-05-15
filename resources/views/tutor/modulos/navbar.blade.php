@@ -32,6 +32,7 @@
       <li><a href="{{ route('elegirCicloProtocolo') }}">Crear Protocolo</a></li>
       <li><a href="{{ route('verProtocolos') }}">Ver Protocolos</a></li>
       <li><a href="{{ route('asignarDocentesProtocolo') }}">Asignar Docentes</a></li>
+      <li><a href="{{ route('crearEquipos') }}">Crear Equipos</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

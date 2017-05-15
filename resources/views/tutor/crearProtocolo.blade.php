@@ -4,9 +4,9 @@
 
 @section('contenido')
 
-<h1>{{ $carrera->nom_carrera }}</h1>
-<h1>{{ Auth::user()->nom_docente }}</h1>
-<div class="col-md-10 col col-md-offset-1">
+{{-- <h4>{{ $carrera->nom_carrera }}</h4>
+<h4>{{ Auth::user()->nom_docente }}</h4>
+ --}}<div class="col-md-10 col col-md-offset-1">
 
   <h2>Crear Protocolo</h2>
   <form action="{{ route('crearProtocoloForm') }}" method="POST">

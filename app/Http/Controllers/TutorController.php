@@ -12,6 +12,8 @@ use sigespi\Protocolo;
 
 use sigespi\User;
 
+use sigespi\Equipo;
+
 use Alert;
 
 use Auth;
@@ -151,16 +153,46 @@ Protocolo::create([
       return redirect()->route('asignarDocentesProtocolo');
    }
 
-   public function bajaProtocolos(Request $request, $id)
+   public function crearEquipos()
+   {
+       $protocolos = Protocolo::all();
+       $equipos = Equipo::all();
+       return view('tutor.crearEquipos', compact('protocolos', 'equipos'));
+   }
+
+   public function crearEquiposForm($id)
+   {
+       $protocolo = Protocolo::findOrFail($id);
+       $tutores = User::all();
+       return view('tutor.crearEquiposForm', compact('protocolo', 'tutores'));
+   }
+
+   public function datosCrearEquipos(Request $request)
+   {
+      Equipo::create($request->all());
+
+      Alert::success('Se ha creado un nuevo equipo', 'Equipo creado exitosamente!');
+
+      return redirect()->route('crearEquipos');
+   }
+
+   public function asignarAlumnosEquipos($id)
+   {
+       //dd($id);
+       $equipo = Equipo::findOrFail($id);
+       return view('tutor.asignarAlumnosEquipos', compact('equipo'));
+   }
+
+/*   public function bajaProtocolos(Request $request, $id)
    {    
-       dd($id);
+       //dd($id);
        $activo = $request->input('activo');
        DB::table('protocolos')->where('id', $id)->update(['activo' => $activo]);
        
        Alert::success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
        //alert()->success('Protocolo dado de baja exitosamente', 'Baja Exitosa');
        return redirect()->route('verProtocolos');
-   }
+   }*/
 
 }
 

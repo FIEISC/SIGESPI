@@ -4,7 +4,7 @@
 
 @section('contenido')
 
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-6 col-md-offset-3">
 	<h1>Registro</h1>
 
 	<form action="{{ route('datosRegistro') }}" method="POST">

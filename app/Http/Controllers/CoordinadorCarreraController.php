@@ -36,6 +36,12 @@ class CoordinadorCarreraController extends Controller
         return view('coordinadorCarrera.protocolosTutores', compact('protocolos'));
     }
 
+    public function verProtocolo($id)
+    {
+        $protocolo = Protocolo::findOrFail($id);
+        return view('coordinadorCarrera.verProtocolo', compact('protocolo'));
+    }
+
   /*  public function altaTutoresProyecto()
     {
     	$docentes = User::all();
