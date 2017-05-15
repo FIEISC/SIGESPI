@@ -70,6 +70,10 @@ Route::post('/', 'AuthController@datosLogin')->name('datosLogin');
 
 Route::get('/salir', 'AuthController@salir')->name('salir');
 
+Route::get('/alumnos/registro', 'PaginasController@registroAlumnos')->name('registroAlumnos');
+
+Route::post('/alumnos/registro/datos', 'PaginasController@datosRegistroAlumnos')->name('datosRegistroAlumnos');
+
 //Rutas del Coordinador Academico!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/coordinador/index', 'CoordinadorController@index')->name('coordinador');

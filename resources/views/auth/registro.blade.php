@@ -56,6 +56,8 @@
 
 		<button type="submit" class="btn btn-primary btn-block">Registrarse</button>
 	</form>
+
+	<p>Eres alumno?... <a href="{{ route('registroAlumnos') }}">Entra aquí!</a></p>
 </div>
 
 @endsection
