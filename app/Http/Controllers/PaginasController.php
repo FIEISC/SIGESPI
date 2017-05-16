@@ -16,12 +16,14 @@ use sigespi\Equipo;
 
 use Alert;
 
+use PDF;
+
 class PaginasController extends Controller
 {
 
 	function __construct()
 	{
-		return $this->middleware('auth', ['except' => ['registroAlumnos', 'datosRegistroAlumnos', 'infoAlumnos', 'datosInfoAlumnos', 'listaAlumnos']]);
+		return $this->middleware('auth', ['except' => ['registroAlumnos', 'datosRegistroAlumnos', 'infoAlumnos', 'datosInfoAlumnos', 'listaAlumnos', 'protocolo', 'descargarProtocolo']]);
 	}
 
     public function registroAlumnos()
@@ -64,6 +66,23 @@ class PaginasController extends Controller
     public function listaAlumnos()
     {
         return view('alumnos.listaAlumnos');
+    }
+
+    public function protocolo($id)
+    {
+        //dd($id);
+        $protocolo = Protocolo::findOrFail($id);
+        return view('alumnos.protocolo', compact('protocolo'));
+
+        //$pdf = PDF::loadView('alumnos.protocolo');
+        //return $pdf->download('archivo.pdf');
+    }
+
+    public function descargarProtocolo($id)
+    {
+        $protocolo = Protocolo::findOrFail($id);
+        $pdf = PDF::loadView('alumnos.protocolo', ['protocolo' => $protocolo]);
+        return $pdf->download('protocolo.pdf');
     }
 	
     public function nivel1()

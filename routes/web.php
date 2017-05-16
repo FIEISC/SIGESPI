@@ -185,3 +185,7 @@ Route::get('/alumnos/info', 'PaginasController@infoAlumnos')->name('infoAlumnos'
 Route::post('/alumnos/datos/info', 'PaginasController@datosInfoAlumnos')->name('datosInfoAlumnos');
 
 Route::get('/alumnos/lista_alumnos', 'PaginasController@listaAlumnos')->name('listaAlumnos');
+
+Route::get('/alumnos/protocolo/{id}', 'PaginasController@protocolo')->name('protocolo');
+
+Route::get('/alumnos/pdf/{id}', 'PaginasController@descargarProtocolo')->name('descargarProtocolo');

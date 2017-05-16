@@ -46,9 +46,44 @@
       @foreach ($protocolos as $protocolo)
         @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id)
           <td>
-          <button class="btn btn-primary btn-sm">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
+          <button style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
 
-          <a href="" class="btn btn-info btn-sm">Descargar  <span class="glyphicon glyphicon-download-alt"></span></a>
+           <div class="modal fade" id="ventana">
+             <div class="modal-dialog">
+               <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <h3>Información del protocolo</h3>
+                 </div>
+
+                 <div class="modal-body">
+                  <h3 class="text-center">{{ $protocolo->nom_protocolo }}</h3>
+                  <hr>
+                  <h4 class="text-center">{{ $protocolo->universidad }}</h4>
+                  <h4 class="text-center">{{ $protocolo->facultad }}</h4>
+                  <h4 class="text-center">{{ $protocolo->carrera }}</h4>
+                  <h4 class="text-center">Semestre: {{ $protocolo->semestre }}</h4>
+                  <hr>
+                  <p class="text-justify">{{ $protocolo->introduccion }}</p>
+                  <p class="text-justify">{{ $protocolo->antecedentes }}</p>
+                  <p class="text-justify">{{ $protocolo->objetivos }}</p>
+                  <p class="text-justify">{{ $protocolo->obj_particulares }}</p>
+                  <p class="text-justify">{{ $protocolo->justificacion }}</p>
+                  <p class="text-justify">{{ $protocolo->herramientas }}</p>
+                  <p class="text-justify">{{ $protocolo->entregables }}</p>
+                  <p class="text-justify">{{ $protocolo->preguntas_guia }}</p>
+                 </div>
+
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                 </div>
+
+               </div>
+             </div>
+           </div>
+
+
+          <a href="{{ route('descargarProtocolo', $protocolo->id) }}" class="btn btn-info btn-sm">Descargar  <span class="glyphicon glyphicon-download-alt"></span></a>
           </td>
         @endif
       @endforeach
