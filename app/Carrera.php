@@ -17,4 +17,9 @@ class Carrera extends Model
     {
     	return $this->hasMany(Protocolo::class);
     }
+
+    public function alumnos()
+    {
+    	return $this->hasMany(Alumno::class);
+    }
 }

@@ -51,10 +51,9 @@
 							<form action="{{ route('asignarTutoresForm', $tutor->id) }}" method="POST">
 								{!! csrf_field() !!}
 								{!! method_field('PUT') !!}
-
-							    @foreach ($ciclos as $ciclo)
-							    	@if ($ciclo->activo == 1 && $ciclo->ciclo == 1)
-							    			<div class="radio">
+							 
+							  @if ($ciclo->ciclo == 1)
+							    <div class="radio">
 									<label id="1">
 									<input type="radio" name="t_semestre" id="1" value="1">
 										1
@@ -75,8 +74,8 @@
 									</label>
 								</div>
 
-								@elseif($ciclo->activo == 1 && $ciclo->ciclo == 2)
-
+								@elseif($ciclo->ciclo == 2)
+                                                        
 								  	<div class="radio">
 									<label id="2">
 									<input type="radio" name="t_semestre" id="2" value="2">
@@ -98,8 +97,7 @@
 									</label>
 								</div>
 							    	@endif
-							    @endforeach
-
+							 
 								<input type="hidden" name="t_proy" value="{{ $cc->c_carr }}">
 
 								@php

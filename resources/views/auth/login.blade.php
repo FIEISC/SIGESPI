@@ -23,7 +23,7 @@
 	{!! csrf_field() !!}
 		<div class="form-group{{ $errors->has('no_docente') ? ' has-error' : ''}}">
 			<label for="no_docente">Número de trabajador</label>
-			<input type="text" name="no_docente" class="validate">
+			<input type="text" name="no_docente" class="form-control">
 			@if ($errors->has('no_docente'))
 			<span class="help-block">{{ $errors->first('no_docente') }}</span>
 			@endif
@@ -32,7 +32,7 @@
 
 		<div class="form-group{{ $errors->has('password') ? ' has-error' : ''}}">
 			<label for="password">Contraseña</label>
-			<input type="password" name="password" class="validate">
+			<input type="password" name="password" class="form-control">
 			  @if ($errors->has('password'))
 			<span class="help-block">{{ $errors->first('password') }}</span>
 		      @endif
@@ -42,6 +42,8 @@
 	</form>
 	<br>
 	<p>Eres admin?... <a href="{{ route('loginAdmin') }}">Entra aquí</a></p>
+
+	<p>Eres alumno?.... <a href="{{ route('infoAlumnos') }}">Entra aquí!</a></p>
 </div>
 
 {{-- <div class="col-md-6 col-md-offset-3">

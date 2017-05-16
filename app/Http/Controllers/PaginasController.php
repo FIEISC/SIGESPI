@@ -10,6 +10,10 @@ use sigespi\Ciclo;
 
 use sigespi\Alumno;
 
+use sigespi\Protocolo;
+
+use sigespi\Equipo;
+
 use Alert;
 
 class PaginasController extends Controller
@@ -17,7 +21,7 @@ class PaginasController extends Controller
 
 	function __construct()
 	{
-		return $this->middleware('auth', ['except' => ['registroAlumnos', 'datosRegistroAlumnos']]);
+		return $this->middleware('auth', ['except' => ['registroAlumnos', 'datosRegistroAlumnos', 'infoAlumnos', 'datosInfoAlumnos', 'listaAlumnos']]);
 	}
 
     public function registroAlumnos()
@@ -35,6 +39,31 @@ class PaginasController extends Controller
 
         return redirect()->route('registroAlumnos');
  
+    }
+
+    public function infoAlumnos()
+    {
+        $ciclo = Ciclo::where('activo', '=', 1)->first();
+        $carreras = Carrera::all();
+        return view('alumnos.infoAlumno', compact('ciclo', 'carreras'));
+    }
+
+    public function datosInfoAlumnos(Request $request)
+    {
+        $semestre = $request->input('semestre');
+        $carrera = $request->input('carrera');
+
+        $alumnos = Alumno::where('semestre', '=', $semestre)->where('carrera_id', '=', $carrera)->get();
+        $protocolos = Protocolo::all();
+        $equipos = Equipo::all();
+
+        //return redirect()->route('listaAlumnos')->with(['alumnos' => $alumnos]);
+        return view('alumnos.listaAlumnos', compact('alumnos', 'protocolos', 'equipos'));
+    }
+
+    public function listaAlumnos()
+    {
+        return view('alumnos.listaAlumnos');
     }
 	
     public function nivel1()

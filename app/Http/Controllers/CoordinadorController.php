@@ -101,13 +101,14 @@ class CoordinadorController extends Controller
         //$tutores = User::all();
         //Para pasar todos los tutores menos el cc elegido
         $tutores = User::where('id', '!=', $id)->get();
-        $ciclos = Ciclo::all();
-
-        return view('coordinador.asignarTutores', compact('tutores', 'cc', 'ciclos'));
+        $ciclo = Ciclo::where('activo', '=', 1)->first();
+        return view('coordinador.asignarTutores', compact('tutores', 'cc', 'ciclo'));
     }
 
     public function asignarTutoresForm(Request $request, $id)
     {
+        dd($request->all());
+
         $roles = implode(',', $request->input('rol'));
         $t_semestre = $request->input('t_semestre');
         $t_proy = $request->input('t_proy');

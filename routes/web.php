@@ -160,6 +160,8 @@ Route::post('/tutor/datos_crear_equipos', 'TutorController@datosCrearEquipos')->
 
 Route::get('/tutor/asigar_alumnos_equipos/{id}', 'TutorController@asignarAlumnosEquipos')->name('asignarAlumnosEquipos');
 
+Route::put('/tutor/asignar_alumnos_equipos/datos', 'TutorController@datosAsignarAlumnosEquipos')->name('datosAsignarAlumnosEquipos');
+
 //Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/docente/index', 'DocenteController@index')->name('docente');
@@ -177,3 +179,9 @@ Route::get('/n3', 'PaginasController@nivel3')->name('nivel3');
 Route::get('/n4', 'PaginasController@nivel4')->name('nivel4');
 
 Route::get('/n5', 'PaginasController@nivel5')->name('nivel5');
+
+Route::get('/alumnos/info', 'PaginasController@infoAlumnos')->name('infoAlumnos');
+
+Route::post('/alumnos/datos/info', 'PaginasController@datosInfoAlumnos')->name('datosInfoAlumnos');
+
+Route::get('/alumnos/lista_alumnos', 'PaginasController@listaAlumnos')->name('listaAlumnos');

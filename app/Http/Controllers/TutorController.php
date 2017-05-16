@@ -14,6 +14,8 @@ use sigespi\User;
 
 use sigespi\Equipo;
 
+use sigespi\Alumno;
+
 use Alert;
 
 use Auth;
@@ -180,7 +182,21 @@ Protocolo::create([
    {
        //dd($id);
        $equipo = Equipo::findOrFail($id);
-       return view('tutor.asignarAlumnosEquipos', compact('equipo'));
+       $alumnos = Alumno::all();
+       return view('tutor.asignarAlumnosEquipos', compact('equipo', 'alumnos'));
+   }
+
+   public function datosAsignarAlumnosEquipos(Request $request)
+   {
+      //dd($request->all());
+      $alumno_id = $request->input('alumno_id');
+      $equipo_id = $request->input('equipo_id');
+
+      Alumno::where('id', $alumno_id)->update(['equipo_id' => $equipo_id]);
+
+      Alert::success('El alumno ha sido asignado al equipo', 'Alumno Asignado');
+
+      return redirect()->route('crearEquipos');
    }
 
 /*   public function bajaProtocolos(Request $request, $id)
