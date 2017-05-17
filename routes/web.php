@@ -3,7 +3,7 @@
 /*Route::get('/registro/admin', function()
 {
 	$admin = new sigespi\User;
-	$admin->nom_docente = 'Admin';
+	$admin->nom_docente = 'Naty';
 	$admin->no_docente = '220494';
 	$admin->email = 'naty_snuff@hotmail.com';
 	$admin->password = bcrypt('nath123');

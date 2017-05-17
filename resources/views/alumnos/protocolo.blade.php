@@ -1,7 +1,3 @@
-
-
-
-{{-- <a href="{{ route('descargarProtocolo') }}">Descargar</a> --}}
 <div class="col-md-8 col-md-offset-2">
 <h2>{{ $protocolo->nom_protocolo }}</h2>
 

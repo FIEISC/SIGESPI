@@ -4,18 +4,12 @@
 
 @section('contenido')
 
-@if (Session::has('info'))
-    <div class="alert alert-success">
-    	{{ Session::get('info') }}
-    </div>
-@endif
-
 <div class="col-md-10 col-md-offset-1">
-<h1>Válidar Coordinador</h1>
+<h3>Válidar Coordinador</h3>
 
 <a class="text-right" href="{{ route('reasignarCoordinador') }}">Cordinador Asignado</a>
 
-	<table class="table table-bordered table-hover">
+	<table class="table bordered hover centered responsive-table">
 		<thead>
 			<tr>
 				<th>Docente</th>
@@ -36,8 +30,24 @@
 					@endif
 					<td>
 						<div style="display: inline-flex;">
-							
-						<form action="{{ route('datosCambiarRoles', $docente->id) }}" method="POST">
+						
+						{{-- <pre>
+							@php
+								$roles = $docente->rol;
+								$rol = explode(',', $roles);
+								print_r($rol);
+							@endphp
+						</pre> --}}
+
+						@php
+						$roles = $docente->rol;
+						$rol = explode(',', $roles);
+						@endphp
+
+						@if ($rol[0] == 1 && $rol[1] == 4)
+							{{-- <a class="waves-effect waves-teal btn-flat">Button</a> --}}
+						@else
+								<form action="{{ route('datosCambiarRoles', $docente->id) }}" method="POST">
 								{!! csrf_field() !!}
 								{!! method_field('PUT') !!}
 
@@ -45,7 +55,8 @@
 								<input type="hidden" name="rol[]" value="4">
 
 								<button type="submit" class="btn btn-warning btn-xs">Asigar</button>
-							</form>
+						</form>
+						@endif
 
 							<form style="margin-left: 20px;" action="{{ route('formValidarCoordinador', $docente->id) }}" method="POST">
 								{!! csrf_field() !!}

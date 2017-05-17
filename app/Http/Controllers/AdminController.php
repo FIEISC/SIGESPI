@@ -20,9 +20,11 @@ use Auth;
 
 use DB;
 
+use Alert;
 
 class AdminController extends Controller
 {
+    //Restriccion de las paginas del administrador, excepto el login y datos del login!!!!!!!!!!
 	function __construct()
 	{
 		return $this->middleware('auth', ['except' => ['login', 'datosLoginAdmin']]);
@@ -62,6 +64,7 @@ class AdminController extends Controller
 
     //Paginas del Administrador!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+   //Envia a la pagina para validar usuarios(Validar al Coordinador academico), y pasa todos los usuarios desde la BD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function validarCoordinador()
     {
     	$docentes = User::all();
@@ -69,25 +72,29 @@ class AdminController extends Controller
     	return view('admin.paginas.validarCoordinador', compact('docentes'));
     }
 
+//Datos del formulario para activar a los usuarios(coordinador academico), se pasa como parametro el id del usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      public function formValidarCoordinador(Request $request, $id)
         {
           DB::table('users')->where('id', $id)->update([
             'activo' => $request->input('activo'),
             ]);
-
-          return redirect()->back()->with('info', 'Coordinador validado');
+          
+          Alert::success('El usuario ha sido activado', 'Usuario Activado');
+          return redirect()->route('validarCoordinador');
+        
         }
-
+//Datos del formulario para dar de alta como Coordinador Academico a un usuario, se pasa como parametro el id del usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       public function datosCambiarRoles(Request $request, $id)
         {
             $roles = implode(',', $request->input('rol'));
 
             DB::table('users')->where('id', $id)->update(['rol' => $roles]);
             
+            Alert::success('El usuario ha sido dada de alta como Coordinador Académico', 'Coordinador Académico asignado');
             return redirect()->route('validarCoordinador');
 
         }
-
+//Envia a la pagina para quitar y reasignar a el coordinador academico y se pasan todos los usuarios desde la BD!!!!!!!!!!!!!!!
         public function reasignarCoordinador()
         {
             $docentes = User::all();
@@ -97,6 +104,7 @@ class AdminController extends Controller
             return view('admin.paginas.reasignarCoordinador', compact('docentes'));
         }
 
+//Datos del formulario para quitar al coordinador academico, se pasa como parametro el id del usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public function quitarCoordinadorForm(Request $request, $id)
         {
            $roles = implode(',', $request->input('rol'));
@@ -104,7 +112,7 @@ class AdminController extends Controller
 
            return redirect()->route('reasignarCoordinador');
         }
-
+//Datos del formulario para reasignar a otro coordinador academico!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public function reasignarCoordinadorForm(Request $request, $id)
         {
             $roles = implode(',', $request->input('rol'));
@@ -198,7 +206,7 @@ class AdminController extends Controller
 
             return redirect()->route('altaCarrerasForm')->with('info', 'Carrera creada exitosamente');
         }
-
+     //Dada de alta de los ciclos escolares!!!!!!!!!!!!!!!!!!!!!!!!!
         public function altaCiclos()
         {
             return view('admin.paginas.altaCiclos');
@@ -213,5 +221,7 @@ class AdminController extends Controller
             return redirect()->route('altaCiclos')->with('info', 'Ciclo creado!');
         }
 }
+
+
 
 
