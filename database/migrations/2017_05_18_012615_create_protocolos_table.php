@@ -26,6 +26,8 @@ class CreateProtocolosTable extends Migration
             $table->integer('semestre')->nullable();
             $table->date('fec_ini')->nullable();
             $table->date('fec_fin')->nullable();
+            $table->boolean('activo')->default(1);
+            $table->boolean('aceptado')->default(0);
 
             //Llaves foraneas!!!!!!!!!!!!!!
             $table->integer('carrera_id')->unsigned();

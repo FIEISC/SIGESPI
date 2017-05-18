@@ -20,11 +20,16 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('rol')->default(4);
-            $table->string('plantel');
+            /*$table->string('plantel');*/
             $table->string('c_carr')->default('N');
             $table->string('t_proy')->default('N');
             $table->integer('t_semestre')->default(0);
             $table->boolean('activo')->default(0);
+
+            //LLave foreanea!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+            $table->integer('plantel_id')->unsigned();
+            $table->foreign('plantel_id')->references('id')->on('planteles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

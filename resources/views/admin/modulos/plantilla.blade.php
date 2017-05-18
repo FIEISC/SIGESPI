@@ -4,26 +4,26 @@
   <meta charset="UTF-8">
   <title>@yield('title', 'Default')</title>
   <link rel="stylesheet" href="{{ asset('estilos/css/my-style.css') }}">
-    <link rel="stylesheet" href="{{ asset('estilos/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('estilos/css/bootstrap.min.css') }}">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-         
- {{-- Materialize --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
- {{--  Compiled and minified JavaScript --}}
-{{--   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> --}}
-
-  <!-- Latest compiled and minified CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {{-- Materialize --}}
+  <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.min.css') }}">
+   
+<!-- Latest compiled and minified CSS -->
 {{--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --}}
 
 <link rel="stylesheet" href="{{ asset('sweetalert/sweetalert.css') }}">
 
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+{{--   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --}}
   <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker3.css') }}">
   <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker.standalone.css') }}">
   <script src="{{ asset('datePicker/js/bootstrap-datepicker.js') }}"></script>
   <script src="{{ asset('datePicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
 </head>
+
 <body>
 <header>
     <div class="">
@@ -46,6 +46,12 @@
   </div>
 </footer>
 
+<script>
+   $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
 <script type="text/javascript">
   $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
@@ -58,9 +64,13 @@
  {{--  Compiled and minified JavaScript --}}
  {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> --}}
 
-<script src="js/bootstrap.min.js"></script>
+ <script src="{{ asset('/materialize/js/materialize.min.js') }}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{{-- <script src="js/bootstrap.min.js"></script> --}}
+
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> --}}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/sweetalert/sweetalert.min.js"></script>
 @include('sweet::alert')  
 </body>

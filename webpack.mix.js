@@ -15,3 +15,14 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.copy('node_modules/sweetalert/dist/', 'public/sweetalert/'); 	
+
+const elixir = require('laravel-elixir');
+ 
+require('laravel-materialize');
+require('laravel-elixir-vue-2');
+ 
+elixir(mix => {
+    mix.sass('app.scss')
+       .materialize()
+       .webpack('app.js');
+});

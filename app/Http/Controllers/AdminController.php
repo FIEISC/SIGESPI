@@ -68,8 +68,9 @@ class AdminController extends Controller
     public function validarCoordinador()
     {
     	$docentes = User::all();
+        $coordinador = User::where('rol', '=', 1)->first();
 
-    	return view('admin.paginas.validarCoordinador', compact('docentes'));
+    	return view('admin.paginas.validarCoordinador', compact('docentes', 'coordinador'));
     }
 
 //Datos del formulario para activar a los usuarios(coordinador academico), se pasa como parametro el id del usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

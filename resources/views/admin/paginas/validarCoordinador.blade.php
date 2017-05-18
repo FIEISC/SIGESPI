@@ -4,6 +4,8 @@
 
 @section('contenido')
 
+
+{{-- <h1>{{ $coordinador->nom_docente }}</h1> --}}
 <div class="col-md-10 col-md-offset-1">
 <h3>Válidar Coordinador</h3>
 
@@ -39,31 +41,57 @@
 							@endphp
 						</pre> --}}
 
+						{{-- Checar hacer las condiciones con $docente --}}
+
 						@php
 						$roles = $docente->rol;
 						$rol = explode(',', $roles);
 						@endphp
 
-						@if ($rol[0] == 1 && $rol[1] == 4)
-							{{-- <a class="waves-effect waves-teal btn-flat">Button</a> --}}
-						@else
-								<form action="{{ route('datosCambiarRoles', $docente->id) }}" method="POST">
+                        @if ($rol[0] == 4)
+                        	<form action="{{ route('datosCambiarRoles', $docente->id) }}" method="POST">
 								{!! csrf_field() !!}
 								{!! method_field('PUT') !!}
 
 								<input type="hidden" name="rol[]" value="1">
 								<input type="hidden" name="rol[]" value="4">
 
-								<button type="submit" class="btn btn-warning btn-xs">Asigar</button>
-						</form>
-						@endif
+								{{-- <button type="submit" class="btn btn-warning btn-xs">Asignar</button> --}}
+								{{-- <button type="submit" class="btn btn-warning btn-xs">Asignar  <i class="medium material-icons">done</i></button> --}}
 
-							<form style="margin-left: 20px;" action="{{ route('formValidarCoordinador', $docente->id) }}" method="POST">
+								<button type="submit" class="waves-effect waves-light btn">Asignar  <i class="medium material-icons">done</i></button>
+						</form>
+
+						@elseif($rol[0] == 1 && $rol[1] == 4)
+
+						{{-- nada --}}
+
+						@elseif($rol[0] == 4 && $docente->c_carr == 'N')
+
+						{{-- nada --}}
+
+                        @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+						<form style="margin-left: 20px;" action="{{ route('formValidarCoordinador', $docente->id) }}" method="POST">
 								{!! csrf_field() !!}
 								{!! method_field('PUT') !!}
 
 								<input type="hidden" name="activo" value="1">
-								<button type="submit" class="btn btn-info btn-xs">Válidar</button>
+								<button type="submit" class="btn btn-info btn-xs">Válidar  <i class="medium material-icons">done</i></button>
 							</form>
 
 						</div>
