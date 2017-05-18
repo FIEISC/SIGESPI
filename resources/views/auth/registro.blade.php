@@ -49,8 +49,10 @@
 
 		<div class="form-group">
 			<label for="plantel">Plantel</label>
-			<select name="plantel" id="plantel" class="form-control">
-				<option value="FIE">Facultad de Ingeniería Electromecánica</option>
+			<select name="plantel_id" id="plantel" class="form-control">
+				@foreach ($planteles as $plantel)
+					<option value="{{ $plantel->id }}">{{ $plantel->nom_plantel }}</option>
+				@endforeach
 			</select>
 		</div>
 

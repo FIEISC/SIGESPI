@@ -10,24 +10,27 @@ use sigespi\Http\Requests\LoginRequest;
 
 use sigespi\User;
 
+use sigespi\Plantel;
+
 use Auth;
 
 class AuthController extends Controller
 {
     public function registro()
     {
-    	return view('auth.registro');
+        $planteles = Plantel::all();
+    	return view('auth.registro', compact('planteles'));
     }
 
     public function datosRegistro(RegistroRequest $request)
     {
-    	User::create([
-            
+        //dd($request->all());
+    	User::create([  
             'nom_docente' => $request->input('nom_docente'),
             'no_docente' => $request->input('no_docente'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
-            'plantel' => $request->input('plantel')
+            'plantel_id' => $request->input('plantel_id')
     		]);
 
         return redirect()->route('login')->with('info2', 'Registro exitoso, ponte en contacto con el coordinador académico para la activación de tu cuenta.');
@@ -45,7 +48,7 @@ class AuthController extends Controller
 
          if (!Auth::attempt(['no_docente' => $no_docente, 'password' => $password, 'activo' => 1])) 
          {
-             return redirect()->back()->with('info', 'Datos Incorrectos');
+             return redirect()->back()->with('info', 'Datos Incorrectos o tu cuenta no ha sido activada, por favor verifica tus datos');
          }
 
       

@@ -28,7 +28,7 @@ class RegistroRequest extends FormRequest
             'no_docente' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'plantel' => 'required',
+            'plantel_id' => 'required',
         ];
     }
 }
