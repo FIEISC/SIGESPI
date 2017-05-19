@@ -185,7 +185,6 @@ class AdminController extends Controller
         public function altaCarreras()
         {
             $planteles = Plantel::all();
-
             return view('admin.paginas.altaCarreras', compact('planteles'));
         }
 
@@ -204,8 +203,9 @@ class AdminController extends Controller
             $plantel_id = $request->input('plantel_id');
 
             Carrera::create(['nom_carrera' => $nom_carrera, 'siglas' => $siglas, 'grupo' => $grupo, 'plantel_id' => $plantel_id]);
-
-            return redirect()->route('altaCarrerasForm')->with('info', 'Carrera creada exitosamente');
+            
+            Alert::success('Carrera creada para el plantel', 'Carrera creada!');
+            return redirect()->route('altaCarrerasForm');
         }
      //Dada de alta de los ciclos escolares!!!!!!!!!!!!!!!!!!!!!!!!!
         public function altaCiclos()

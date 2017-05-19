@@ -43,15 +43,15 @@ class TutorController extends Controller
 
     public function crearProtocolo($id)
    {
+       //dd($id);   
        $ciclo = Ciclo::findOrFail($id);
        $carrera = Carrera::where('grupo', '=', Auth::user()->t_proy)->first();
-
        return view('tutor.crearProtocolo', compact('ciclo', 'carrera'));
    }
 
    public function crearProtocoloForm(Request $request)
    {
-    // dd($request->all());
+    //dd($request->all());
 
 /*       Protocolo::create($request->all());
 */       
@@ -76,7 +76,8 @@ Protocolo::create([
    'user_id' => $request->input('user_id')
   ]);
 
-       return redirect()->route('verProtocolos')->with('info', 'Protocolo creado exitosamente');
+       Alert::success('Ahora prodrás asignar docentes al protocolo', 'Protocolo creado exitosamente!');
+       return redirect()->route('verProtocolos');
    }
 
    public function verProtocolos()

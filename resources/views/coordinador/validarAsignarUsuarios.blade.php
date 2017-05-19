@@ -4,7 +4,7 @@
 
 @section('contenido')
 
-@if (Session::has('info'))
+{{-- @if (Session::has('info'))
     <div class="alert alert-success">
     	{{ Session::get('info') }}
     </div>	
@@ -12,7 +12,7 @@
  <div class="alert alert-success">
  	{{ Session::get('info2') }}
  </div>
-@endif
+@endif --}}
 
 <h1>Validar y dar de alta a coordinadores de carrera</h1>
 

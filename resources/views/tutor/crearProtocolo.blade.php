@@ -22,13 +22,12 @@
       <label for="universidad">Universidad</label>
       <input type="text" name="universidad" class="form-control" value="Universidad de Colima" readonly="true">
     </div>
-
-    @if (Auth::user()->plantel == 'FIE')
-      <div class="form-group">
+    
+    <div class="form-group">
       <label for="facultad">Facultad</label>
-      <input type="text" name="facultad" class="form-control" value="Facultad de Ingeniería Electromecánica" readonly="true">
+      <input type="text" name="facultad" class="form-control" value="{{ Auth::user()->plantel->nom_plantel }}" readonly="true">
     </div>
-    @endif
+
 
     <div class="form-group">
       <label for="carrera">Carrera</label>

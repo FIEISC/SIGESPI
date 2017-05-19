@@ -19,4 +19,12 @@ class Plantel extends Model
     {
     	return $this->hasMany(Carrera::class);
     }
+
+    //Relacion 1:N con docentes!!!!!!!!!!!!!!!!
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+
+    }
 }

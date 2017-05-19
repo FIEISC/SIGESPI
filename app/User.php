@@ -27,4 +27,11 @@ class User extends Authenticatable
     {
     	return $this->belongsToMany(Protocolo::class);
     }
+
+    //Relacion 1:N con planteles!!!!!!!!!!
+
+    public function plantel()
+    {
+        return $this->belongsTo(Plantel::class);
+    }
 }

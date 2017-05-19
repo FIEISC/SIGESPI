@@ -50,6 +50,7 @@
 								</ul>
 							@endif
 						@endforeach
+
 					</td>
 
 					<td>

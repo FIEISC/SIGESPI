@@ -30,7 +30,6 @@ class CoordinadorController extends Controller
     public function validarAsignarUsuarios()
     {
     	$docentes = User::all();
-
     	return view('coordinador.validarAsignarUsuarios', compact('docentes'));
     }
 
@@ -38,8 +37,9 @@ class CoordinadorController extends Controller
     {
         DB::table('users')->where('id', $id)->update([
         	'activo' => $request->input('activo')]);
-
-        return redirect()->route('validarAsignarUsuarios')->with('info', 'Usuario Validado');
+        
+        Alert::success('El docente ha sido dado de alta en el sistema', 'Docente activado!');
+        return redirect()->route('validarAsignarUsuarios');
     }
     
    //Para asignar a los coordinadores de carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -66,8 +66,29 @@ class CoordinadorController extends Controller
     	}
 
     	DB::table('users')->where('id', $id)->update(['c_carr' => $c_carr, 'rol' => $roles]);
+        
+        if ($c_carr == 'A') 
+        {
+        
+        Alert::success('Ahora es Coordinador de la carrera Ing. Mecánico Electricista ', 'Coordinador de Carrera asignado');
+        }
 
-    	return redirect()->route('validarAsignarUsuarios')->with('info2', 'Coordinador de Carrera Asignado');
+        elseif ($c_carr == 'B') 
+        {
+            Alert::success('Ahora es Coordinador de la carrera Ing. en Tecnologías Electrónicas ', 'Coordinador de Carrera asignado');
+        }
+
+        elseif ($c_carr == 'C') 
+        {
+            Alert::success('Ahora es Coordinador de la carrera Ing. en Mecatrónica ', 'Coordinador de Carrera asignado');
+        }
+
+        elseif ($c_carr == 'D') 
+        {
+            Alert::success('Ahora es Coordinador de la carrera Ing. en Sistemas Computacionales ', 'Coordinador de Carrera asignado');
+        }
+
+    	return redirect()->route('validarAsignarUsuarios');
     }
 
     //Para dar de baja o reasignar coordinadores de carrrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -107,7 +128,7 @@ class CoordinadorController extends Controller
 
     public function asignarTutoresForm(Request $request, $id)
     {
-        dd($request->all());
+        //dd($request->all());
 
         $roles = implode(',', $request->input('rol'));
         $t_semestre = $request->input('t_semestre');

@@ -11,7 +11,7 @@
 	@endif
 @endforeach --}}
 
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-10 col-md-offset-1">
 	<h2>Asignar Tutores a: </h2>
 	<p><b>{{ $cc->nom_docente }}</b></p>
 	<table class="table table-hover table-bordered table-responsive">
@@ -26,7 +26,7 @@
 
 		<tbody>
 			@foreach ($tutores as $tutor)
-				@if ($tutor->activo == 1 && $tutor->rol != 0 && Auth::user()->plantel == $tutor->plantel && $tutor->t_proy == 'N')
+				@if ($tutor->activo == 1 && $tutor->rol != 0 && Auth::user()->plantel->id == $tutor->plantel->id && $tutor->t_proy == 'N')
 					<tr>
 						<td>{{ $tutor->nom_docente }}</td>
 
