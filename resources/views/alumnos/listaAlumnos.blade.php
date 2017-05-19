@@ -10,7 +10,6 @@
   @endforeach
 </div> --}}
 
-
 <div class="col-md-12">
   <table class="table table-bordered table-hover table-responsive">
     <thead>

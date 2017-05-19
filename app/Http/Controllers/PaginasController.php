@@ -26,6 +26,7 @@ class PaginasController extends Controller
 		return $this->middleware('auth', ['except' => ['registroAlumnos', 'datosRegistroAlumnos', 'infoAlumnos', 'datosInfoAlumnos', 'listaAlumnos', 'protocolo', 'descargarProtocolo']]);
 	}
 
+//Muestra el formulario de registro de los alumnos, le pasa todas las carreras
     public function registroAlumnos()
     {
         $carreras = Carrera::all();

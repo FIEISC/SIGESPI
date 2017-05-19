@@ -19,9 +19,11 @@ class CreateAlumnosTable extends Migration
             //Llaves foraneas!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             $table->integer('equipo_id')->unsigned()->nullable();
             $table->integer('carrera_id')->unsigned();
+            $table->integer('plantel_id')->unsigned();
 
             $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade');
             $table->foreign('carrera_id')->references('id')->on('carreras')->onDelete('cascade');
+            $table->foreign('plantel_id')->references('id')->on('planteles')->onDelete('cascade');
             $table->timestamps();
         });
     }
