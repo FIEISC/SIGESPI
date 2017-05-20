@@ -233,6 +233,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
 

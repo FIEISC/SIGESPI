@@ -10,6 +10,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="">Brand</a>
+
+      <ul class="nav navbar-nav navbar-left">
+      <li><a href="{{ route('opcionesAlumno') }}">Alumno</a></li>
+    </ul>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,7 +31,7 @@
         <li><a href="{{ route('salir') }}">Salir</a></li>
       </ul>
     @endif --}}
-
+    
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ route('registro') }}">Registro</a></li>
         <li><a href="{{ route('login') }}">Login</a></li> 

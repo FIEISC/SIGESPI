@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/registro/admin', function()
+/*Route::get('/registro/admin', function()
 {
 	$admin = new sigespi\User;
 	$admin->nom_docente = 'Naty';
@@ -15,7 +15,7 @@ Route::get('/registro/admin', function()
 	$admin->plantel_id = 1;
 	$admin->save();
 
-});
+});*/
 
 //Rutas Administrador!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Route::get('/admin/login', 'AdminController@login')->name('loginAdmin');
@@ -70,9 +70,9 @@ Route::post('/', 'AuthController@datosLogin')->name('datosLogin');
 
 Route::get('/salir', 'AuthController@salir')->name('salir');
 
-Route::get('/alumnos/registro', 'PaginasController@registroAlumnos')->name('registroAlumnos');
+/*Route::get('/alumnos/registro', 'PaginasController@registroAlumnos')->name('registroAlumnos');
 
-Route::post('/alumnos/registro/datos', 'PaginasController@datosRegistroAlumnos')->name('datosRegistroAlumnos');
+Route::post('/alumnos/registro/datos', 'PaginasController@datosRegistroAlumnos')->name('datosRegistroAlumnos');*/
 
 //Rutas del Coordinador Academico!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -180,7 +180,7 @@ Route::get('/n4', 'PaginasController@nivel4')->name('nivel4');
 
 Route::get('/n5', 'PaginasController@nivel5')->name('nivel5');
 
-Route::get('/alumnos/info', 'PaginasController@infoAlumnos')->name('infoAlumnos');
+/*Route::get('/alumnos/info', 'PaginasController@infoAlumnos')->name('infoAlumnos');
 
 Route::post('/alumnos/datos/info', 'PaginasController@datosInfoAlumnos')->name('datosInfoAlumnos');
 
@@ -188,4 +188,18 @@ Route::get('/alumnos/lista_alumnos', 'PaginasController@listaAlumnos')->name('li
 
 Route::get('/alumnos/protocolo/{id}', 'PaginasController@protocolo')->name('protocolo');
 
-Route::get('/alumnos/pdf/{id}', 'PaginasController@descargarProtocolo')->name('descargarProtocolo');
+Route::get('/alumnos/pdf/{id}', 'PaginasController@descargarProtocolo')->name('descargarProtocolo');*/
+
+
+//Rutas alumnos!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Route::get('/alumno/opciones', 'AlumnoController@opcionesAlumno')->name('opcionesAlumno');
+
+Route::get('/alumno/elegir_plantel', 'AlumnoController@elegirPlantel')->name('elegirPlantel');
+
+/*Route::get('/alumno/registro/{id}', 'AlumnoController@registroAlumno')->name('registroAlumno');
+*/
+Route::post('/alumno/registro', 'AlumnoController@registroAlumno')->name('registroAlumno');
+
+Route::post('/alumno/registro/datos', 'AlumnoController@datosRegistroAlumno')->name('datosRegistroAlumno');
+

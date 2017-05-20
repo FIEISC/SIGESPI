@@ -49,5 +49,46 @@
 <script src="/sweetalert/sweetalert.min.js"></script>
 
 @include('sweet::alert')
+
+{{-- <script>
+function myFunction() {
+    var x = document.getElementById("plantel").value;
+    x =  document.navegador.secciones.options[document.navegador.secciones.selectedIndex].value;
+    //if(x != null) window.location
+    //document.getElementById("demo").innerHTML = "You selected: " + x;
+
+    if(x != null) window.open({{ route('registroAlumno') }});
+}
+</script> --}}
+
+<script>
+function myFunction() 
+{
+    var x = document.getElementById("planteles").value;
+/*    if(x != null) window.locate('/alumno/registro/'.concat(x.value));
+*/
+
+/*Con esta no me da error pero no me redirecciona*/    
+if(x != null) window.locate"/alumno/registro".concat(x);
+
+/*Asi es la forma en la que se redirecciona en laravel pero me da error*/
+/*if(x != null) window.locate="{{ route('registroAlumno','x') }}";*/
+
+
+/*    document.getElementById("texto").innerHTML = "Plantel: " + x;
+*/}  
+</script>
+
+{{-- <script>
+function myFunction() {
+    window.location.href(url('/alumno/registro'));
+}
+</script> --}}
+
+{{-- <script>
+function myFunction() {
+    alert("Fuck yeah! :v");
+}
+</script> --}}
 </body>
 </html>

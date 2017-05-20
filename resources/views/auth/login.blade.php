@@ -4,7 +4,7 @@
 
 @section('contenido')
 
-@if (Session::has('info'))
+{{-- @if (Session::has('info'))
    <div class="alert alert-danger">
    	{{ Session::get('info') }}
    </div>
@@ -12,8 +12,7 @@
    <div class="alert alert-success">
    	{{ Session::get('info2') }}
    </div>
-@endif
-
+@endif --}}
 
 <div class="col-md-6 col-md-offset-3">
 	<h1>Login</h1>
@@ -43,7 +42,7 @@
 	<br>
 	<p>Eres admin?... <a href="{{ route('loginAdmin') }}">Entra aquí</a></p>
 
-	<p>Eres alumno?.... <a href="{{ route('infoAlumnos') }}">Entra aquí!</a></p>
+	{{-- <p>Eres alumno?.... <a href="{{ route('infoAlumnos') }}">Entra aquí!</a></p> --}}
 </div>
 
 {{-- <div class="col-md-6 col-md-offset-3">
