@@ -94,7 +94,7 @@ class CoordinadorController extends Controller
     //Para dar de baja o reasignar coordinadores de carrrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function darBajaReasignarCoordinadorCarrera()
     { 
-        $docentes = User::all();
+        $docentes = User::orderBy('c_carr', 'ASC')->get();
 
         return view('coordinador.darBajaReasignarCoordinadorCarrera', compact('docentes'));
     }

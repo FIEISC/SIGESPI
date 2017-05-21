@@ -160,7 +160,8 @@ Protocolo::create([
    {
        $protocolos = Protocolo::all();
        $equipos = Equipo::all();
-       return view('tutor.crearEquipos', compact('protocolos', 'equipos'));
+       $alumnos = Alumno::all();
+       return view('tutor.crearEquipos', compact('protocolos', 'equipos', 'alumnos'));
    }
 
    public function crearEquiposForm($id)

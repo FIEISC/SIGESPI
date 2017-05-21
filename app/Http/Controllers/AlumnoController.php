@@ -16,9 +16,13 @@ use sigespi\Carrera;
 
 use sigespi\Alumno;
 
+use sigespi\Protocolo;
+
+use sigespi\Equipo;
+
 use Alert;
 
-use Input;
+use PDF;
 
 class AlumnoController extends Controller
 {
@@ -55,4 +59,32 @@ class AlumnoController extends Controller
     	Alert::success('Ya estas registrado en el sistema', 'Registro Exitoso');
     	return redirect()->route('elegirPlantel');
     }
+
+    public function infoAlumno()
+    {
+        $ciclo = Ciclo::where('activo', '=', 1)->first();
+        $carreras = Carrera::all();
+        return view('alumnos.infoAlumno', compact('ciclo', 'carreras'));
+    }
+
+    public function datosInfoAlumno(Request $request)
+    {
+        $semestre = $request->input('semestre');
+        $carrera = $request->input('carrera');
+
+        $alumnos = Alumno::orderBy('equipo_id', 'ASC')->where('semestre', '=', $semestre)->where('carrera_id', '=', $carrera)->get();
+        $protocolos = Protocolo::all();
+        $equipos = Equipo::all();
+
+        return view('alumnos.listaAlumnos', compact('alumnos', 'protocolos', 'equipos'));
+    }
+
+     public function descargarProtocolo($id)
+    {
+        $protocolo = Protocolo::findOrFail($id);
+        $pdf = PDF::loadView('alumnos.protocolo', ['protocolo' => $protocolo]);
+        return $pdf->download('protocolo.pdf');
+    }
+
+
 }

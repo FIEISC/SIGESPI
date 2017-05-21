@@ -203,3 +203,8 @@ Route::post('/alumno/registro', 'AlumnoController@registroAlumno')->name('regist
 
 Route::post('/alumno/registro/datos', 'AlumnoController@datosRegistroAlumno')->name('datosRegistroAlumno');
 
+Route::get('/alumno/info', 'AlumnoController@infoAlumno')->name('infoAlumno');
+
+Route::post('/alumno/datos', 'AlumnoController@datosInfoAlumno')->name('datosInfoAlumno');
+
+Route::get('/alumno/protocolo/pdf/{id}', 'AlumnoController@descargarProtocolo')->name('descargarProtocolo');

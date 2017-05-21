@@ -6,6 +6,7 @@
 
 <div class="col-md-8 col-md-offset-2">
 	<h1>Crear Equipos</h1>
+	<p class="text-info">Da click sobre el equipo creado para asignarle un tutor de equipo de trabajo</p>
 
 	<table class="table table-responsive table-hover table-bordered">
 		<thead>
@@ -21,11 +22,10 @@
 				@if ($protocolo->user_id == Auth::user()->id)
 				<tr>
 					<td>{{ $protocolo->nom_protocolo }}</td>
-
 					<td>
 						@foreach ($protocolo->equipos as $equipo)
 						<ul>
-							<li><a href="{{ route('asignarAlumnosEquipos', $equipo->id) }}">{{ $equipo->nom_equipo }}</a></li>
+							<li style="list-style: none;"><a href="{{ route('asignarAlumnosEquipos', $equipo->id) }}">{{ $equipo->nom_equipo }}</a></li>
 						</ul>
 						@endforeach
 					</td>
