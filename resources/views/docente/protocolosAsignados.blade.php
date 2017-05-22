@@ -23,7 +23,7 @@
 		    @if ($docente->id === Auth::user()->id)
 		        @foreach ($docente->protocolos as $protocolo)
 		           <tr>
-		           	<td>{{ $protocolo->nom_protocolo }}</td>
+		           	<td><a href="{{ route('infoDocenteProtocolo', $protocolo->id) }}">{{ $protocolo->nom_protocolo }}</a></td>
 		           	<td>{{ $protocolo->carrera }}</td>
 		           	<td>{{ $protocolo->semestre }}</td>
 		           	<td>{{ $protocolo->user->nom_docente }}</td>

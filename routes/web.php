@@ -174,6 +174,8 @@ Route::get('/docente/editar_protocolo/{id}', 'DocenteController@editarProtocolo'
 
 Route::put('/docente/datos/editar_protocolo/{id}', 'DocenteController@datosEditarProtocolo')->name('datosEditarProtocoloDocente');
 
+Route::get('/docente/info/protocolo/docente/{id}', 'DocenteController@infoDocenteProtocolo')->name('infoDocenteProtocolo');
+
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');
