@@ -168,6 +168,12 @@ Route::get('/docente/index', 'DocenteController@index')->name('docente');
 
 Route::get('/docente/protocolos', 'DocenteController@protocolosAsignados')->name('protocolosAsignados');
 
+Route::get('/docente/ver_protocolo/{id}', 'DocenteController@verProtocoloDocente')->name('verProtocoloDocente');
+
+Route::get('/docente/editar_protocolo/{id}', 'DocenteController@editarProtocolo')->name('editarProtocoloDocente');
+
+Route::put('/docente/datos/editar_protocolo/{id}', 'DocenteController@datosEditarProtocolo')->name('datosEditarProtocoloDocente');
+
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');

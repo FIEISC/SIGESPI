@@ -10,7 +10,7 @@
 {{-- 	<h3>{{ $protocolo->nom_protocolo }}</h3> --}}
 
 	<form action="{{ route('editarOnlyProtocoloForm', $protocolo->id) }}" method="POST">
-	
+
 		{!! csrf_field() !!}
 		{!! method_field('PUT') !!}
 

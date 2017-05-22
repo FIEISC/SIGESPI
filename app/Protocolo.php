@@ -29,10 +29,11 @@ class Protocolo extends Model
     }
 
     //Relacion 1:N con carreras!!!!!!!!!!!!!!
-    public function carrera()
+    public function carrer()
     {
     	return $this->belongsTo(Carrera::class);
     }
+
 
 
 /*    public function getNumUsersAttribute()

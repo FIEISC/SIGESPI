@@ -28,9 +28,9 @@
 		           	<td>{{ $protocolo->semestre }}</td>
 		           	<td>{{ $protocolo->user->nom_docente }}</td>
 		           	<td>
-		           		<a href="" class="btn btn-info btn-sm">Ver   <span class=" glyphicon glyphicon-eye-open"></span></a>
+		           		<a href="{{ route('verProtocoloDocente', $protocolo->id) }}" class="btn btn-info btn-sm">Ver   <span class=" glyphicon glyphicon-eye-open"></span></a>
 
-		           		<a href="" class="btn btn-warning btn-sm">Editar  <span class="glyphicon glyphicon-edit"></span></a>
+		           		<a href="{{ route('editarProtocoloDocente', $protocolo->id) }}" class="btn btn-warning btn-sm">Editar  <span class="glyphicon glyphicon-edit"></span></a>
 		           	</td>
 		           </tr>
 		        @endforeach

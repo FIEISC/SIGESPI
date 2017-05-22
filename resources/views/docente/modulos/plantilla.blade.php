@@ -5,8 +5,15 @@
 	<title>@yield('title', 'Default')</title>
 	<link rel="stylesheet" href="{{ asset('estilos/css/my-style.css') }}">
     <link rel="stylesheet" href="{{ asset('estilos/css/bootstrap.min.css') }}">
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="{{ asset('sweetalert/sweetalert.css') }}">
 </head>
 <body>
 
@@ -30,6 +37,13 @@
 		<p>SIGESPI 2017 | Developed by Naty <span class="glyphicon glyphicon-heart-empty"></span></p>
 	</div>
 </footer>
-	
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="/sweetalert/sweetalert.min.js"></script>
+
+@include('sweet::alert')	
 </body>
 </html>
