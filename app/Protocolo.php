@@ -8,7 +8,7 @@ class Protocolo extends Model
 {
     protected $table = 'protocolos';
 
-    protected $fillable = ['nom_protocolo', 'universidad', 'facultad', 'carrera', 'introduccion', 'antecedentes', 'objetivos', 'obj_particulares', 'justificacion', 'herramientas', 'entregables', 'preguntas_guia', 'semestre', 'carrera_id', 'ciclo_id', 'user_id'];
+    protected $fillable = ['nom_protocolo', 'universidad', 'facultad', 'carrera', 'introduccion', 'antecedentes', 'objetivos', 'obj_particulares', 'justificacion', 'herramientas', 'entregables', 'preguntas_guia', 'semestre', 'fec_ini', 'fec_fin', 'carrera_id', 'ciclo_id', 'user_id'];
 
    //Relacion 1:N con protocolos!!!!!!!!!!!!
     public function user()

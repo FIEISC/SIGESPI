@@ -51,11 +51,13 @@ class TutorController extends Controller
 
    public function crearProtocoloForm(Request $request)
    {
+    
     //dd($request->all());
 
-/*       Protocolo::create($request->all());
-*/       
-Protocolo::create([
+       Protocolo::create($request->all());
+    
+
+/*Protocolo::create([
    'nom_protocolo' => $request->input('nom_protocolo'),
    'universidad' => $request->input('universidad'),
    'facultad' => $request->input('facultad'),
@@ -69,12 +71,14 @@ Protocolo::create([
    'entregables' => $request->input('entregables'),
    'preguntas_guia' => $request->input('preguntas_guia'),
    'semestre' => $request->input('semestre'),
+
    'fec_ini' => $request->input('fec_ini'),
    'fec_fin' => $request->input('fec_fin'),
+
    'carrera_id' => $request->input('carrera_id'),
    'ciclo_id' => $request->input('ciclo_id'),
    'user_id' => $request->input('user_id')
-  ]);
+  ]);*/
 
        Alert::success('Ahora prodrás asignar docentes al protocolo', 'Protocolo creado exitosamente!');
        return redirect()->route('verProtocolos');
@@ -102,8 +106,13 @@ Protocolo::create([
 
    public function editarOnlyProtocoloForm(Request $request, $id)
    {
+       $protocolo = Protocolo::findOrFail($id);
 
-      dd($request->all());
+       Protocolo::findOrFail($id)->update($request->all());
+
+       Alert::success('El protocolo ha sido editado, y podrá ver los cambios', 'Protocolo Editado!');
+
+       return redirect()->route('verProtocolos');
    }
 
    public function asignarDocentesProtocolo()

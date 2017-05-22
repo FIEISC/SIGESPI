@@ -26,17 +26,23 @@
          @foreach ($equipos as $equipo)
            @if ($equipo->id == $alumno->equipo_id)
               <td>{{ $equipo->user->nom_docente }}</td>
+
+        {{--   @elseif($equipo->id != $alumno->equipo_id)
+              <td>Sin tutor</td> --}}
            @endif
          @endforeach
 
          @foreach ($protocolos as $protocolo)
-           @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id)
+           @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 1)
                <td>{{ $protocolo->nom_protocolo }}</td>
+
+           @elseif($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 0)
+               <td>En espera de ser publicado.....</td>
            @endif
          @endforeach
 
-         @foreach ($protocolos as $protocolo)
-        @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id)
+        @foreach ($protocolos as $protocolo)
+        @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 1)
           <td>
           <button style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
 
@@ -77,6 +83,12 @@
            </div>
 
           <a href="{{ route('descargarProtocolo', $protocolo->id) }}" class="btn btn-info btn-sm">Descargar  <span class="glyphicon glyphicon-download-alt"></span></a>
+          </td>
+
+          @elseif($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 0)
+          <td>
+            <button class="btn btn-primary btn-sm disabled">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
+            <button class="btn btn-info btn-sm disabled">Descargar  <span class="glyphicon glyphicon-download-alt"></span></button>
           </td>
         @endif
       @endforeach

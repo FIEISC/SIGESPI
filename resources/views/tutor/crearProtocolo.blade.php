@@ -101,7 +101,7 @@
 
     <input type="hidden" name="semestre" value="{{ Auth::user()->t_semestre }}">
 
-    <div class="row">   
+{{--     <div class="row">   
       <div class="col-md-6">
    <div class="form-group">
           <label for="date" class="form-control text-center">Fecha de Inicio</label>
@@ -125,7 +125,30 @@
       </div>
      </div>
       </div>
+    </div> --}}
+
+
+
+    <label for="date" class="form-control">Fecha</label>
+    <div class="input-group">
+     <input type="text" class="form-control datepicker" name="fec_ini" value="{!!date('20y-m-d') !!}">
+     <div class="input-group-addon">
+      <span class="glyphicon glyphicon-th"></span>
     </div>
+  </div>
+  <br>
+  <label for="date" class="form-control">Fecha 2</label>
+  <div class="input-group">
+   <input type="text" class="form-control datepicker" name="fec_fin">
+   <div class="input-group-addon">
+    <span class="glyphicon glyphicon-th"></span>
+  </div>
+  </div>
+
+
+
+  
+
     <br>
     <input type="hidden" name="carrera_id" value="{{ $carrera->id }}">
 

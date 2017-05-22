@@ -43,6 +43,7 @@ class AlumnoController extends Controller
     	$plantel = Plantel::findOrFail($plantel_id);
     	$ciclo = Ciclo::where('activo', '=', 1)->first();
     	$carreras = Carrera::where('plantel_id', $plantel_id)->get();
+
     	return view('alumnos.registroAlumno', compact('ciclo', 'plantel', 'carreras'));
     }
 
@@ -69,9 +70,11 @@ class AlumnoController extends Controller
 
     public function datosInfoAlumno(Request $request)
     {
+        //Datos recogidos del formulario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         $semestre = $request->input('semestre');
         $carrera = $request->input('carrera');
-
+        
+        //Datos que se pasan a la vista para ver la informacion de los alumnos!!!!!!!!!!!!!!!!
         $alumnos = Alumno::orderBy('equipo_id', 'ASC')->where('semestre', '=', $semestre)->where('carrera_id', '=', $carrera)->get();
         $protocolos = Protocolo::all();
         $equipos = Equipo::all();

@@ -20,7 +20,6 @@
 		<option value="{{ $plantel->id }}">{{ $plantel->nom_plantel }}</option>
 		@endforeach
 	</select>
-
 </form>
 </div>
 @endsection
