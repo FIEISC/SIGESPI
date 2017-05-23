@@ -4,6 +4,8 @@ namespace sigespi\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use sigespi\Notifications\MensajeEnviado;
+
 use sigespi\Ciclo;
 
 use sigespi\Carrera;
@@ -15,6 +17,8 @@ use sigespi\User;
 use sigespi\Equipo;
 
 use sigespi\Alumno;
+
+use sigespi\Mensaje;
 
 use Alert;
 
@@ -218,7 +222,27 @@ class TutorController extends Controller
 
    public function datosMensaje(Request $request)
    {
-      dd($request->all());
+
+      $this->validate($request, [
+        
+        'rx_user' => 'required|exists:users,id',
+        'asunto' => 'required',
+        'mensaje' => 'required',
+        ]);
+
+      $mensaje = Mensaje::create([
+        'tx_user' => Auth::user()->id,
+        'rx_user' => $request->input('rx_user'),
+        'asunto' => $request->input('asunto'),
+        'mensaje' => $request->input('mensaje'),
+        ]);
+
+      $rx_user = User::find($request->input('rx_user'));
+
+      $rx_user->notify(new MensajeEnviado($mensaje));
+
+      Alert::success('Tu mensaje fué enviado', 'Mensaje enviado!');
+      return redirect()->route('crearMensaje');
    }
 
 /*   public function bajaProtocolos(Request $request, $id)
