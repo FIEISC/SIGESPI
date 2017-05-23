@@ -39,6 +39,7 @@
 
     <ul class="nav navbar-nav">
       <li><a href="{{ route('protocolosAsignados') }}">Protocolos Asignados</a></li>
+      <li><a href="#">Notificaciones  <span class="badge">1</span></a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

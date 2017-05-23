@@ -210,6 +210,17 @@ class TutorController extends Controller
       return redirect()->route('crearEquipos');
    }
 
+   public function crearMensaje()
+   {
+       $protocolos = Protocolo::all();
+       return view('tutor.crearMensaje', compact('protocolos'));
+   }
+
+   public function datosMensaje(Request $request)
+   {
+      dd($request->all());
+   }
+
 /*   public function bajaProtocolos(Request $request, $id)
    {    
        //dd($id);

@@ -162,6 +162,10 @@ Route::get('/tutor/asigar_alumnos_equipos/{id}', 'TutorController@asignarAlumnos
 
 Route::put('/tutor/asignar_alumnos_equipos/datos', 'TutorController@datosAsignarAlumnosEquipos')->name('datosAsignarAlumnosEquipos');
 
+Route::get('/tutor/crear_mensaje', 'TutorController@crearMensaje')->name('crearMensaje');
+
+Route::post('/tutor/datos/mensaje', 'TutorController@datosMensaje')->name('datosMensaje');
+
 //Rutas del Docente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/docente/index', 'DocenteController@index')->name('docente');

@@ -34,11 +34,11 @@
           <tr>
             <td>{{ $protocolo->nom_protocolo }}</td>
             <td>
-              @foreach ($protocolo->manyUsers as $user)
+          @foreach ($protocolo->manyUsers as $user)
                 <ul>
                   <li>{{ $user->nom_docente }}</li>
                 </ul>
-              @endforeach
+          @endforeach
             </td>
             <td>
               <a href="{{ route('asignarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-success btn-sm">Asignar  <span class="glyphicon glyphicon-ok"></span></a>
