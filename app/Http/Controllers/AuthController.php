@@ -14,6 +14,8 @@ use sigespi\Plantel;
 
 use Auth;
 
+use Alert;
+
 class AuthController extends Controller
 {
     public function registro()
@@ -48,7 +50,10 @@ class AuthController extends Controller
 
          if (!Auth::attempt(['no_docente' => $no_docente, 'password' => $password, 'activo' => 1])) 
          {
-             return redirect()->back()->with('info', 'Datos Incorrectos o tu cuenta no ha sido activada, por favor verifica tus datos');
+             /*return redirect()->back()->with('info', 'Datos Incorrectos o tu cuenta no ha sido activada, por favor verifica tus datos');*/
+             Alert::warning('Tu cuenta no ha sido activada o tus datos son incorrectos, por favor verifica tus datos', 'Ingreso negado');
+
+             return redirect()->route('login');
          }
 
       
