@@ -84,7 +84,7 @@
      @endforeach
    </tbody>
   </table>
-
+  
 @endif  {{-- Fin del if para validar que el protocolo cumpla con la fecha establecida para ser publicado --}}
 
 </div>
