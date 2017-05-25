@@ -5,7 +5,7 @@
 @section('contenido')
 
 <div class="col-md-6 col-md-offset-3">
-<h1>Registro de Alumno</h1>
+<h4>Registro de Alumno</h4>
 
 {{-- <p>Elegiste: {{ $plantel->nom_plantel }}</p>
 

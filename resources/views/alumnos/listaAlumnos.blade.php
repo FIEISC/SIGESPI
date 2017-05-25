@@ -101,7 +101,23 @@
 @endsection
 
 
+{{--    <tbody>
+    
+        @foreach ($alumnos as $alumno) 
+       <tr>
+         <td>{{ $alumno->nom_alumno }}</td>
 
+         @foreach ($equipos as $equipo)
+          @if ($equipo->id == $alumno->equipo_id)
+          <td>{{ $equipo->nom_equipo }}</td>
+
+          @elseif ($alumno->equipo_id == null)
+            <td>No has sido asignado a un equipo</td>
+         @endif
+         @endforeach
+       </tr>
+    @endforeach
+   </tbody> --}}
 
 
 
