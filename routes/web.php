@@ -180,6 +180,16 @@ Route::put('/docente/datos/editar_protocolo/{id}', 'DocenteController@datosEdita
 
 Route::get('/docente/info/protocolo/docente/{id}', 'DocenteController@infoDocenteProtocolo')->name('infoDocenteProtocolo');
 
+/*Notificaciones*/
+
+Route::get('/docente/notificaciones', 'NotificacionController@notificaciones')->name('notificaciones');
+
+Route::get('/docente/ver_notificacion/{id}', 'NotificacionController@verNotificacion')->name('verNotificacion');
+
+Route::patch('/docente/notificacion/leida/{id}', 'NotificacionController@leidaNotificacion')->name('leidaNotificacion');
+
+Route::delete('/docente/notificacion/eliminada/{id}', 'NotificacionController@borrarNotificacion')->name('borrarNotificacion');
+
 //Niveles de usuario!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/n1', 'PaginasController@nivel1')->name('nivel1');

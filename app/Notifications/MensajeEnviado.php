@@ -41,11 +41,12 @@ class MensajeEnviado extends Notification
 
     public function toArray($notifiable)
     {
-         /* return [
-        'link' => route('mensaje.show', $this->mensaje->id),
-        'asunto' => $this->mensaje->asunto,
-        ];*/
+          return [
+        'link' => route('verNotificacion', $this->mensaje->id),
+        /*'asunto' => $this->mensaje->asunto,*/
+        'asunto' => "Asunto: " . $this->mensaje->asunto . " por: " . $this->mensaje->sender->nom_docente
+        ];
 
-        return $this->mensaje->toArray();
+       /* return $this->mensaje->toArray();*/
     }
 }
