@@ -214,6 +214,9 @@ class TutorController extends Controller
       return redirect()->route('crearEquipos');
    }
 
+/*//////////////////////////////MENSAJES//////////////////////////////////////////////////*/
+
+/*El tutor de proyecto puede enviar mensajes privados a los docentes asignados al protocolo*/
    public function crearMensaje()
    {
        $protocolos = Protocolo::all();
@@ -230,7 +233,7 @@ class TutorController extends Controller
         'mensaje' => 'required',
         ]);
 
-      $mensaje = Mensaje::create([
+        $mensaje = Mensaje::create([
         'tx_user' => Auth::user()->id,
         'rx_user' => $request->input('rx_user'),
         'asunto' => $request->input('asunto'),

@@ -55,7 +55,17 @@
 			<td>
 				<div style="display: inline-flex;">
 
+				@php
+					$roles = $docente->rol;
+					$rol = explode(',', $roles);
+				@endphp
+
+				@if ($rol[0] == 2 && $rol[1] == 4)
+					
+				@elseif($rol[0] == 4)
+
 				<a style="margin-right: 100px;" href="{{ route('asignarCoordinadorCarrera', $docente->id) }}" class="btn btn-default btn-xs">Asignar   <span class="glyphicon glyphicon-pencil"></span></a>
+				@endif
 
 					<form action="{{ route('formvalidarAsignarUsuarios', $docente->id) }}" method="POST">
 						{!! csrf_field() !!}
@@ -63,8 +73,7 @@
 
 						<input type="hidden" name="activo" value="1">
 
-						<button type="submit" class="btn btn-primary btn-xs">Válidar  <span class="glyphicon glyphicon-ok
-"></span></button>
+						<button type="submit" class="btn btn-primary btn-xs">Válidar  <span class="glyphicon glyphicon-ok"></span></button>
 					</form>
 				</div>
 			</td>

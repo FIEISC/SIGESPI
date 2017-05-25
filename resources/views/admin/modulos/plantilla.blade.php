@@ -19,12 +19,12 @@
 
 {{--   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --}}
   <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker3.css') }}">
-  <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker.standalone.css') }}">
+  <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker3-standalone.css') }}">
   <script src="{{ asset('datePicker/js/bootstrap-datepicker.js') }}"></script>
   <script src="{{ asset('datePicker/locales/bootstrap-datepicker.es.min.js') }}"></script>
 </head>
 
-<body>
+<body>  
 <header>
     <div class="">
        <img class="logo hidden-md hidden-sm hidden-xs" src="{{ asset('estilos/img/logo.png') }}">
@@ -62,13 +62,13 @@
 </script>
 
  {{--  Compiled and minified JavaScript --}}
- {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> --}}
+{{--   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> --}}
 
  <script src="{{ asset('/materialize/js/materialize.min.js') }}"></script>
 
-{{-- <script src="js/bootstrap.min.js"></script> --}}
+<script src="js/bootstrap.min.js"></script>
 
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/sweetalert/sweetalert.min.js"></script>

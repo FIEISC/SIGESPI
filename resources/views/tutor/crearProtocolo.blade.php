@@ -101,34 +101,34 @@
 
     <input type="hidden" name="semestre" value="{{ Auth::user()->t_semestre }}">
 
-{{--     <div class="row">   
+    <div class="row">   
       <div class="col-md-6">
-   <div class="form-group">
-          <label for="date" class="form-control text-center">Fecha de Inicio</label>
+       <div class="form-group">
+        <label for="date" class="form-control text-center">Fecha de Inicio</label>
         <div class="input-group">
-          <input type="text" class="form-control datepicker" name="fec_ini" value="{!!date('20y-m-d') !!}" readonly="true">
+          <input type="text" class="form-control" name="fec_ini" value="{!!date('20y-m-d') !!}" readonly="true">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
         </div>
-   </div>
       </div>
+    </div>
     
-      <div class="col-md-6">
+    <div class="col-md-6">
      <div class="form-group">
-         <label for="date" class="form-control text-center">Fecha Fin</label>
+       <label for="date" class="form-control text-center">Fecha Fin</label>
        <div class="input-group">
         <input type="text" class="form-control datepicker" name="fec_fin">
         <div class="input-group-addon">
           <span class="glyphicon glyphicon-th"></span>
         </div>
       </div>
-     </div>
-      </div>
-    </div> --}}
+    </div>
+  </div>
+</div>
 
 
-
+{{-- 
     <label for="date" class="form-control">Fecha</label>
     <div class="input-group">
      <input type="text" class="form-control datepicker" name="fec_ini" value="{!!date('20y-m-d') !!}">
@@ -143,7 +143,7 @@
    <div class="input-group-addon">
     <span class="glyphicon glyphicon-th"></span>
   </div>
-  </div>
+  </div> --}}
 
 
 

@@ -16,10 +16,10 @@
 	
 	<thead>
 		<tr class="bg-success">
-			<th>Docente</th>
+			<th>Coordinador de Carrera</th>
 {{-- 			<th>Roles</th>
- --}}			<th>C. Carrera</th>
-			<th>Tutores de la Carrera</th>
+ --}}			<th>Areá</th>
+			<th>Tutores de Proyecto Integrador</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>

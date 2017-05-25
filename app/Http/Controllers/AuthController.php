@@ -35,7 +35,11 @@ class AuthController extends Controller
             'plantel_id' => $request->input('plantel_id')
     		]);
 
-        return redirect()->route('login')->with('info2', 'Registro exitoso, ponte en contacto con el coordinador académico para la activación de tu cuenta.');
+        /*return redirect()->route('login')->with('info2', 'Registro exitoso, ponte en contacto con el coordinador académico para la activación de tu cuenta.');*/
+
+        Alert::success('Ponte en contacto con el coordinador académico para la activación de tu cuenta', 'Registro Exitoso');
+        
+        return redirect()->route('login');
     }
 
     public function login()
