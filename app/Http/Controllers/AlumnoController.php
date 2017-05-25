@@ -61,10 +61,18 @@ class AlumnoController extends Controller
     	return redirect()->route('elegirPlantel');
     }
 
-    public function infoAlumno()
+    public function elegirPlantelConsulta()
     {
+        $planteles = Plantel::all();
+        return view('alumnos.elegirPlantelConsulta', compact('planteles')); 
+    }
+
+    public function infoAlumno(Request $request)
+    {
+        $plantel_id = $request->input('plantel_id');
         $ciclo = Ciclo::where('activo', '=', 1)->first();
-        $carreras = Carrera::all();
+        //$carreras = Carrera::where('plantel_id', '=', $plantel)->get();
+        $carreras = Carrera::where('plantel_id', '=', $plantel_id)->get();
         return view('alumnos.infoAlumno', compact('ciclo', 'carreras'));
     }
 
@@ -76,10 +84,11 @@ class AlumnoController extends Controller
         
         //Datos que se pasan a la vista para ver la informacion de los alumnos!!!!!!!!!!!!!!!!
         $alumnos = Alumno::orderBy('equipo_id', 'ASC')->where('semestre', '=', $semestre)->where('carrera_id', '=', $carrera)->get();
-        $protocolos = Protocolo::all();
-        $equipos = Equipo::all();
+       
+        $protocolo = Protocolo::where('semestre', '=', $semestre)->where('carrera_id', '=', $carrera)->first();
+        $equipos = Equipo::where('protocolo_id', '=', $protocolo->id)->get();
 
-        return view('alumnos.listaAlumnos', compact('alumnos', 'protocolos', 'equipos'));
+        return view('alumnos.listaAlumnos', compact('alumnos', 'protocolo', 'equipos'));
     }
 
      public function descargarProtocolo($id)

@@ -5,11 +5,19 @@
 @section('contenido')
 
 <div class="col-md-12">
+
+@php
+  $hoy = date('20y-m-d');
+  $mifecha = '2017-05-31';
+@endphp
+ 
+@if ($mifecha <= $protocolo->fec_fin || $protocolo->aceptado == 0)
+  <p>El protocolo no ha sido publicado aun, espera que lo publiquen</p>
+
+@elseif($mifecha > $protocolo->fec_fin && $protocolo->aceptado == 1)
   <table class="table table-bordered table-hover table-responsive">
     <thead>
       <th>Alumno</th>
-     {{--  <th>Carrera</th>
-      <th>Semestre</th> --}}
       <th>Equipo</th>
       <th>Tutor de Equipo</th>
       <th>Protocolo</th>
@@ -26,23 +34,11 @@
          @foreach ($equipos as $equipo)
            @if ($equipo->id == $alumno->equipo_id)
               <td>{{ $equipo->user->nom_docente }}</td>
-
-        {{--   @elseif($equipo->id != $alumno->equipo_id)
-              <td>Sin tutor</td> --}}
            @endif
          @endforeach
 
-         @foreach ($protocolos as $protocolo)
-           @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 1)
-               <td>{{ $protocolo->nom_protocolo }}</td>
+         <td>{{ $protocolo->nom_protocolo }}</td>
 
-           @elseif($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 0)
-               <td>En espera de ser publicado.....</td>
-           @endif
-         @endforeach
-
-        @foreach ($protocolos as $protocolo)
-        @if ($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 1)
           <td>
           <button style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
 
@@ -84,40 +80,15 @@
 
           <a href="{{ route('descargarProtocolo', $protocolo->id) }}" class="btn btn-info btn-sm">Descargar  <span class="glyphicon glyphicon-download-alt"></span></a>
           </td>
-
-          @elseif($protocolo->semestre == $alumno->semestre && $protocolo->carrera_id == $alumno->carrera_id && $protocolo->aceptado == 0)
-          <td>
-            <button class="btn btn-primary btn-sm disabled">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
-            <button class="btn btn-info btn-sm disabled">Descargar  <span class="glyphicon glyphicon-download-alt"></span></button>
-          </td>
-        @endif
-      @endforeach
-
        </tr>
      @endforeach
    </tbody>
   </table>
+
+@endif  {{-- Fin del if para validar que el protocolo cumpla con la fecha establecida para ser publicado --}}
+
 </div>
 @endsection
-
-
-{{--    <tbody>
-    
-        @foreach ($alumnos as $alumno) 
-       <tr>
-         <td>{{ $alumno->nom_alumno }}</td>
-
-         @foreach ($equipos as $equipo)
-          @if ($equipo->id == $alumno->equipo_id)
-          <td>{{ $equipo->nom_equipo }}</td>
-
-          @elseif ($alumno->equipo_id == null)
-            <td>No has sido asignado a un equipo</td>
-         @endif
-         @endforeach
-       </tr>
-    @endforeach
-   </tbody> --}}
 
 
 

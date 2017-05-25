@@ -11,6 +11,6 @@
 <a href="{{ route('elegirPlantel') }}" class="btn btn-primary btn-lg btn-block">Registrarse</a>
 <br>
 <br>
-<a href="{{ route('infoAlumno') }}" class="btn btn-primary btn-lg btn-block">Consultar</a>
+<a href="{{ route('elegirPlantelConsulta') }}" class="btn btn-primary btn-lg btn-block">Consultar</a>
 </div>
 @endsection

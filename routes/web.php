@@ -225,7 +225,9 @@ Route::post('/alumno/registro', 'AlumnoController@registroAlumno')->name('regist
 
 Route::post('/alumno/registro/datos', 'AlumnoController@datosRegistroAlumno')->name('datosRegistroAlumno');
 
-Route::get('/alumno/info', 'AlumnoController@infoAlumno')->name('infoAlumno');
+Route::get('/alumno/elegir_plantel/consulta', 'AlumnoController@elegirPlantelConsulta')->name('elegirPlantelConsulta');
+
+Route::post('/alumno/info', 'AlumnoController@infoAlumno')->name('infoAlumno');
 
 Route::post('/alumno/datos', 'AlumnoController@datosInfoAlumno')->name('datosInfoAlumno');
 
