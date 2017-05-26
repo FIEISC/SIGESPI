@@ -4,11 +4,22 @@
 
 @section('contenido')
 
-<h1>Mensaje</h1>
+<div class="row">
+	<div class="col s6 offset-s3">
+		<div class="card-panel hoverable green lighten-4">
+			<h3>Mensaje</h3>
 
-<p>{{ $mensaje->mensaje }}</p>
+			<h5>Asunto: </h5>
+			<p>{{ $mensaje->asunto }}</p>
 
-<small>Enviado por: {{ $mensaje->sender->nom_docente }}</small>
+			<h5>Mensaje: </h5>
+			<p>{{ $mensaje->mensaje }}</p>
+
+			<h5>Enviado por: </h5>
+			<p>{{ $mensaje->sender->nom_docente }}</p>
+		</div>
+	</div>
+</div>
 
 @endsection
 

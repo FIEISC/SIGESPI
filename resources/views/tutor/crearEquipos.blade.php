@@ -4,11 +4,13 @@
 
 @section('contenido')
 
-<div class="col-md-8 col-md-offset-2">
-	<h1>Crear Equipos</h1>
+<div class="row">
+	<div class="col s10 offset-s1">
+	<div class="card-panel green lighten-4">
+		<h5>Crear Equipos</h5>
 	<p class="text-info">Da click sobre el equipo creado para asignarle un tutor de equipo de trabajo</p>
 
-	<table class="table table-responsive table-hover table-bordered">
+	<table class="bordered highlight centered responsive-table">
 		<thead>
 			<tr>
 				<th>Protocolo</th>
@@ -31,13 +33,17 @@
 					</td>
 
 					<td>
-						<a href="{{ route('crearEquiposForm', $protocolo->id) }}" class="btn btn-primary btn-sm">Crear</a>
+						{{-- <a href="{{ route('crearEquiposForm', $protocolo->id) }}" class="btn btn-primary btn-sm">Crear</a> --}}
+
+						<a href="{{ route('crearEquiposForm', $protocolo->id) }}" class="waves-effect waves-light green btn tooltipped pulse" data-position="top" data-delay="50" data-tooltip="Crear Equipo"><i class="material-icons">create</i></a>
 					</td>
 				</tr>
 				@endif
 			@endforeach
 		</tbody>
 	</table>
+	</div>
+</div>
 </div>
 @endsection
 

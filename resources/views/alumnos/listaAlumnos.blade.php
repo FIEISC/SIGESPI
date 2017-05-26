@@ -4,9 +4,11 @@
 
 @section('contenido')
 
-<div class="col-md-12">
+<div class="row">
+  <div class="col s12 md-12">
 
-@php
+<div class="card-panel green lighten-4">
+  @php
   $hoy = date('20y-m-d');
   $mifecha = '2017-05-31';
 @endphp
@@ -15,7 +17,7 @@
   <p>El protocolo no ha sido publicado aun, espera que lo publiquen</p>
 
 @elseif($mifecha > $protocolo->fec_fin && $protocolo->aceptado == 1)
-  <table class="table table-bordered table-hover table-responsive">
+  <table class="bordered highlight centered responsive-table">
     <thead>
       <th>Alumno</th>
       <th>Equipo</th>
@@ -40,9 +42,39 @@
          <td>{{ $protocolo->nom_protocolo }}</td>
 
           <td>
-          <button style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></button>
+        <div style="display: inline-flex;">
+           {{--  <button style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></button> --}}
 
-           <div class="modal fade" id="ventana">
+       {{--   <button style="margin-right: 10px;" class="btn waves-effect waves-light tooltipped" data-position="top" data-delay="50" data-tooltip="Ver Protocolo" type="button"><i class="material-icons">visibility</i>
+        </button> --}}
+
+         <a style="margin-right: 10px;" class="waves-effect waves-light btn tooltipped modal-trigger" data-position="top" data-delay="50" data-tooltip="Ver Protocolo" href="#modal1"><i class="material-icons">visibility</i></a>
+
+         <div id="modal1" class="modal">
+          <div class="modal-content">
+                  <h5 class="text-center">{{ $protocolo->universidad }}</h5>
+                  <h5 class="text-center">{{ $protocolo->facultad }}</h5>
+                  <h5 class="text-center">{{ $protocolo->carrera }}</h5>
+                  <h5 class="text-center">Semestre: {{ $protocolo->semestre }}</h5>
+                  <hr>
+
+                  <h5 class="text-center">{{ $protocolo->nom_protocolo }}</h5>
+                  <hr>
+                  <p class="text-justify">{{ $protocolo->introduccion }}</p>
+                  <p class="text-justify">{{ $protocolo->antecedentes }}</p>
+                  <p class="text-justify">{{ $protocolo->objetivos }}</p>
+                  <p class="text-justify">{{ $protocolo->obj_particulares }}</p>
+                  <p class="text-justify">{{ $protocolo->justificacion }}</p>
+                  <p class="text-justify">{{ $protocolo->herramientas }}</p>
+                  <p class="text-justify">{{ $protocolo->entregables }}</p>
+                  <p class="text-justify">{{ $protocolo->preguntas_guia }}</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+          </div>
+        </div>
+
+           {{-- <div class="modal fade" id="ventana">
              <div class="modal-dialog">
                <div class="modal-content">
                  <div class="modal-header">
@@ -76,9 +108,12 @@
 
                </div>
              </div>
-           </div>
+           </div> --}}
 
-          <a href="{{ route('descargarProtocolo', $protocolo->id) }}" class="btn btn-info btn-sm">Descargar  <span class="glyphicon glyphicon-download-alt"></span></a>
+         {{--  <a href="{{ route('descargarProtocolo', $protocolo->id) }}" class="btn btn-info btn-sm">Descargar  <span class="glyphicon glyphicon-download-alt"></span></a> --}}
+
+         <a href="{{ route('descargarProtocolo', $protocolo->id) }}" class="waves-effect waves-green lighten-3 btn tooltipped" data-position="right" data-delay="50" data-tooltip="Descargar Protocolo"><i class="material-icons">system_update_alt</i></a>
+        </div>
           </td>
        </tr>
      @endforeach
@@ -86,7 +121,9 @@
   </table>
   
 @endif  {{-- Fin del if para validar que el protocolo cumpla con la fecha establecida para ser publicado --}}
+</div>
 
+</div>
 </div>
 @endsection
 

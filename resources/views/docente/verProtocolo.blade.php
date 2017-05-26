@@ -4,15 +4,18 @@
 
 @section('contenido')
 
-<div class="col-md-10 col-md-offset-1">
-	<h4>Informacion del protocolo</h4>
+<div class="row">
+	<div class="col s10 offset-s1"> 
+       <div class="card-panel hoverable green lighten-4">
+
+    <h5>Informacion del protocolo</h5>
     <hr>
-    <h4 class="text-center">{{ $protocolo->universidad }}</h4>
-    <h4 class="text-center">{{ $protocolo->facultad }}</h4>
-    <h4 class="text-center">{{ $protocolo->carrera }}</h4>
-	<h4 class="text-center">{{ $protocolo->nom_protocolo }}</h4>
-	{{-- <h4 class="text-center">{{ $protocolo->semestre }}</h4>
-	<h4>{{ $protocolo->carrer->grupo }}</h4> --}}
+    <h5 class="text-center">{{ $protocolo->universidad }}</h5>
+    <h5 class="text-center">{{ $protocolo->facultad }}</h5>
+    <h5 class="text-center">{{ $protocolo->carrera }}</h5>
+	<h5 class="text-center">{{ $protocolo->nom_protocolo }}</h5>
+	{{-- <h5 class="text-center">{{ $protocolo->semestre }}</h5>
+	<h5>{{ $protocolo->carrer->grupo }}</h5> --}}
 	<hr>
 
 	<p class="text-justify">{{ $protocolo->introduccion }}</p>
@@ -23,6 +26,9 @@
 	<p class="text-justify">{{ $protocolo->herramientas }}</p>
 	<p class="text-justify">{{ $protocolo->entregables }}</p>
 	<p class="text-justify">{{ $protocolo->preguntas_guia }}</p>
+      </div>
+
+	</div>
 </div>
 
 

@@ -4,11 +4,13 @@
 
 @section('contenido')
 
-<h1>Notificaciones</h1>
+<h5>Notificaciones</h5>
 
 <div class="row">
-	<div class="col-md-6">
-		<h2>No leídas</h2>
+	<div class="col s6">
+	 
+	 <div class="card-panel hoverable lime lighten-4">
+	 	<h4>No leídas</h4>
 
 		<ul class="list-group">
 			@foreach ($noLeidas as $noLeida)			
@@ -21,16 +23,23 @@
 			{!! method_field('PATCH') !!}
 			{!! csrf_field() !!}
 
-				<button class="btn btn-danger btn-xs">x</button>
+				{{-- <button class="btn btn-danger btn-xs">x</button> --}}
+
+				<button class="btn waves-effect waves-light red ">
+					<i class="material-icons">close</i>
+				</button>
 			</form>
 			</li>
 			@endforeach
 		</ul>
+	 </div>
 		
 	</div>
 
-	<div class="col-md-6">
-		<h2>Leídas</h2>
+	<div class="col s6">
+		
+		<div class="card-panel hoverable light-blue lighten-4">
+			<h4>Leídas</h4>
 
 		<ul class="list-group">
 			@foreach ($Leidas as $Leida)			
@@ -42,11 +51,16 @@
 			{!! method_field('DELETE') !!}
 			{!! csrf_field() !!}
 
-				<button class="btn btn-danger btn-xs">x</button>
+				{{-- <button class="btn btn-danger btn-xs">x</button> --}}
+
+				<button class="btn waves-effect waves-light red ">
+					<i class="material-icons">close</i>
+				</button>
 			</form>
 			</li>
 			@endforeach
 		</ul>
+		</div>
 
 	</div>
 </div>

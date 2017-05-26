@@ -7,12 +7,21 @@
   <link rel="stylesheet" href="{{ asset('estilos/css/bootstrap.min.css') }}">
 
 {{-- Materialize --}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+ {{-- <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.min.css') }}"> --}}
 
- {{--  Compiled and minified JavaScript --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+ {{-- Icons Materialize --}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{ asset('sweetalert/sweetalert.css') }}">
+{!! MaterializeCSS::include_full() !!}
+
+<link rel="stylesheet" href="{{ asset('/materialize-css/css/materialize.min.css') }}">
+{{--  <link rel="stylesheet" href="{{ asset('materialize/fonts/materialize-icons/Materiallcons-Regular.eot') }}">
+ <link rel="stylesheet" href="{{ asset('materialize/fonts/materialize-icons/Materiallcons-Regular.ttf') }}">
+ <link rel="stylesheet" href="{{ asset('materialize/fonts/materialize-icons/Materiallcons-Regular.woff') }}">
+ <link rel="stylesheet" href="{{ asset('materialize/fonts/materialize-icons/Materiallcons-Regular.woff2') }}">
+ --}}
+{{-- SweetAlert --}}
+<link rel="stylesheet" href="{{ asset('sweetalert/sweetalert.css') }}">
   
 	<!-- Latest compiled and minified CSS -->
 {{-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --}}
@@ -42,53 +51,28 @@
 	</div>
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+
+<script src="{{ asset('/materialize-css/js/jquery.js') }}"></script>
+<script src="{{ asset('/materialize-css/js/materialize.min.js') }}"></script>
 
 <script src="/sweetalert/sweetalert.min.js"></script>
 
 @include('sweet::alert')
 
-{{-- <script>
-function myFunction() {
-    var x = document.getElementById("plantel").value;
-    x =  document.navegador.secciones.options[document.navegador.secciones.selectedIndex].value;
-    //if(x != null) window.location
-    //document.getElementById("demo").innerHTML = "You selected: " + x;
-
-    if(x != null) window.open({{ route('registroAlumno') }});
-}
-</script> --}}
-
 <script>
-function myFunction() 
-{
-    var x = document.getElementById("planteles").value;
-/*    if(x != null) window.locate('/alumno/registro/'.concat(x.value));
-*/
-
-/*Con esta no me da error pero no me redirecciona*/    
-if(x != null) window.locate"/alumno/registro".concat(x);
-
-/*Asi es la forma en la que se redirecciona en laravel pero me da error*/
-/*if(x != null) window.locate="{{ route('registroAlumno','x') }}";*/
-
-
-/*    document.getElementById("texto").innerHTML = "Plantel: " + x;
-*/}  
+   $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
 </script>
 
-{{-- <script>
-function myFunction() {
-    window.location.href(url('/alumno/registro'));
-}
-</script> --}}
+<script>
+	$(document).ready(function(){
+    $('#modal1').modal();
+  });
+</script>
 
-{{-- <script>
-function myFunction() {
-    alert("Fuck yeah! :v");
-}
-</script> --}}
 </body>
 </html>

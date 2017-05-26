@@ -6,11 +6,17 @@
 
 
 <div class="col-md-10 col-md-offset-1">
+{{-- 
+<a href="{{ route('bajaProtocolosCoordinador') }}" class="btn btn-warning pull-right">Baja  <span class="glyphicon glyphicon-arrow-down"></span></a> --}}
 
-<a href="{{ route('bajaProtocolosCoordinador') }}" class="btn btn-warning pull-right">Baja  <span class="glyphicon glyphicon-arrow-down"></span></a>
+<a href="{{ route('bajaProtocolosCoordinador') }}" class="waves-effect waves-light orange btn"><i class="material-icons">arrow_downward</i>Baja</a>
 
-<a href="{{ route('eliminarProtocolos') }}" style="margin-right: 20px;" class="btn btn-danger pull-right">Eliminar  <span class="glyphicon glyphicon glyphicon-remove"></span></a>
-	<h1>Todos los Protocolos</h1>
+{{-- <a href="{{ route('eliminarProtocolos') }}" style="margin-right: 20px;" class="btn btn-danger pull-right">Eliminar  <span class="glyphicon glyphicon glyphicon-remove"></span></a> --}}
+
+<a href="{{ route('eliminarProtocolos') }}" class="waves-effect waves-light red btn"><i class="material-icons">close</i>Eliminar</a>
+
+
+	<h4>Todos los Protocolos</h4>
 
 	<table id="myTable" class="table table-responsive table-bordered table-hover">
 		

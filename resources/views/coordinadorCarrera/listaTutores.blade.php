@@ -4,10 +4,20 @@
 
 @section('contenido')
 
-<div class="col-md-6 col-md-offset-3">
-	<h1>Tutores Asignados</h1>
+<div class="row">
+	<div class="col s6 offset-s3">
 
-	<table class="table table-hover table-bordered table-responsive">
+    <div class="card-panel hoverable green lighten-4">
+    	<ul class="collection with-header">
+        <li class="collection-header green lighten-3"><h4>Tutores de Proyecto</h4></li>
+        @foreach ($tutores as $tutor)
+        	@if (Auth::user()->c_carr == $tutor->t_proy)
+        	    <li class="collection-item green lighten-4">{{ $tutor->nom_docente }}</li>
+        	@endif
+        @endforeach
+      </ul>
+	
+{{-- 	<table class="table table-hover table-bordered table-responsive">
 		<thead>
 			<tr>
 				<th>Tutor</th>
@@ -19,28 +29,14 @@
 				@if (Auth::user()->c_carr == $tutor->t_proy)
 				<tr>
 					<td>{{ $tutor->nom_docente }}</td>
-
-					{{-- <td>{{ $tutor->hasProtocolos->nom_protocolo }}</td> --}}
-
-					{{-- @foreach ($protocolos as $protocolo)
-						@if ($protocolo->user_id == $tutor->id)
-							<td>Protocolo creado</td>	
-						@endif
-					@endforeach  --}}
 				</tr>
 				@endif
 			@endforeach
 
-
-		{{-- 	@foreach ($protocolos as $protocolo)
-				<tr>
-					<td>{{ $protocolo->nom_protocolo }}</td>
-
-					<td>{{ $protocolo->user->nom_docente }}</td>
-				</tr>
-			@endforeach --}}
-
 		</tbody>
-	</table>
+	</table> --}}
+    </div>
+
+</div>
 </div>
 @endsection

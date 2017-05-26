@@ -16,11 +16,19 @@
 </div>
 
 @php
-	$fecha = date('d-m-20y');
+  $hoy = date('d-m-20y');
 @endphp
 
-<div class="page-header">
-<h5 class="text-right">Fecha: {{ $fecha }}  <span class="glyphicon glyphicon-calendar"></span></h5>
-  <h3>Bienvenido {{ Auth::user()->nom_docente }}</h3>
+<br>
+<br>
+
+<div class="card-panel lime lighten-3 hoverable">
+  <h5 class="right-align">{{ $hoy }}  <span class="glyphicon glyphicon-calendar"></span></h5>
+     <h4 class="center-align">¡Buen día!</h4>
+
+    <h4 class="center-align">Bienvenid@ ={{ Auth::user()->nom_docente }}=</h4>
+    <h5 class="center-align">Ahora estas logueado y puedes elegir en que rol quieres trabajar</h5>
+
+  
 </div>
 @endsection

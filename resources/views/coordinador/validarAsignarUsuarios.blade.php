@@ -4,20 +4,18 @@
 
 @section('contenido')
 
-{{-- @if (Session::has('info'))
-    <div class="alert alert-success">
-    	{{ Session::get('info') }}
-    </div>	
- @elseif(Session::has('info2'))
- <div class="alert alert-success">
- 	{{ Session::get('info2') }}
- </div>
-@endif --}}
+<div class="row">
+	<div class="col s12">
 
-<h1>Validar y dar de alta a coordinadores de carrera</h1>
+<div class="card-panel green lighten-4">
 
-<a href="{{ route('darBajaReasignarCoordinadorCarrera') }}">Dar de baja y reasignar</a>
-<table class="table table-hover table-bordered">
+<h5>Validar y dar de alta a coordinadores de carrera y docentes</h5>
+
+{{-- <a href="{{ route('darBajaReasignarCoordinadorCarrera') }}">Dar de baja y reasignar</a> --}}
+
+<a href="{{ route('darBajaReasignarCoordinadorCarrera') }}" class="waves-effect waves-light btn">{{-- <i class="material-icons left">cloud</i> --}}Dar de baja y reasignar</a>
+
+<table class="bordered highlight centered responsive-table">
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -82,6 +80,9 @@
 		@endforeach
 	</tbody>
 </table>
+</div>
 
+	</div>
+</div>
 
 @endsection

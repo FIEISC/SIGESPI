@@ -4,9 +4,12 @@
 
 @section('contenido')
 
-<div class="col-md-6 col-md-offset-3">
+<div class="row">
 
-<h3>Asignación Protocolos a los docentes</h3>
+<div class="col s8 offset-s2">
+
+<div class="card-panel green lighten-4">
+	<h5>Asignación Protocolos a los docentes</h5>
   
   <p><b>{{ $protocolo->nom_protocolo }}</b></p>
 
@@ -15,13 +18,15 @@
   <div>
     {!! Form::label('docentes', 'Docentes:') !!}
     <br>
-    {!! Form::select('users[]', $users, null, ['multiple', 'class' => 'form-control']) !!}
+    {!! Form::select('users[]', $users, null, ['multiple', 'class' => 'input-field col s12']) !!}
   </div>
 
-    {!! Form::submit('Asignar',['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Asignar',['class' => 'btn waves-effect waves-light']) !!}
 
     {!! Form::close() !!}
+</div>
 
+</div>
 </div>
 @endsection
 

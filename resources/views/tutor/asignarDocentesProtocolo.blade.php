@@ -16,12 +16,13 @@
 </div>
 @endif
 <div class="col-md-12 col-md-offset-0">
-  <h1>Asignar Docentes</h1>
+  <div class="card-panel green lighten-4">
+    <h5>Asignar Docentes</h5>
 
-  <table class="table table-hover table-bordered table-responsive">
+  <table class="bordered highlight centered responsive-table">
     
     <thead>
-      <tr class="bg-success">
+      <tr>
           <th class="text-center">Protocolo</th>
           <th class="text-center">Docentes</th>
           <th class="text-center">Acciones</th>
@@ -41,14 +42,20 @@
           @endforeach
             </td>
             <td>
-              <a href="{{ route('asignarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-success btn-sm">Asignar  <span class="glyphicon glyphicon-ok"></span></a>
-              <a style="margin-left: 60px;" href="{{ route('editarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-warning btn-sm">Editar  <span class="glyphicon glyphicon-edit"></span></a>
+              {{-- <a href="{{ route('asignarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-success btn-sm">Asignar  <span class="glyphicon glyphicon-ok"></span></a> --}}
+
+              <a href="{{ route('asignarDocentesProtocoloForm', $protocolo->id) }}" class="waves-effect waves-light green btn tooltipped" data-position="top" data-delay="50" data-tooltip="Asignar"><i class="material-icons">check</i></a>
+
+               <a href="{{ route('editarDocentesProtocoloForm', $protocolo->id) }}" class="waves-effect waves-light orange btn tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="material-icons">edit</i></a>
+
+              {{-- <a style="margin-left: 60px;" href="{{ route('editarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-warning btn-sm">Editar  <span class="glyphicon glyphicon-edit"></span></a> --}}
             </td>
           </tr>
           @endif
       @endforeach
     </tbody>
   </table>
+  </div>
 </div>
 @endsection
 

@@ -9,7 +9,10 @@
 		{{ Session::get('info') }}
 	</div>
 @endif
-<div class="col-md-10 col-md-offset-1">
+
+
+<div class="row">
+	<div class="col s12">
 
 	<h1>Dar de baja y reasignar</h1>
 <table class="table table-hover table-responsive table-bordered">
@@ -48,7 +51,11 @@
 
 							<input type="hidden" name="c_carr" value="N">
 
-							<button type="submit" class="btn btn-warning btn-xs">Quitar <span class="glyphicon glyphicon-remove"></span></button>
+							{{-- <button type="submit" class="btn btn-warning btn-xs">Quitar <span class="glyphicon glyphicon-remove"></span></button>
+ --}}
+							<button class="btn waves-effect waves-light red" type="submit">Quitar
+								<i class="material-icons">close</i>
+							</button>
 						</form>
 						@endif
 
@@ -60,7 +67,11 @@
 
 							<input type="hidden" name="activo" value="0">
 
-							<button type="submit" class="btn btn-danger btn-xs">Dar baja <span class="glyphicon glyphicon-arrow-down"></span></button>
+							{{-- <button type="submit" class="btn btn-danger btn-xs">Dar baja <span class="glyphicon glyphicon-arrow-down"></span></button> --}}
+
+							<button class="btn waves-effect waves-light orange" type="submit">Quitar
+								<i class="material-icons">arrow_downward</i>
+							</button>
 						</form>
 						@endif
 						</div>
@@ -71,6 +82,7 @@
 	</tbody>
 </table>
 
+</div>
 </div>
 @endsection
 

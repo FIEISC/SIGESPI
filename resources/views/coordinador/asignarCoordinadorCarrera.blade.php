@@ -16,41 +16,63 @@
 		{!! csrf_field() !!}
 		{!! method_field('PUT') !!}
 
-		<div class="form-group">
+	{{-- 	<div class="form-group">
 			<div class="radio">
 				<label>
 					<input type="radio" name="c_carr" id="c_carr" value="A">
 					Ingeniero Mecánico Electricista
 				</label>
 			</div>
-		</div>
+		</div> --}}
 
-		<div class="form-group">
+    <p>
+      <input name="c_carr" type="radio" id="c_carr" value="A" />
+      <label for="c_carr">Ingeniero Mecánico Electricista</label>
+    </p>
+
+		{{-- <div class="form-group">
 			<div class="radio">
 				<label>
 					<input type="radio" name="c_carr" id="c_carr" value="B">
 					Ingeniería en Tecnologías Electrónicas
 				</label>
 			</div>
-		</div>
+		</div> --}}
 
-		<div class="form-group">
+
+    <p>
+      <input name="c_carr" type="radio" id="c_carr" value="B" />
+      <label for="c_carr">Ingeniería en Tecnologías Electrónicas</label>
+    </p>
+
+	{{-- 	<div class="form-group">
 			<div class="radio">
 				<label>
 					<input type="radio" name="c_carr" id="c_carr" value="C">
 					Ingeniero en Mecatrónica
 				</label>
 			</div>
-		</div>
+		</div> --}}
 
-		<div class="form-group">
+		<p>
+		<input name="c_carr" type="radio" id="c_carr" value="C" />
+			<label for="c_carr">Ingeniero en Mecatrónica</label>
+		</p>
+
+		{{-- <div class="form-group">
 			<div class="radio">
 				<label>
 					<input type="radio" name="c_carr" id="c_carr" value="D">
 					Ingeniería en Sistemas Computacionales
 				</label>
 			</div>
-		</div>
+		</div> --}}
+
+		<p>
+		<input name="c_carr" type="radio" id="c_carr" value="D" />
+			<label for="c_carr">Ingeniería en Sistemas Computacionales</label>
+		</p>
+
 
 		<input type="hidden" name="rol[]" value="2">
 		<input type="hidden" name="rol[]" value="4">

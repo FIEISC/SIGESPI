@@ -42,7 +42,7 @@
 
       {{-- <li><a href="#">Notificaciones  <span class="badge">1</span></a></li> --}}
 
-       <li><a href="{{ route('notificaciones') }}">Notificaciones <span class="badge">{{ Auth::user()->unreadNotifications->count() }}</span></a></li>
+       <li><a href="{{ route('notificaciones') }}">Notificaciones <span class="new badge" data-badge-caption="">{{ Auth::user()->unreadNotifications->count() }}</span></a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

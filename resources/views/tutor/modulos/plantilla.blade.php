@@ -8,22 +8,23 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
    
    {{-- Materialize --}}
-{{--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+ {!! MaterializeCSS::include_full() !!}
 
-  Compiled and minified JavaScript
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> --}}
+<link rel="stylesheet" href="{{ asset('/materialize-css/css/materialize.min.css') }}">
 
+{{-- Icons Materialize --}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{{--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --}}
 
   <link rel="stylesheet" href="{{ asset('sweetalert/sweetalert.css') }}">
 
 {{--   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --}}
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> --}}
 
 {{--   <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker3.css') }}">
   <link rel="stylesheet" href="{{ asset('datePicker/css/bootstrap-datepicker.standalone.css') }}">
@@ -64,13 +65,13 @@
 	</div>
 </footer>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
     language: "es",
     autoclose: true
 });
-</script>
+</script> --}}
 
 <script>
   $('#ventana').on('shown.bs.modal', function () {
@@ -78,9 +79,12 @@ $('.datepicker').datepicker({
 })
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+
+<script src="{{ asset('/materialize-css/js/jquery.js') }}"></script>
+<script src="{{ asset('/materialize-css/js/materialize.min.js') }}"></script>
 
 <script src="/sweetalert/sweetalert.min.js"></script>
 
@@ -88,6 +92,23 @@ $('.datepicker').datepicker({
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
 });
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+      format: "yyyy-mm-dd",
+      language: "es",
+      selectMonths: true,
+      autoclose: true
+    /*selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year*/
+  });
+</script>
+
+<script>
+   $(document).ready(function() {
+    $('select').material_select();
+  });
 </script>
 
 @include('sweet::alert')	

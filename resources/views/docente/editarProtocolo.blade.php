@@ -4,18 +4,20 @@
 
 @section('contenido')
 
-<div class="col-md-10 col-md-offset-1">
+<div class="row">
+<div class="col s10 offset-s1">
 
 @php
 	$hoy = date('20y-m-d');
 	/*print_r($hoy);*/
 @endphp
 
-<h4>Editar Protocolo</h4>
+<div class="card-panel hoverable green lighten-4">
+	<h5>Editar Protocolo</h5>
 
 @if ($hoy >= $protocolo->fec_ini && $hoy <= $protocolo->fec_fin)
 
-<h3>{{ $protocolo->nom_protocolo }}</h3>
+<h5>{{ $protocolo->nom_protocolo }}</h5>
 
 <form action="{{ route('datosEditarProtocoloDocente', $protocolo->id) }}" method="POST">
 	{!! csrf_field() !!}
@@ -36,12 +38,18 @@
 			<textarea name="preguntas_guia" id="preguntas_guia" cols="30" rows="5" class="form-control">{{ $protocolo->preguntas_guia }}</textarea>
 		</div>
 
-		<button type="submit" class="btn btn-primary btn-block">Editar</button>
+		{{-- <button type="submit" class="btn btn-primary btn-block">Editar</button> --}}
+
+		<button class="btn waves-effect waves-light btn-block" type="submit">Editar
+			<i class="material-icons right">send</i>
+		</button>
 </form>
 
 @else
 <p>Ya no</p>
 @endif
+</div>
+</div>
 </div>
 
 

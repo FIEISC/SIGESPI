@@ -42,7 +42,11 @@
                        {!! csrf_field() !!}
                        {!! method_field('DELETE') !!}
 
-						<button type="submit" class="btn btn-danger btn-sm">Eliminar  <span class="glyphicon glyphicon-remove"></span></button>
+						{{-- <button type="submit" class="btn btn-danger btn-sm">Eliminar  <span class="glyphicon glyphicon-remove"></span></button> --}}
+
+						<button class="btn waves-effect waves-light red" type="submit">Eliminar
+							<i class="material-icons">close</i>
+  </button>
 			
 					</form>
 					</td>

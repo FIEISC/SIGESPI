@@ -4,9 +4,11 @@
 
 @section('contenido')
 
-<div class="col-md-10 col-md-offset-1">
+<div class="row">
+	<div class="col s12">
 
-	<h1>Baja de protocolos</h1>
+<div class="card-panel green lighten-4">
+		<h1>Baja de protocolos</h1>
 	<hr>
 
 	<table id="myTable" class="table table-responsive table-bordered table-hover">
@@ -45,7 +47,11 @@
 						{!! method_field('PUT') !!}
 						<input type="hidden" value="0" name="activo">
 
-						<button type="submit" class="btn btn-warning btn-sm">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
+					{{-- 	<button type="submit" class="btn btn-warning btn-sm">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button> --}}
+
+					<button class="btn waves-effect waves-light orange" type="submit">Baja
+						<i class="material-icons">arrow_downward</i>
+					</button>
 					</form>
 
 						{{-- <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ventana">Baja  <span class="glyphicon glyphicon-arrow-down"></span></button>
@@ -86,5 +92,7 @@
 			@endforeach
 		</tbody>
 	</table>
+</div>
+</div>
 </div>
 @endsection
