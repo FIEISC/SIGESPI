@@ -10,45 +10,71 @@
 	</div>
 @endif
 
-<div class="col-md-6 col-md-offset-3">
-	<h3>Crear Ciclo</h3>
+<div class="row">
+	<div class="col s8 offset-s2">
+	<div class="card-panel green lighten-4">
+		<h4>Crear Ciclo</h4>
 
 	<form action="{{ route('altaCiclosForm') }}" method="POST">
 		{!! csrf_field() !!}
 
-		<div class="form-group">
+		{{-- <div class="form-group">
 			<label for="nom_ciclo">Nombre del Ciclo Escolar</label>
 			<input type="text" name="nom_ciclo" class="form-control">
+		</div> --}}
+
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="nom_ciclo" name="nom_ciclo" type="text" class="validate">
+				<label for="nom_ciclo">Nombre del Ciclo Escolar</label>
+			</div>
 		</div>
 
-		<div class="form-group">
+		{{-- <div class="form-group">
 			<label for="ciclo">Ciclo</label>
 			<select name="ciclo" id="ciclo" class="form-control">
 				<option value="1">AGOSTO-DICIEMBRE</option>
 				<option value="2">ENERO-JUNIO</option>
 			</select>
+		</div> --}}
+
+		<div class="row">
+			<div class="input-field col s12">
+				<select name="ciclo">
+					<option value="" disabled selected>Elige el ciclo escolar</option>
+					<option value="1">AGOSTO-DICIEMBRE</option>
+					<option value="2">ENERO-JUNIO</option>
+				</select>
+				<label>Ciclo Escolar</label>
+			</div>
 		</div>
 
+	<div class="row">
 			<label for="date" class="form-control">Fecha</label>
 		<div class="input-group">
-			<input type="text" class="form-control datepicker" name="fec_ini" value="{!!date('20y-m-d') !!}">
+			<input type="date" class="datepicker" name="fec_ini" value="{!!date('20y-m-d') !!}">
 			<div class="input-group-addon">
 				<span class="glyphicon glyphicon-th"></span>
 			</div>
 		</div>
+	</div>
 		<br>
-		<label for="date" class="form-control">Fecha 2</label>
+		<div class="row">
+			<label for="date" class="form-control">Fecha 2</label>
 		<div class="input-group">
-			<input type="text" class="form-control datepicker" name="fec_fin">
+			<input type="date" class="datepicker" name="fec_fin">
 			<div class="input-group-addon">
 				<span class="glyphicon glyphicon-th"></span>
 			</div>
+		</div>
 		</div>
         <br>
 		<div class="form-group">
 		   <button type="submit" class="btn btn-primary btn-block">Crear Ciclo</button>
 		</div>
 	</form>
+	</div>
+	</div>
 </div>
 
 @endsection

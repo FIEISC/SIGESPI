@@ -74,5 +74,22 @@
   });
 </script>
 
+<script>
+    $('.datepicker').pickadate({
+      format: "yyyy-mm-dd",
+      language: "es",
+      selectMonths: true,
+      autoclose: true
+    /*selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year*/
+  });
+</script>
+
+<script>
+   $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+
 </body>
 </html>
