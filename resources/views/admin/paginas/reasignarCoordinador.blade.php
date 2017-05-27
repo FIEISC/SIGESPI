@@ -4,10 +4,12 @@
 
 @section('contenido')
 
-<div class="col-md-8 col-md-offset-2">
 <div class="row">
-<h1>Quitar Coordinador</h1>
-		<table class="table table-bordered table-responsive">
+	<div class="col s8 offset-s2">
+<div class="row">
+<h5>Quitar Coordinador</h5>
+
+		<table class="bordered highlight centered responsive-table">
 	<thead>
 		<tr>
 			<th>Coordinador Académico Actual</th>
@@ -27,7 +29,10 @@
 				{!! method_field('PUT') !!}
 
 					<input type="hidden" name="rol[]" value="4">
-					<button type="submit" class="btn btn-warning btn-xs">Quitar</button>
+
+					<button class="btn waves-effect waves-light red tooltipped" data-position="right" data-delay="50" data-tooltip="Quitar CA" type="submit">
+						<i class="material-icons">close</i>
+					</button>
 				</form>
 			</td>
 			@endif 
@@ -38,8 +43,8 @@
 </div>
 
 <div class="row">
-<h1>Reasignar Coordinador</h1>
-	<table class="table table-bordered table-responsive table-hover">
+<h5>Reasignar Coordinador</h5>
+	<table class="bordered highlight centered responsive-table">
 		<thead>
 			<tr>
 				<th>Docentes</th>
@@ -50,7 +55,7 @@
 		<tbody>
 			@foreach ($docentes as $docente)
 				<tr>
-					@if ($docente->rol == 4)
+					@if ($docente->rol == 4 && $docente->activo == 1)
 					<td>{{ $docente->nom_docente }}</td>
 					<td>
 						<form action="{{ route('reasignarCoordinadorForm', $docente->id) }}" method="POST">
@@ -61,7 +66,9 @@
 							<input type="hidden" name="rol[]" value="1">
 							<input type="hidden" name="rol[]" value="4">
 
-							<button type="submit" class="btn btn-primary btn-xs">Asignar</button>
+							<button class="btn waves-effect waves-light green tooltipped" data-position="right" data-delay="50" data-tooltip="Asignar CA" type="submit">
+								<i class="material-icons">check</i>
+							</button>
 						</form>
 					</td>
 				@endif
@@ -73,8 +80,7 @@
 </div>
 
 
-
-
+</div>
 @endsection
 
 

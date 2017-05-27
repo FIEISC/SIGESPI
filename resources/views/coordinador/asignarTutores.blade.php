@@ -55,36 +55,15 @@
 							 
 							  @if ($ciclo->ciclo == 1)
 
-							 {{--    <div class="radio">
-									<label id="1">
-									<input type="radio" name="t_semestre" id="1" value="1">
-										1
-									</label>
-								</div> --}}
-
 								<p>
 								<input name="t_semestre" type="radio" id="1" value="1" />
 									<label for="1">1</label>
 								</p>
 
-							{{-- 	<div class="radio">
-									<label id="3">
-									<input type="radio" name="t_semestre" id="3" value="3">
-										3
-									</label>
-								</div> --}}
-
 								<p>
 								<input name="t_semestre" type="radio" id="3" value="3" />
 									<label for="3">3</label>
 								</p>
-
-							{{-- 	<div class="radio">
-									<label id="5">
-									<input type="radio" name="t_semestre" id="5" value="5">
-										5
-									</label>
-								</div> --}}
 
 								<p>
 								<input name="t_semestre" type="radio" id="5" value="5" />
@@ -93,36 +72,15 @@
 
 								@elseif($ciclo->ciclo == 2)
                                                         
-								{{--   	<div class="radio">
-									<label id="2">
-									<input type="radio" name="t_semestre" id="2" value="2">
-										2
-									</label>
-								</div> --}}
-
 								<p>
 								<input name="t_semestre" type="radio" id="2" value="2" />
 									<label for="2">2</label>
 								</p>
 
-							{{-- 	<div class="radio">
-									<label id="4">
-									<input type="radio" name="t_semestre" id="4" value="4">
-										4
-									</label>
-								</div> --}}
-
 								<p>
 								<input name="t_semestre" type="radio" id="4" value="4" />
 									<label for="4">4</label>
 								</p>
-
-							{{-- 	<div class="radio">
-									<label id="6">
-									<input type="radio" name="t_semestre" id="6" value="6">
-										6
-									</label>
-								</div> --}}
 
 								<p>
 								<input name="t_semestre" type="radio" id="6" value="6" />

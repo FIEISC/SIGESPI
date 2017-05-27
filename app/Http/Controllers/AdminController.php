@@ -68,6 +68,8 @@ class AdminController extends Controller
     public function validarCoordinador()
     {
     	$docentes = User::all();
+        /*Pasa al coordinador academico para validar que ya este registrado en el sistema y se pueda
+        hacer una condicion para no mostrar el boton "asignar" en la vista cuando ya este registrado*/
         $coordinador = User::where('rol', '=', 1)->first();
 
     	return view('admin.paginas.validarCoordinador', compact('docentes', 'coordinador'));

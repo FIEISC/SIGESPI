@@ -33,17 +33,26 @@ class CoordinadorController extends Controller
 
         $noactivos = User::where('activo', '=', 0)->get();
 
+        $coordinadores_carr = User::where('rol', '=', 2)->get();
+
+      /*  if (count($coordinadores_carr) === 4) 
+        {
+            return "Estan todos los coordinadores de carrera";
+        }*/
+
 /*        if (count($vacios) === 0) 
         {
             return "No hay activos";
         }
+
+
 
         else
         {
             return "Gatos";
         }*/
 
-    	return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos'));
+    	return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos', 'coordinadores_carr'));
     }
 
     public function formvalidarAsignarUsuarios(Request $request, $id)
@@ -127,8 +136,24 @@ class CoordinadorController extends Controller
     {
         $docentes = User::orderBy('c_carr', 'ASC')->get();
         $tutores = User::orderBy('t_semestre', 'ASC')->get();
+        
+        $coordinadores_carr = User::where('rol', '=', 2)->get();
 
-        return view('coordinador.altaTutores', compact('docentes', 'tutores'));
+    /*    if (count($coordinadores_carr) === 0) 
+        {
+            return "No hay";
+        }
+
+        elseif (count($coordinadores_carr) === 4) 
+        {
+            return "Estan todos los coordin de carrera";
+        }
+        else
+        {
+            return "Si hay";
+        }*/
+
+        return view('coordinador.altaTutores', compact('docentes', 'tutores', 'coordinadores_carr'));
     }
 
     public function asignarTutores($id)
