@@ -4,39 +4,42 @@
 
 @section('contenido')
 
-@if (Session::has('info'))
-	<div class="alert alert-success">
-		{{ Session::get('info') }}
+<div class="row">
+	<div class="col s6 offset-s3">
+
+	<div class="card-panel green lighten-4">
+
+		<h5>Dar de alta a Campus</h5>
+
+		<form action="{{ route('altaCampusForm') }}" method="POST">
+
+			{!! csrf_field() !!}
+
+			<div class="input-field col s12">
+				<input id="nom_campus" name="nom_campus" type="text" class="validate">
+				<label for="nom_campus">Nombre del Campus</label>
+			</div>
+
+			<div class="input-field col s12">
+				<input id="delegacion" name="delegacion" type="text" class="validate">
+				<label for="delegacion">Delegación</label>
+			</div>
+
+			<div class="input-field col s12">
+				<input id="nom_universidad" name="nom_universidad" type="text" class="validate" value="Universidad de Colima" readonly="true">
+				<label for="nom_universidad">Universidad</label>
+			</div>
+
+			{{-- <button type="submit" class="btn btn-primary">Registrar</button> --}}
+
+			<button class="btn waves-effect waves-light" type="submit">Registrar
+				<i class="material-icons right">send</i>
+			</button>
+		</form>
+		<br>
+		<a href="{{ route('listaCampus') }}">Ver lista de Campus</a>
 	</div>
-@endif
-
-<div class="col-md-4 col-md-offset-4">
-	<h3>Dar de alta a Campus</h3>
-
-	<form action="{{ route('altaCampusForm') }}" method="POST">
-
-		{!! csrf_field() !!}
-
-		<div class="form-group">
-			<label for="nom_campus">Nombre del Campus</label>
-			<input type="text" name="nom_campus" class="form-control">
-		</div>
-
-
-		<div class="form-group">
-			<label for="delegacion">Delegación</label>
-			<input type="text" name="delegacion" class="form-control">
-		</div>
-
-		<div class="form-group">
-			<label for="nom_universidad">Universidad</label>
-			<input type="text" name="nom_universidad" class="form-control" value="Universidad de Colima">
-		</div>
-
-		<button type="submit" class="btn btn-primary">Registrar</button>
-	</form>
-<br>
-	<a href="{{ route('listaCampus') }}">Ver lista de Campus</a>
+	</div>
 </div>
 @endsection
 

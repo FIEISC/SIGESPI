@@ -10,35 +10,40 @@
 	</div>
 @endif
 
-<div class="col-md-4 col-md-offset-4">
-	<h3>Alta de planteles</h3>
+<div class="row">
+	<div class="col s6 offset-s3">
+	<div class="card-panel green lighten-4">
+		<h5>Alta de planteles</h5>
 
 	<form action="{{ route('altaPlantelesForm') }}" method="POST">
+
 		{!! csrf_field() !!}
 
-		<div class="form-group">
+		<div class="input-field col s12">
+			<input id="nom_plantel" name="nom_plantel" type="text" class="validate">
 			<label for="nom_plantel">Nombre del plantel</label>
-			<input type="text" name="nom_plantel" class="form-control">
 		</div>
 
-		<div class="form-group">
-			<label for="siglas">Siglas del plantel</label>
-			<input type="text" name="siglas" class="form-control">
+		<div class="input-field col s12">
+			<input id="siglas" name="siglas" type="text" class="validate">
+			<label for="siglas">Siglas</label>
 		</div>
 
-		<div class="form-group">
-			<label for="campus_id">Campus</label>
-			<select name="campus_id" id="campus_id" class="form-control">
-
-			<option>Elije un Campus</option>
-				@foreach ($campus as $campu)
+		<div class="input-field col s12">
+			<select name="campus_id">
+			   @foreach ($campus as $campu)
 					<option value="{{ $campu->id }}">{{ $campu->nom_campus }}</option>
 				@endforeach
 			</select>
+			<label>Elegir campus</label>
 		</div>
 
-		<button type="submit" class="btn btn-primary btn-block">Registrar</button>
+		<button class="btn waves-effect waves-light" type="submit">Registrar
+			<i class="material-icons right">send</i>
+		</button>
 	</form>
+	</div>
+	</div>
 </div>
 @endsection
 

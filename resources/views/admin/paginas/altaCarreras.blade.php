@@ -4,48 +4,50 @@
 
 @section('contenido')
 
-@if (Session::has('info'))
-	<div class="alert alert-success">
-		{{ Session::get('info') }}
-	</div>
-@endif
-<div class="col-md-6 col-md-offset-3">
-	<h3>Alta de Carreras</h3>
+<div class="row">
+	<div class="col s6 offset-s3">
+
+	<div class="card-panel green lighten-4">
+		<h5>Alta de Carreras</h5>
 
 	<form action="{{ route('altaCarrerasForm') }}" method="POST">
 		{!! csrf_field() !!}
 
-		<div class="form-group">
-			<label for="nom_carrera">Nombre de la carrera</label>
-			<input type="text" name="nom_carrera" class="form-control">
-		</div>
+		<div class="input-field col s12">
+          <input id="nom_carrera" name="nom_carrera" type="text" class="validate">
+          <label for="nom_carrera">Nombre de la carrera</label>
+        </div>
 
-		<div class="form-group">
-			<label for="siglas">Siglas</label>
-			<input type="text" name="siglas" class="form-control">
-		</div>
+		<div class="input-field col s12">
+          <input id="siglas" name="siglas" type="text" class="validate">
+          <label for="siglas">Siglas</label>
+        </div>
 
-		<div class="form-group">
-			<label for="grupo">Grupo</label>
-			<select name="grupo" id="grupo" class="form-control">
+		<div class="input-field col s12">
+			<select name="grupo">
 				<option value="A">A</option>
 				<option value="B">B</option>
 				<option value="C">C</option>
 				<option value="D">D</option>
 			</select>
+			<label>Grupo</label>
 		</div>
 
-		<div class="form-group">
-			<label for="plantel_id">Plantel</label>
-			<select name="plantel_id" id="plantel_id" class="form-control">
+		<div class="input-field col s12">
+			<select name="plantel_id">
 				@foreach ($planteles as $plantel)
 					<option value="{{ $plantel->id }}">{{ $plantel->nom_plantel }}</option>
 				@endforeach
 			</select>
+			<label>Plantel</label>
 		</div>
 
-		<button type="submit" class="btn btn-primary btn-block">Registrar</button>
+		<button class="btn waves-effect waves-light" type="submit">Registrar
+			<i class="material-icons right">send</i>
+		</button>
 	</form>
+	</div>
+	</div>
 </div>
 @endsection
 

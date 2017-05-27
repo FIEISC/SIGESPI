@@ -4,24 +4,13 @@
 
 @section('contenido')
 
-@if (Session::has('info'))
-	<div class="alert alert-success">
-		{{ Session::get('info') }}
-	</div>
-@endif
-
 <div class="row">
-	<div class="col s8 offset-s2">
+	<div class="col s6 offset-s3">
 	<div class="card-panel green lighten-4">
 		<h4>Crear Ciclo</h4>
 
 	<form action="{{ route('altaCiclosForm') }}" method="POST">
 		{!! csrf_field() !!}
-
-		{{-- <div class="form-group">
-			<label for="nom_ciclo">Nombre del Ciclo Escolar</label>
-			<input type="text" name="nom_ciclo" class="form-control">
-		</div> --}}
 
 		<div class="row">
 			<div class="input-field col s12">
@@ -29,14 +18,6 @@
 				<label for="nom_ciclo">Nombre del Ciclo Escolar</label>
 			</div>
 		</div>
-
-		{{-- <div class="form-group">
-			<label for="ciclo">Ciclo</label>
-			<select name="ciclo" id="ciclo" class="form-control">
-				<option value="1">AGOSTO-DICIEMBRE</option>
-				<option value="2">ENERO-JUNIO</option>
-			</select>
-		</div> --}}
 
 		<div class="row">
 			<div class="input-field col s12">

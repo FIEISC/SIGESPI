@@ -131,14 +131,7 @@ class AdminController extends Controller
             return view('admin.paginas.altaCampus');
         }
 
-        public function listaCampus()
-        {
-            $campus = Campus::all();
-
-            return view('admin.paginas.listaCampus', compact('campus'));
-        }
-
-        public function altaCampusForm(Request $request)
+           public function altaCampusForm(Request $request)
         {
             $this->validate($request,
                 [
@@ -152,8 +145,17 @@ class AdminController extends Controller
             $nom_universidad = strtoupper($request->input('nom_universidad'));
 
             Campus::create(['nom_campus' => $nom_campus, 'delegacion' => $delegacion, 'nom_universidad' => $nom_universidad]);
+            
+            Alert::success('El campus ha sido dado de alta exitosamente', 'Campus registrado');
 
-            return redirect()->route('altaCampus')->with('info', 'El campus ha sido dado de alta exitosamente');
+            return redirect()->route('altaCampus');
+        }
+
+        public function listaCampus()
+        {
+            $campus = Campus::all();
+
+            return view('admin.paginas.listaCampus', compact('campus'));
         }
 
         //Dada de alta de los planteles
@@ -179,7 +181,9 @@ class AdminController extends Controller
 
             Plantel::create(['nom_plantel' => $nom_plantel, 'siglas' => $siglas, 'campus_id' => $campus_id]);
 
-            return redirect()->route('altaPlanteles')->with('info', 'El plantel ha sido dado de alta exitosamente');
+            Alert::success('El plantel ha sido dado de alta exitosamente', 'Plantel registrado');
+
+            return redirect()->route('altaPlanteles');
         }
 
         //Dada de alta de las carreras!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -220,8 +224,10 @@ class AdminController extends Controller
             //dd($request->all());
 
             Ciclo::create($request->all());
+            
+            Alert::success('El ciclo ha sido registrado en el sistema');
 
-            return redirect()->route('altaCiclos')->with('info', 'Ciclo creado!');
+            return redirect()->route('altaCiclos');
         }
 }
 
