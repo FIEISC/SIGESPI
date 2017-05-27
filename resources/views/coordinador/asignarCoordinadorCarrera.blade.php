@@ -9,76 +9,51 @@
 		{{ Session::get('info') }}
 	</div>
 @endif
-<div class="col-md-4 col-md-offset-4">
-	<h3>Asignar Coordinador de Carrera</h3>
+
+<div class="row">
+	<div class="col s6 offset-s3">
+	<div class="card-panel green lighten-4 hoverable">
+		<h5>Dar alta a coordinador de carrera</h5>
+
+		<p><b>Docente:</b> {{ $docente->nom_docente }}</p>
 
 	<form action="{{ route('formAsignarCoordinadorCarrera', $docente->id) }}" method="POST">
 		{!! csrf_field() !!}
 		{!! method_field('PUT') !!}
 
-	{{-- 	<div class="form-group">
-			<div class="radio">
-				<label>
-					<input type="radio" name="c_carr" id="c_carr" value="A">
-					Ingeniero Mecánico Electricista
-				</label>
-			</div>
-		</div> --}}
-
     <p>
-      <input name="c_carr" type="radio" id="c_carr" value="A" />
-      <label for="c_carr">Ingeniero Mecánico Electricista</label>
+      <input name="c_carr" type="radio" id="A" value="A" />
+      <label for="A">Ingeniero Mecánico Electricista</label>
     </p>
 
-		{{-- <div class="form-group">
-			<div class="radio">
-				<label>
-					<input type="radio" name="c_carr" id="c_carr" value="B">
-					Ingeniería en Tecnologías Electrónicas
-				</label>
-			</div>
-		</div> --}}
+    <p>
+      <input name="c_carr" type="radio" id="B" value="B" />
+      <label for="B">Ingeniería en Tecnologías Electrónicas</label>
+    </p>
+
+    <p>
+    	<input name="c_carr" type="radio" id="C" value="C" />
+    	<label for="C">Ingeniero en Mecatrónica</label>
+    </p>
 
 
     <p>
-      <input name="c_carr" type="radio" id="c_carr" value="B" />
-      <label for="c_carr">Ingeniería en Tecnologías Electrónicas</label>
+    	<input name="c_carr" type="radio" id="D" value="D" />
+    	<label for="D">Ingeniería en Sistemas Computacionales</label>
     </p>
 
-	{{-- 	<div class="form-group">
-			<div class="radio">
-				<label>
-					<input type="radio" name="c_carr" id="c_carr" value="C">
-					Ingeniero en Mecatrónica
-				</label>
-			</div>
-		</div> --}}
 
-		<p>
-		<input name="c_carr" type="radio" id="c_carr" value="C" />
-			<label for="c_carr">Ingeniero en Mecatrónica</label>
-		</p>
-
-		{{-- <div class="form-group">
-			<div class="radio">
-				<label>
-					<input type="radio" name="c_carr" id="c_carr" value="D">
-					Ingeniería en Sistemas Computacionales
-				</label>
-			</div>
-		</div> --}}
-
-		<p>
-		<input name="c_carr" type="radio" id="c_carr" value="D" />
-			<label for="c_carr">Ingeniería en Sistemas Computacionales</label>
-		</p>
+    <input type="hidden" name="rol[]" value="2">
+    <input type="hidden" name="rol[]" value="4">
 
 
-		<input type="hidden" name="rol[]" value="2">
-		<input type="hidden" name="rol[]" value="4">
-
-		<button type="submit" class="btn btn-primary">Asignar</button>
+    <button class="btn waves-effect waves-light" type="submit">Dar de alta
+    	<i class="material-icons right">send</i>
+    </button>
+		
 	</form>
+	</div>
+	</div>
 </div>
 
 @endsection

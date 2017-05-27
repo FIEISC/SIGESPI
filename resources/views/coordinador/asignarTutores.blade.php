@@ -13,9 +13,9 @@
 
 <div class="row">
 	<div class="col s12">
-	<h2>Asignar Tutores a: </h2>
+	<h4>Asignar Tutores a: </h4>
 	<p><b>{{ $cc->nom_docente }}</b></p>
-	<table class="table table-hover table-bordered table-responsive">
+	<table class="bordered highlight centered responsive-table">
 		<thead>
 			<tr>
 				<th>Docente</th>
@@ -150,8 +150,12 @@
 								         <input type="hidden" name="rol[]" value="4">
 									@endif
 								
+{{-- 
+								<button type="submit" class="btn btn-info btn-xs">Asignar  <span class="glyphicon glyphicon-ok"></span></button> --}}
 
-								<button type="submit" class="btn btn-info btn-xs">Asignar  <span class="glyphicon glyphicon-ok"></span></button>
+								<button class="btn waves-effect waves-light tooltipped" data-position="right" data-delay="50" data-tooltip="Asignar" type="submit">
+									<i class="material-icons">check</i>
+								</button>
 							</form>
 						</td>
 					</tr>

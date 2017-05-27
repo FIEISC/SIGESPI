@@ -30,7 +30,20 @@ class CoordinadorController extends Controller
     public function validarAsignarUsuarios()
     {
     	$docentes = User::all();
-    	return view('coordinador.validarAsignarUsuarios', compact('docentes'));
+
+        $noactivos = User::where('activo', '=', 0)->get();
+
+/*        if (count($vacios) === 0) 
+        {
+            return "No hay activos";
+        }
+
+        else
+        {
+            return "Gatos";
+        }*/
+
+    	return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos'));
     }
 
     public function formvalidarAsignarUsuarios(Request $request, $id)
@@ -102,8 +115,10 @@ class CoordinadorController extends Controller
     public function bajaDocenteForm(Request $request, $id)
     {
         DB::table('users')->where('id', $id)->update(['activo' => $request->input('activo')]);
+        
+        Alert::success('Para darlo de alta de nuevo, ir a la sección "Activar y Asignar"', 'Docente dado de baja');
 
-        return redirect()->route('darBajaReasignarCoordinadorCarrera')->with('info', 'Docente dado de baja exitosamente, para darlo de alta ir a la sección "válidar y dar de alta"');
+        return redirect()->route('darBajaReasignarCoordinadorCarrera');
     }
 
     //Alta de tutores!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

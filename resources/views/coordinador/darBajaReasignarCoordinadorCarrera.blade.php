@@ -14,8 +14,9 @@
 <div class="row">
 	<div class="col s12">
 
-	<h1>Dar de baja y reasignar</h1>
-<table class="table table-hover table-responsive table-bordered">
+	<div class="card-panel green lighten-4">
+		<h4>Dar de baja y reasignar</h4>
+<table class="bordered highlight centered responsive-table">
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -53,7 +54,7 @@
 
 							{{-- <button type="submit" class="btn btn-warning btn-xs">Quitar <span class="glyphicon glyphicon-remove"></span></button>
  --}}
-							<button class="btn waves-effect waves-light red" type="submit">Quitar
+							<button class="btn waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Quitar como CC" type="submit">
 								<i class="material-icons">close</i>
 							</button>
 						</form>
@@ -69,7 +70,7 @@
 
 							{{-- <button type="submit" class="btn btn-danger btn-xs">Dar baja <span class="glyphicon glyphicon-arrow-down"></span></button> --}}
 
-							<button class="btn waves-effect waves-light orange" type="submit">Quitar
+							<button class="btn waves-effect waves-light orange tooltipped" data-position="right" data-delay="50" data-tooltip="Dar de baja" type="submit">
 								<i class="material-icons">arrow_downward</i>
 							</button>
 						</form>
@@ -81,8 +82,8 @@
 		@endforeach
 	</tbody>
 </table>
-
-</div>
+	</div>
+	</div>
 </div>
 @endsection
 

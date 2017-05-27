@@ -20,22 +20,33 @@
 	<form action="{{ route('datosLogin') }}" method="POST">
 
 	{!! csrf_field() !!}
-		<div class="form-group{{ $errors->has('no_docente') ? ' has-error' : ''}}">
+
+		{{-- <div class="form-group{{ $errors->has('no_docente') ? ' has-error' : ''}}">
 			<label for="no_docente">Número de trabajador</label>
 			<input type="text" name="no_docente" class="form-control">
 			@if ($errors->has('no_docente'))
 			<span class="help-block">{{ $errors->first('no_docente') }}</span>
 			@endif
-		</div>
+		</div> --}}
 
+		<div class="input-field col s12">
+          <input id="no_docente" name="no_docente" type="text" class="validate">
+          <label for="no_docente">Número de trabajador</label>
+        </div>
 
+{{-- 
 		<div class="form-group{{ $errors->has('password') ? ' has-error' : ''}}">
 			<label for="password">Contraseña</label>
 			<input type="password" name="password" class="form-control">
 			  @if ($errors->has('password'))
 			<span class="help-block">{{ $errors->first('password') }}</span>
 		      @endif
-		</div>
+		</div> --}}
+
+		<div class="input-field col s12">
+          <input id="password" name="password" type="password" class="validate">
+          <label for="password">Contraseña</label>
+        </div>
 
 		<button type="submit" class="btn btn-primary btn-block">Entrar</button>
 	</form>

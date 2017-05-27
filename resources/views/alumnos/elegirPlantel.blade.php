@@ -14,12 +14,22 @@
 
 	{{ csrf_field() }}
 
-	<select name="plantel_id" onchange="this.form.submit()" class="form-control">
+{{-- 	<select name="plantel_id" onchange="this.form.submit()" class="form-control">
 		@foreach ($planteles as $plantel)
 		<option value="null">Elegir</option>
 		<option value="{{ $plantel->id }}">{{ $plantel->nom_plantel }}</option>
 		@endforeach
-	</select>
+	</select> --}}
+
+	<div class="input-field col s12">
+		<select name="plantel_id" onchange="this.form.submit()">
+			@foreach ($planteles as $plantel)
+			<option value="null">Elegir</option>
+			<option value="{{ $plantel->id }}">{{ $plantel->nom_plantel }}</option>
+			@endforeach
+		</select>
+	{{-- 	<label>Elegir plantel</label> --}}
+	</div>
 </form>
 </div>
 @endsection
