@@ -30,31 +30,10 @@ class CoordinadorController extends Controller
     public function validarAsignarUsuarios()
     {
     	$docentes = User::all();
-
         $noactivos = User::where('activo', '=', 0)->get();
-
+        /*Para pasar solo los coordinadores de carrera y asi poder ocultar el boton de 'asignar' cuando esten todos los coordinadores asignados*/
         $coordinadores_carr = User::where('rol', '=', 2)->get();
 
- /*       if (count($coordinadores_carr) === 4) 
-        {
-            return "Estan todos los coordinadores de carrera";
-        }
-
-        else
-        {
-            return "Todavia falta";
-        }*/
-
-/*        if (count($noactivos) === 0) 
-        {
-            return "No hay activos";
-        }
-
-        else
-        {
-            return "Gatos";
-        }
-*/
     	return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos', 'coordinadores_carr'));
     }
 
@@ -191,8 +170,11 @@ class CoordinadorController extends Controller
         $t_proy = $request->input('t_proy');
 
         DB::table('users')->where('id', $id)->update(['t_proy' => $t_proy, 'rol' => $roles, 't_semestre' => $t_semestre]);
+        
 
-        return redirect()->route('altaTutores')->with('info', 'Tutor asignado');
+        Alert::success('Fué asignado como tutor de proyecto', 'Tutor asignado');
+
+        return redirect()->route('altaTutores');
     }
 
     //Ver Protocolos!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -200,12 +182,14 @@ class CoordinadorController extends Controller
     public function verProtocolos()
     {
         $protocolos = Protocolo::all();
+
         return view('coordinador.verProtocolos', compact('protocolos'));
     }
 
     public function bajaProtocolos()
     {   
         $protocolos = Protocolo::all();
+
         return view('coordinador.bajaProtocolos', compact('protocolos'));
     }
 
@@ -221,6 +205,7 @@ class CoordinadorController extends Controller
     public function eliminarProtocolos()
     {
         $protocolos = Protocolo::all();
+
         return view('coordinador.eliminarProtocolos', compact('protocolos'));
     }
 
