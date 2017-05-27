@@ -10,13 +10,18 @@
 	</div>
 @endif
 
-
 <div class="row">
 	<div class="col s12">
 
-	<div class="card-panel green lighten-4">
-		<h4>Dar de baja y reasignar</h4>
-<table class="bordered highlight centered responsive-table">
+		<div class="card-panel green lighten-4">
+			<h4>Dar de baja y reasignar</h4>
+           
+           @if (count($coordinadores_carr) === 0)
+           	<h5 class="center-align indigo-text">No hay coordinadores de carrera activados todavía</h5>
+
+           	@else
+
+           	<table class="bordered highlight centered responsive-table">
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -82,7 +87,10 @@
 		@endforeach
 	</tbody>
 </table>
-	</div>
+           	
+           @endif
+
+		</div>
 	</div>
 </div>
 @endsection

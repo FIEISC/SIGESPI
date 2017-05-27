@@ -16,7 +16,7 @@
 		<div class="card-panel green lighten-4">
 			<h4>Alta tutores para los coordinadores de carrera</h4>
 			<br>
-			@if (count($coordinadores_carr) == 0)
+			@if (count($coordinadores_carr) === 0)
 				<h5 class="center-align indigo-text">No hay coordinadores de carrera dados de alta todavía...</h5>
 			@else
 			<table class="bordered highlight centered responsive-table">
@@ -32,7 +32,7 @@
 
 				<tbody>
 					@foreach ($docentes as $docente)
-					@if ($docente->c_carr != 'N' && $docente->c_carr != 'Z' && Auth::user()->plantel == $docente->plantel)
+					@if ($docente->c_carr != 'N' && $docente->c_carr != 'Z' && Auth::user()->plantel == $docente->plantel && $docente->activo == 1)
 					<tr>
 						<td>{{ $docente->nom_docente }}</td>
 

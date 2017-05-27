@@ -35,23 +35,26 @@ class CoordinadorController extends Controller
 
         $coordinadores_carr = User::where('rol', '=', 2)->get();
 
-      /*  if (count($coordinadores_carr) === 4) 
+ /*       if (count($coordinadores_carr) === 4) 
         {
             return "Estan todos los coordinadores de carrera";
+        }
+
+        else
+        {
+            return "Todavia falta";
         }*/
 
-/*        if (count($vacios) === 0) 
+/*        if (count($noactivos) === 0) 
         {
             return "No hay activos";
         }
 
-
-
         else
         {
             return "Gatos";
-        }*/
-
+        }
+*/
     	return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos', 'coordinadores_carr'));
     }
 
@@ -118,7 +121,19 @@ class CoordinadorController extends Controller
     { 
         $docentes = User::orderBy('c_carr', 'ASC')->get();
 
-        return view('coordinador.darBajaReasignarCoordinadorCarrera', compact('docentes'));
+        $coordinadores_carr = User::where('rol', '=', 2)->get();
+/*
+        if (count($coordinadores_carr) === 0) 
+        {
+            return "No hay coordinadores";
+        }
+
+        else
+        {
+            return "Hay al menos uno";
+        }
+*/
+        return view('coordinador.darBajaReasignarCoordinadorCarrera', compact('docentes', 'coordinadores_carr'));
     }
 
     public function bajaDocenteForm(Request $request, $id)
@@ -137,6 +152,7 @@ class CoordinadorController extends Controller
         $docentes = User::orderBy('c_carr', 'ASC')->get();
         $tutores = User::orderBy('t_semestre', 'ASC')->get();
         
+        /*Para verificar verificar si hay coordinadores de carrera dados de alta y que esten activados*/
         $coordinadores_carr = User::where('rol', '=', 2)->get();
 
     /*    if (count($coordinadores_carr) === 0) 

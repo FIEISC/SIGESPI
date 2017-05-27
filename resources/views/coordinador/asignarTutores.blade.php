@@ -15,6 +15,7 @@
 	<div class="col s12">
 	<h4>Asignar Tutores a: </h4>
 	<p><b>{{ $cc->nom_docente }}</b></p>
+
 	<table class="bordered highlight centered responsive-table">
 		<thead>
 			<tr>
@@ -56,37 +57,37 @@
 							  @if ($ciclo->ciclo == 1)
 
 								<p>
-								<input name="t_semestre" type="radio" id="1" value="1" />
+								<input name="t_semestre" type="radio" id="1" value="1">
 									<label for="1">1</label>
 								</p>
 
 								<p>
-								<input name="t_semestre" type="radio" id="3" value="3" />
+								<input name="t_semestre" type="radio" id="3" value="3">
 									<label for="3">3</label>
 								</p>
 
 								<p>
-								<input name="t_semestre" type="radio" id="5" value="5" />
+								<input name="t_semestre" type="radio" id="5" value="5">
 									<label for="5">5</label>
 								</p>
 
 								@elseif($ciclo->ciclo == 2)
                                                         
 								<p>
-								<input name="t_semestre" type="radio" id="2" value="2" />
+								<input name="t_semestre" type="radio" id="2" value="2">
 									<label for="2">2</label>
 								</p>
 
 								<p>
-								<input name="t_semestre" type="radio" id="4" value="4" />
+								<input name="t_semestre" type="radio" id="4" value="4">
 									<label for="4">4</label>
 								</p>
 
 								<p>
-								<input name="t_semestre" type="radio" id="6" value="6" />
+								<input name="t_semestre" type="radio" id="6" value="6">
 									<label for="6">6</label>
 								</p>
-							    	@endif
+							    @endif
 							 
 								<input type="hidden" name="t_proy" value="{{ $cc->c_carr }}">
 
