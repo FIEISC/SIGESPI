@@ -25,4 +25,5 @@ class Equipo extends Model
     {
     	return $this->hasMany(Alumno::class);
     }
+
 }

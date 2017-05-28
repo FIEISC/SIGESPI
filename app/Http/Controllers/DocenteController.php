@@ -58,9 +58,36 @@ class DocenteController extends Controller
 
     public function infoDocenteProtocolo($id)
     {
-        $protocolo = Protocolo::findOrFail($id);
-        $equipo = Equipo::where('user_id', '=', Auth::user()->id)->first();
-        $alumnos = Alumno::all();
-        return view('docente.infoDocenteProtocolo', compact('protocolo', 'equipo', 'alumnos'));
+        //$protocolo = Protocolo::findOrFail($id);
+
+        $tutor = Protocolo::where('id', '=', $id)->first();
+
+        /*dd($tutor->user->nom_docente);*/
+        
+        /*El id que se pasa como parametro es el id del protocolo*/
+        $equipo = Equipo::where('user_id', '=', Auth::user()->id)->where('protocolo_id', '=', $id)->first();
+
+        if ($equipo === null) 
+        {
+            Alert::warning('No estas asignado a un equipo de trabajo', 'No asignado');
+            return redirect()->back();
+        }
+
+        $alumnos = Alumno::where('equipo_id', '=', $equipo->id)->get();
+
+        return view('docente.infoDocenteProtocolo', compact('equipo', 'alumnos', 'tutor'));
     }
 }
+
+
+/*    public function infoDocenteProtocolo($id)
+    {
+        $protocolo = Protocolo::findOrFail($id);
+
+        $equipo = Equipo::where('user_id', '=', Auth::user()->id)->first();
+
+        $alumnos = Alumno::all();
+
+        dd($alumnos);
+        return view('docente.infoDocenteProtocolo', compact('protocolo', 'equipo', 'alumnos'));
+    }*/

@@ -8,8 +8,10 @@
   <div class="col s6 offset-s3">
 
   <div class="card-panel green lighten-4">
-    <h5>Elegir Ciclo</h5>
-  <table class="table table-responsive table-hover table-bordered">
+
+    <h5 class="center-align">Elegir Ciclo</h5>
+
+  <table class="bordered highlight centered responsive-table"> 
     <thead>
       <tr>
         <th>Ciclo</th>

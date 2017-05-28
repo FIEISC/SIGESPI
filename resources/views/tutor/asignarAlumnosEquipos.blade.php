@@ -5,36 +5,40 @@
 @section('contenido')
 
 {{-- <p>Quien creo el equipo: {{ $equipo->protocolo->user_id }}</p> --}}
+<div class="row">
+	
+	<div class="col s6 offset-s3">
 
-<div class="col-md-6 col-md-offset-3">
+      
+      <div class="card-panel green lighten-4">
+      	<h5>Asignar Alumnos</h5>
 
-<h1>Asignar Alumnos</h1>
-
-<p>Equipo: {{ $equipo->nom_equipo }}  id: {{ $equipo->id }}</p>
+{{-- <p>Equipo: {{ $equipo->nom_equipo }}  id: {{ $equipo->id }}</p> --}}
 <p>Tutor del equipo: {{ $equipo->user->nom_docente }}</p>
-
+<br>
 <form action="{{ route('datosAsignarAlumnosEquipos') }}" method="POST">
 	{!! csrf_field() !!}
 	{!! method_field('PUT') !!}
 
-	<div class="form-group">
-		<label for="alumno_id">Alumno</label>
-		<select name="alumno_id" id="alumno_id" class="form-control">
+	<div class="input-field col s12">
+		<select name="alumno_id">
+			<option value="" disabled selected>Choose your option</option>
 			@foreach ($alumnos as $alumno)
 			@if ($alumno->semestre == Auth::user()->t_semestre && $alumno->carrera->grupo == Auth::user()->t_proy && $alumno->equipo_id == null)
 			<option value="{{ $alumno->id }}">{{ $alumno->nom_alumno }}</option>
 			@endif	
             @endforeach
 		</select>
+		<label>Materialize Select</label>
 	</div>
 
 	<input type="hidden" name="equipo_id" value="{{ $equipo->id }}">
 
 	<button type="submit" class="btn btn-primary btn-block">Asignar</button>
 </form>
-</div>
+      </div>
+	</div>
 	
 </div>
-
 @endsection
 

@@ -58,7 +58,7 @@ class TutorController extends Controller
     
     //dd($request->all());
 
-       Protocolo::create($request->all());
+  Protocolo::create($request->all());
 
 /*Protocolo::create([
    'nom_protocolo' => $request->input('nom_protocolo'),

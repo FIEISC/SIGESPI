@@ -73,20 +73,25 @@ $('.datepicker').datepicker({
 });
 </script> --}}
 
-<script>
-  $('#ventana').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
-</script>
-
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
-
 <script src="{{ asset('/materialize-css/js/jquery.js') }}"></script>
 <script src="{{ asset('/materialize-css/js/materialize.min.js') }}"></script>
 
+<script>
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+</script>
+
+{{-- <script>
+  $('#ventana').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+</script> --}}
+
 <script src="/sweetalert/sweetalert.min.js"></script>
+
+@include('sweet::alert')
 
 <script>
 $(document).ready(function(){
@@ -111,6 +116,5 @@ $(document).ready(function(){
   });
 </script>
 
-@include('sweet::alert')	
 </body>
 </html>
