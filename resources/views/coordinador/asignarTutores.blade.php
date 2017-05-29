@@ -21,7 +21,7 @@
 			<tr>
 				<th>Docente</th>
 				<th>Rol</th>
-				<th>Tutor</th>
+				{{-- <th>Tutor</th> --}}
 				<th>Semestre</th>
 			</tr>
 		</thead>
@@ -45,9 +45,9 @@
 					        <td>Docente</td>
 						@endif
 
-						@if ($tutor->t_proy == 'N')
+					{{-- 	@if ($tutor->t_proy == 'N')
 							<td>Solo Docente</td>
-						@endif
+						@endif --}}
 
 						<td>
 							<form action="{{ route('asignarTutoresForm', $tutor->id) }}" method="POST">

@@ -25,7 +25,7 @@
 
 				{{-- <button class="btn btn-danger btn-xs">x</button> --}}
 
-				<button class="btn waves-effect waves-light red ">
+				<button class="btn waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Marcar como leída">
 					<i class="material-icons">close</i>
 				</button>
 			</form>
@@ -53,7 +53,7 @@
 
 				{{-- <button class="btn btn-danger btn-xs">x</button> --}}
 
-				<button class="btn waves-effect waves-light red ">
+				<button class="btn waves-effect waves-light red tooltipped" data-position="right" data-delay="50" data-tooltip="Borrar notificación">
 					<i class="material-icons">close</i>
 				</button>
 			</form>
