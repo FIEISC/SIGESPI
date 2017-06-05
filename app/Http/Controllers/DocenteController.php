@@ -58,12 +58,10 @@ class DocenteController extends Controller
 
     public function infoDocenteProtocolo($id)
     {
-        //$protocolo = Protocolo::findOrFail($id);
-
-        $tutor = Protocolo::where('id', '=', $id)->first();
-
-        /*dd($tutor->user->nom_docente);*/
         
+        //Se pasa el nombre del tutor de proyecto(se pasa una funcion tutorProyecto en el modelo Protocolo que se usa en la vista)
+        $protocolo = Protocolo::where('id', '=', $id)->first();
+
         /*El id que se pasa como parametro es el id del protocolo*/
         $equipo = Equipo::where('user_id', '=', Auth::user()->id)->where('protocolo_id', '=', $id)->first();
 
@@ -75,7 +73,7 @@ class DocenteController extends Controller
 
         $alumnos = Alumno::where('equipo_id', '=', $equipo->id)->get();
 
-        return view('docente.infoDocenteProtocolo', compact('equipo', 'alumnos', 'tutor'));
+        return view('docente.infoDocenteProtocolo', compact('equipo', 'alumnos', 'protocolo'));
     }
 }
 

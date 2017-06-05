@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use sigespi\User;
 
+use Auth;
+
 use sigespi\Carrera;
 
 use sigespi\Protocolo;
@@ -25,7 +27,8 @@ class CoordinadorCarreraController extends Controller
 
     public function listaTutores()
     {
-        $tutores = User::orderBy('nom_docente', 'ASC')->get();
+        /*Se pasan solo los tutores que le fueron asignados 't_proy' = 'A' || 'B' || 'C' || 'D' */
+        $tutores = User::where('t_proy', '=', Auth::user()->c_carr)->get();
 
         return view('coordinadorCarrera.listaTutores', compact('tutores'));
     }

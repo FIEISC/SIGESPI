@@ -35,7 +35,6 @@ class Protocolo extends Model
     }
 
 
-
 /*    public function getNumUsersAttribute()
     {
         return count($this->manyUsers);
@@ -50,6 +49,12 @@ class Protocolo extends Model
     public function equipos()
     {
         return $this->hasMany(Equipo::class);
+    }
+
+//Para ver el nombre del tutor de proyecto en la vista de la informacion general del proyecto en el modulo de docente
+    public function tutorProyecto()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

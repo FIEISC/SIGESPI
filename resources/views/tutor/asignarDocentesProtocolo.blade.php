@@ -42,13 +42,11 @@
           @endforeach
             </td>
             <td>
-              {{-- <a href="{{ route('asignarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-success btn-sm">Asignar  <span class="glyphicon glyphicon-ok"></span></a> --}}
 
               <a href="{{ route('asignarDocentesProtocoloForm', $protocolo->id) }}" class="waves-effect waves-light green btn tooltipped" data-position="top" data-delay="50" data-tooltip="Asignar"><i class="material-icons">check</i></a>
 
                <a href="{{ route('editarDocentesProtocoloForm', $protocolo->id) }}" class="waves-effect waves-light orange btn tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="material-icons">edit</i></a>
 
-              {{-- <a style="margin-left: 60px;" href="{{ route('editarDocentesProtocoloForm', $protocolo->id) }}" class="btn btn-warning btn-sm">Editar  <span class="glyphicon glyphicon-edit"></span></a> --}}
             </td>
           </tr>
           @endif

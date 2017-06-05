@@ -4,14 +4,6 @@
 
 @section('contenido')
 
-{{-- <h1>Protocolos</h1>
-
-@foreach ($protocolos as $protocolo)
-	@if (Auth::user()->c_carr == $protocolo->user->t_proy)
-		<p>{{ $protocolo->nom_protocolo }}  Creador: {{ $protocolo->user->nom_docente }}</p>
-	@endif
-@endforeach --}}
-
 <div class="row">
     <div class="col s10 offset-s1">
     <div class="card-panel green lighten-4">
@@ -30,6 +22,7 @@
             @foreach ($protocolos as $protocolo)
                 @if (Auth::user()->c_carr == $protocolo->user->t_proy)
                 <tr>
+
                     <td>{{ $protocolo->nom_protocolo }}</td>
                     <td>{{ $protocolo->user->nom_docente }}</td>
                     <td>

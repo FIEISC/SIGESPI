@@ -45,7 +45,7 @@
     @endif
    </div>
 
-   <div class="card-panel teal lighten-2">Cualquier duda o aclaración, favor de ponerse en contacto con el tutor del proyecto <b>{{ $tutor->user->nom_docente }}</b></div>
+   <div class="card-panel teal lighten-2">Cualquier duda o aclaración, favor de ponerse en contacto con el tutor del proyecto <b>{{ $protocolo->tutorProyecto->nom_docente }}</b></div>
 </div>
 </div>
 
