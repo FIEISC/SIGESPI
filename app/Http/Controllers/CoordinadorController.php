@@ -158,6 +158,13 @@ class CoordinadorController extends Controller
         //Para pasar todos los tutores menos el cc elegido
         $tutores = User::where('id', '!=', $id)->get();
         $ciclo = Ciclo::where('activo', '=', 1)->first();
+        
+        /*Condicion (mensaje) por si no se ha agregado un ciclo escolar*/
+        if ($ciclo === null) 
+        {
+            Alert::info('No hay ciclos en el sistemas, pongase en contacto con el administrador', 'No hay ciclo');
+            return redirect()->back();
+        }
         return view('coordinador.asignarTutores', compact('tutores', 'cc', 'ciclo'));
     }
 

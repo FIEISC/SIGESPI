@@ -198,7 +198,7 @@ Route::get('/n2', 'PaginasController@nivel2')->name('nivel2');
 
 Route::get('/ncct&d', 'PaginasController@nivel3')->name('nivel3');
 
-Route::get('/n4', 'PaginasController@nivel4')->name('nivel4');
+Route::get('/nt&da', 'PaginasController@nivel4')->name('nivel4');
 
 Route::get('/nda', 'PaginasController@nivel5')->name('nivel5');
 

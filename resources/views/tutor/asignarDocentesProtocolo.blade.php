@@ -15,11 +15,17 @@
   {{ Session::get('info2') }}
 </div>
 @endif
+
+
 <div class="col-md-12 col-md-offset-0">
   <div class="card-panel green lighten-4">
-    <h5>Asignar Docentes</h5>
+    <h5 class="center-align">Asignar Docentes</h5>
+    <br>
+    @if (count($protocolos) === 0)
+       <h5 class="center-align blue-text">No hay protocolos creados todavía</h5>
 
-  <table class="bordered highlight centered responsive-table">
+    @else
+    <table class="bordered highlight centered responsive-table">
     
     <thead>
       <tr>
@@ -31,7 +37,6 @@
 
     <tbody>
       @foreach ($protocolos as $protocolo)
-          @if ($protocolo->user_id == Auth::user()->id)
           <tr>
             <td>{{ $protocolo->nom_protocolo }}</td>
             <td>
@@ -49,10 +54,11 @@
 
             </td>
           </tr>
-          @endif
       @endforeach
     </tbody>
   </table>
+    @endif
+
   </div>
 </div>
 @endsection

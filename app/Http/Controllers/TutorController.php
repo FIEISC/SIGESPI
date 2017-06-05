@@ -89,7 +89,9 @@ class TutorController extends Controller
 
    public function verProtocolos()
    {   
-       $protocolos = Protocolo::all();
+       //$protocolos = Protocolo::all();
+
+       $protocolos = Protocolo::where('user_id', '=', Auth::user()->id)->where('activo', '=', 1)->get();
 
        return view('tutor.verProtocolos', compact('protocolos'));
    }
@@ -120,7 +122,10 @@ class TutorController extends Controller
 
    public function asignarDocentesProtocolo()
    {
-       $protocolos = Protocolo::all();
+       //$protocolos = Protocolo::all();
+
+       $protocolos = Protocolo::where('user_id', '=', Auth::user()->id)->where('activo', '=', 1)->get();
+
        return view('tutor.asignarDocentesProtocolo', compact('protocolos'));
    }
 
@@ -168,9 +173,13 @@ class TutorController extends Controller
       return redirect()->route('asignarDocentesProtocolo');
    }
 
+
+/*Modulo para crear equipos de trabajo*/
    public function crearEquipos()
    {
-       $protocolos = Protocolo::all();
+       //$protocolos = Protocolo::all();
+
+       $protocolos = Protocolo::where('user_id', '=', Auth::user()->id)->where('activo', '=', 1)->get();
        $equipos = Equipo::all();
        $alumnos = Alumno::all();
        return view('tutor.crearEquipos', compact('protocolos', 'equipos', 'alumnos'));
