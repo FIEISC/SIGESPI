@@ -14,7 +14,7 @@
 	<div class="col s12">
 
 		<div class="card-panel green lighten-4">
-			<h4>Dar de baja y reasignar</h4>
+			<h4 class="center-align">Dar de baja y reasignar</h4>
            
            @if (count($coordinadores_carr) === 0)
            	<h5 class="center-align indigo-text">No hay coordinadores de carrera activados todavía</h5>

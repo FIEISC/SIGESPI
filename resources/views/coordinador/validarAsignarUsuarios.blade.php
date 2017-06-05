@@ -9,12 +9,12 @@
 
 		<div class="card-panel green lighten-4">
 
-			<h5>Validar y dar de alta a coordinadores de carrera y docentes</h5>
+			<h5 class="center-align">Validar y dar de alta a coordinadores de carrera y docentes</h5>
 
 			<div class="row">
-			<div class="col s1 offset-s11">
-		
-			<a href="{{ route('darBajaReasignarCoordinadorCarrera') }}" class="btn-floating btn-large waves-effect waves-light cyan tooltipped" data-position="top" data-delay="50" data-tooltip="Dar baja y reasignar"><i class="material-icons">add</i></a>
+				<div class="col s1 offset-s11">
+
+					<a href="{{ route('darBajaReasignarCoordinadorCarrera') }}" class="btn-floating btn-large waves-effect waves-light cyan tooltipped" data-position="top" data-delay="50" data-tooltip="Dar baja y reasignar"><i class="material-icons">add</i></a>
 				</div>
 			</div>
 

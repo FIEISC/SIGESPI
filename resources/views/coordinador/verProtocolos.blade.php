@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-	<h4>Todos los Protocolos</h4>
+	<h4 class="center-align">Todos los Protocolos</h4>
 
 	<table id="myTable" class="table table-responsive table-bordered table-hover">
 		

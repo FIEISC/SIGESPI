@@ -14,7 +14,7 @@
 	<div class="col s12">
 
 		<div class="card-panel green lighten-4">
-			<h4>Alta tutores para los coordinadores de carrera</h4>
+			<h4 class="center-align">Alta tutores para los coordinadores de carrera</h4>
 			<br>
 			@if (count($coordinadores_carr) === 0)
 				<h5 class="center-align indigo-text">No hay coordinadores de carrera dados de alta todavía...</h5>

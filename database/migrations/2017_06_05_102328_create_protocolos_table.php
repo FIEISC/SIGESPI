@@ -24,6 +24,7 @@ class CreateProtocolosTable extends Migration
             $table->text('entregables')->nullable();
             $table->text('preguntas_guia')->nullable();
             $table->integer('semestre')->nullable();
+            $table->string('grupo')->nullable();
             $table->date('fec_ini')->nullable();
             $table->date('fec_fin')->nullable();
             $table->boolean('activo')->default(1);
