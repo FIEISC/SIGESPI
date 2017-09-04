@@ -58,6 +58,16 @@ Route::get('/admin/alta_ciclos', 'AdminController@altaCiclos')->name('altaCiclos
 
 Route::post('/admin/alta_ciclos', 'AdminController@altaCiclosForm')->name('altaCiclosForm');
 
+/*Rutas nuevas administrador*/
+
+Route::get('/admin/elegir_campus', 'AdminController@elegirCampusPlanteles')->name('elegirCampusPlanteles');
+
+Route::post('/admin/elegir_campus/data', 'AdminController@datoElegirCampusPlanteles')->name('datoElegirCampusPlanteles');
+
+Route::get('/admin/editar_plantel/{id}', 'AdminController@modificarDatosPlantel')->name('modificarDatosPlantel');
+
+Route::put('/admin/editar_plantel/data/{id}', 'AdminController@datosPlantelModificar')->name('datosPlantelModificar');
+
 //Rutas del sistema en general!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Route::get('/registro', 'AuthController@registro')->name('registro');

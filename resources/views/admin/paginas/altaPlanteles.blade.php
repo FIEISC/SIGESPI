@@ -41,10 +41,13 @@
 		<button class="btn waves-effect waves-light" type="submit">Registrar
 			<i class="material-icons right">send</i>
 		</button>
+
+			<a href="{{ route('elegirCampusPlanteles') }}"><p>Ver planteles</p></a>
+	</div>
 	</form>
 	</div>
-	</div>
 </div>
+
 @endsection
 
 

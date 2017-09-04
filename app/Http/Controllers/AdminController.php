@@ -186,6 +186,52 @@ class AdminController extends Controller
             return redirect()->route('altaPlanteles');
         }
 
+        /*Elegir campus para ver los planteles que tiene*/
+
+        public function elegirCampusPlanteles()
+        {
+            $campus = Campus::all();
+            return view('admin.paginas.opcionesCampusPlanteles', compact('campus'));
+        }
+
+/*Dato del campus para mostrar los planteles que tiene y mostrarlos en una lista*/
+        public function datoElegirCampusPlanteles(Request $request)
+        {
+           $campus_id = $request->input('campus_id');
+           $planteles = Plantel::where('campus_id', $campus_id)->get();
+
+            return view('admin.paginas.listaPlanteles', compact('planteles'));
+
+        }
+
+        /*Modificar la informacion del plantel*/
+
+        public function modificarDatosPlantel($id)
+        {
+           $plantel = Plantel::findOrFail($id);
+           $campus = Campus::all();
+
+           return view('admin.paginas.modificarDatosPlantel', compact('plantel', 'campus'));
+        }
+
+        public function datosPlantelModificar(Request $request, $id)
+        {
+            /*dd($request->all());*/
+
+            $plantel = Plantel::findOrFail($id);
+
+            DB::table('planteles')->where('id', $id)->update([
+            'nom_plantel' => $request->input('nom_plantel'),
+            'siglas' => $request->input('siglas'),
+            'campus_id' => $request->input('campus_id')
+            ]);
+            
+            Alert::success('El plantel ha sido modificado exitosamente', 'Plantel modificado');
+            return redirect()->route('altaPlanteles');
+
+
+        }
+
         //Dada de alta de las carreras!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         public function altaCarreras()
