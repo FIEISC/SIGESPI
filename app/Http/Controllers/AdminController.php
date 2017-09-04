@@ -221,9 +221,16 @@ class AdminController extends Controller
 
         public function altaCiclosForm(Request $request)
         {
-            //dd($request->all());
+            /*dd($request->all());*/
 
-            Ciclo::create($request->all());
+            $nom_ciclo = strtoupper($request->input('nom_ciclo'));
+            $ciclo = $request->input('ciclo');
+            $fec_ini = $request->input('fec_ini');
+            $fec_fin = $request->input('fec_fin');
+
+            /*Ciclo::create($request->all());*/
+
+            Ciclo::create(['nom_ciclo' => $nom_ciclo, 'ciclo' => $ciclo, 'fec_ini' => $fec_ini, 'fec_fin' => $fec_fin]);
             
             Alert::success('El ciclo ha sido registrado en el sistema');
 
