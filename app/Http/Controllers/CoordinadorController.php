@@ -16,31 +16,31 @@ use Alert;
 
 class CoordinadorController extends Controller
 {
-	function __construct()
-	{
-		return $this->middleware('auth');
-	}
+    function __construct()
+    {
+        return $this->middleware('auth');
+    }
 
     public function index()
     {
-    	return view('coordinador.index');
+        return view('coordinador.index');
     }
     
     //Para activar la cuenta de los usuarios!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function validarAsignarUsuarios()
     {
-    	$docentes = User::all();
+        $docentes = User::all();
         $noactivos = User::where('activo', '=', 0)->get();
         /*Para pasar solo los coordinadores de carrera y asi poder ocultar el boton de 'asignar' cuando esten todos los coordinadores asignados*/
         $coordinadores_carr = User::where('rol', '=', 2)->get();
 
-    	return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos', 'coordinadores_carr'));
+        return view('coordinador.validarAsignarUsuarios', compact('docentes', 'noactivos', 'coordinadores_carr'));
     }
-
+ /*Datos para activar la cuenta de los usuarios(docentes) en el sistema*/
     public function formvalidarAsignarUsuarios(Request $request, $id)
     {
         DB::table('users')->where('id', $id)->update([
-        	'activo' => $request->input('activo')]);
+            'activo' => $request->input('activo')]);
         
         Alert::success('El docente ha sido dado de alta en el sistema', 'Docente activado!');
         return redirect()->route('validarAsignarUsuarios');
@@ -49,28 +49,25 @@ class CoordinadorController extends Controller
    //Para asignar a los coordinadores de carrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function asignarCoordinadorCarrera($id)
     {
-    	$docente = User::findOrFail($id);
-    	return view('coordinador.asignarCoordinadorCarrera', compact('docente'));
+        $docente = User::findOrFail($id);
+        return view('coordinador.asignarCoordinadorCarrera', compact('docente'));
     }
     
     public function formAsignarCoordinadorCarrera(Request $request, $id)
     {
+      /*Variable que recoge el valor del campo c_carr que tiene el usuario actualmente autentificado, este valor puede ser A, B, C o D*/
+        $c_carr = $request->input('c_carr');
 
-    	/*$this->validate($request, [
-            'c_carr' => 'required'
-    		]);*/
-
-    	$c_carr = $request->input('c_carr');
-
+        /* Variable que recoge los valores de los roles que ahora tendrá en este caso los roles son ‘2 y 4’ */
         $roles = implode(',', $request->input('rol'));
-
-    	if ($c_carr == null) 
-    	{
-    		return redirect()->back()->with('info', 'Elige una carrera');
-    	}
-
-    	DB::table('users')->where('id', $id)->update(['c_carr' => $c_carr, 'rol' => $roles]);
         
+         /* Si el valor que llegue del formulario esta vacio, manda un mensaje de alerta */
+        if ($c_carr == null) 
+        {
+            return redirect()->back()->with('info', 'Elige una carrera');
+        }
+
+        DB::table('users')->where('id', $id)->update(['c_carr' => $c_carr, 'rol' => $roles]);
         if ($c_carr == 'A') 
         {
         
@@ -92,7 +89,7 @@ class CoordinadorController extends Controller
             Alert::success('Ahora es Coordinador de la carrera Ing. en Sistemas Computacionales ', 'Coordinador de Carrera asignado');
         }
 
-    	return redirect()->route('validarAsignarUsuarios');
+        return redirect()->route('validarAsignarUsuarios');
     }
 
     //Para dar de baja o reasignar coordinadores de carrrera!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -34,8 +34,6 @@
 				<label for="password">Contraseña</label>
 			</div>
 
-			{{-- <button type="submit" class="btn btn-primary btn-block">Entrar</button> --}}
-
 			<button class="btn waves-effect waves-light" type="submit">Entrar
 				<i class="material-icons right">send</i>
 			</button>

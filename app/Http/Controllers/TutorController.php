@@ -50,17 +50,20 @@ class TutorController extends Controller
        //dd($id);   
        $ciclo = Ciclo::findOrFail($id);
        $carrera = Carrera::where('grupo', '=', Auth::user()->t_proy)->first();
+
+       if ($carrera === null) 
+       {
+         Alert::info('Crear la carrera, por favor ponerse en contacto con el administrador', 'Carrera no encontrada');
+
+         return redirect()->back();
+       }
        return view('tutor.crearProtocolo', compact('ciclo', 'carrera'));
    }
 
    public function crearProtocoloForm(Request $request)
    {
     
-    //dd($request->all());
-
-  Protocolo::create($request->all());
-
-/*Protocolo::create([
+   Protocolo::create([
    'nom_protocolo' => $request->input('nom_protocolo'),
    'universidad' => $request->input('universidad'),
    'facultad' => $request->input('facultad'),
@@ -81,7 +84,7 @@ class TutorController extends Controller
    'carrera_id' => $request->input('carrera_id'),
    'ciclo_id' => $request->input('ciclo_id'),
    'user_id' => $request->input('user_id')
-  ]);*/
+  ]);
 
        Alert::success('Ahora prodrás asignar docentes al protocolo', 'Protocolo creado exitosamente!');
        return redirect()->route('verProtocolos');
