@@ -239,7 +239,8 @@ class AdminController extends Controller
             $planteles = Plantel::all();
             return view('admin.paginas.altaCarreras', compact('planteles'));
         }
-
+        
+        /*Datos del formulario para crear la carrera*/
         public function altaCarrerasForm(Request $request)
         {
             $this->validate($request, [
@@ -259,10 +260,62 @@ class AdminController extends Controller
             Alert::success('Carrera creada para el plantel', 'Carrera creada!');
             return redirect()->route('altaCarrerasForm');
         }
+
+        /*Ver lista de campus para ver la carreras de  cada plantel*/
+
+        public function verCampusCarreras()
+        {
+            $campus = Campus::all();
+            return view('admin.paginas.opcionesCampusCarreras', compact('campus'));
+
+        }
+        
+        /*Lista de planteles del campus previamente seleccionado*/
+        public function verPlantelesCarreras(Request $request)
+        {
+            $campus = $request->input('campus_id');
+            $planteles = Plantel::where('campus_id', $campus)->get();
+
+            return view('admin.paginas.opcionesPlantelesCarreras', compact('planteles'));
+        }
+        
+        /*Lista de todas las carreras del plantel previamente seleccionado*/
+        public function verCarreras(Request $request)
+        {
+            $plantel = $request->input('plantel_id');
+            $carreras = Carrera::where('plantel_id', $plantel)->get();
+            
+            return view('admin.paginas.listaCarreras', compact('carreras'));
+        }
+
+        /*Formulario para editar la carrera*/
+
+        public function editarCarrera($id)
+        {
+            $carrera = Carrera::where('id', $id)->first();
+    
+            return view('admin.paginas.editarCarrera', compact('carrera'));
+        }
+        
+        /*Datos del formulario para editar la carrera*/
+        public function datosEditarCarrera(Request $request, $id)
+        {
+            DB::table('carreras')->where('id', $id)->update([
+            'nom_carrera' => $request->input('nom_carrera'),
+            'siglas' => $request->input('siglas'),
+            'grupo' => $request->input('grupo'),
+            ]);
+          
+          Alert::success('La carrera ha sido editada exitosamente', 'Carrera editada');
+          return redirect()->route('altaCarreras');
+        }
+
      //Dada de alta de los ciclos escolares!!!!!!!!!!!!!!!!!!!!!!!!!
         public function altaCiclos()
         {
-            return view('admin.paginas.altaCiclos');
+            $ciclo_actual = Ciclo::where('activo', 1)->first();
+
+            return view('admin.paginas.altaCiclos', compact('ciclo_actual'));
         }
 
         public function altaCiclosForm(Request $request)
@@ -280,9 +333,51 @@ class AdminController extends Controller
             
             Alert::success('El ciclo ha sido registrado en el sistema');
 
-            return redirect()->route('altaCiclos');
+            return redirect()->route('listaCiclos');
         }
+
+        public function listaCiclos()
+        {
+            $ciclos = Ciclo::all();
+
+            return view('admin.paginas.listaCiclos', compact('ciclos', 'ciclo_inactivo'));
+        }
+
+        public function editarCicloActual($id)
+        {
+            $ciclo = Ciclo::where('id', $id)->first();
+
+            return view('admin.paginas.editarCicloActual', compact('ciclo'));
+        }
+
+        public function datosEditarCicloActual(Request $request, $id)
+        {
+            DB::table('ciclos')->where('id', $id)->update([
+            'nom_ciclo' => $request->input('nom_ciclo'),
+            'ciclo' => $request->input('ciclo'),
+            'fec_ini' => $request->input('fec_ini'),
+            'fec_fin' => $request->input('fec_fin'),
+            ]);
+          
+          Alert::success('El ciclo escolar ha sido editado exitosamente', 'Ciclo escolar editado');
+
+          return redirect()->route('listaCiclos');
+        }
+
+        public function bajaCicloActual(Request $request, $id)
+        {
+            DB::table('ciclos')->where('id', $id)->update([
+            'activo' => $request->input('activo')
+            ]);
+
+            Alert::success('El ciclo escolar ha sido de baja exitosamente', 'Ciclo escolar dado de baja');
+
+          return redirect()->route('altaCiclos');
+        }
+
 }
+
+
 
 
 

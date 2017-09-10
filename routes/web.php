@@ -54,9 +54,27 @@ Route::get('/admin/alta_carreras', 'AdminController@altaCarreras')->name('altaCa
 
 Route::post('/admin/alta_carreras', 'AdminController@altaCarrerasForm')->name('altaCarrerasForm');
 
+Route::get('/admin/campus_carreras', 'AdminController@verCampusCarreras')->name('verCampusCarreras');
+
+Route::post('/admin/planteles_carreras', 'AdminController@verPlantelesCarreras')->name('verPlantelesCarreras');
+
+Route::post('/admin/carreras', 'AdminController@verCarreras')->name('verCarreras');
+
+Route::get('/admin/editar_carrera/{id}', 'AdminController@editarCarrera')->name('editarCarrera');
+
+Route::put('/admin/editar_carrera/datos/{id}', 'AdminController@datosEditarCarrera')->name('datosEditarCarrera');
+
 Route::get('/admin/alta_ciclos', 'AdminController@altaCiclos')->name('altaCiclos');
 
 Route::post('/admin/alta_ciclos', 'AdminController@altaCiclosForm')->name('altaCiclosForm');
+
+Route::get('/admin/lista_ciclos', 'AdminController@listaCiclos')->name('listaCiclos');
+
+Route::get('/admin/editar_ciclo/{id}', 'AdminController@editarCicloActual')->name('editarCicloActual');
+
+Route::put('/admin/editar_ciclo/datos/{id}', 'AdminController@datosEditarCicloActual')->name('datosEditarCicloActual');
+
+Route::put('/admin/baja_ciclo/{id}', 'AdminController@bajaCicloActual')->name('bajaCicloActual');
 
 /*Rutas nuevas administrador*/
 

@@ -24,14 +24,9 @@
         </div>
 
 		<div class="input-field col s12">
-			<select name="grupo">
-				<option value="A">A</option>
-				<option value="B">B</option>
-				<option value="C">C</option>
-				<option value="D">D</option>
-			</select>
-			<label>Grupo</label>
-		</div>
+          <input id="grupo" name="grupo" type="text" class="validate">
+          <label for="grupo">Grupo</label>
+        </div>
 
 		<div class="input-field col s12">
 			<select name="plantel_id">
@@ -45,6 +40,8 @@
 		<button class="btn waves-effect waves-light" type="submit">Registrar
 			<i class="material-icons right">send</i>
 		</button>
+         <br>
+		<p><a href="{{ route('verCampusCarreras') }}">Ver carreras</a></p>
 	</form>
 	</div>
 	</div>
