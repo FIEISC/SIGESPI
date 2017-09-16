@@ -34,7 +34,7 @@
 				<td>
 					{{-- <a href="" class="btn btn-default btn-sm">Editar <span class="glyphicon glyphicon-edit"></span></a> --}}
 
-					<a href="" class="waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Editar"><i class="material-icons">edit</i></a>
+					<a href="{{ route('editarCampus', $campu->id) }}" class="waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Editar"><i class="material-icons">edit</i></a>
 				</td>
 			</tr>
 			@endforeach			

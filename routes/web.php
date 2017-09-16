@@ -46,6 +46,12 @@ Route::get('/admin/alta_campus/lista', 'AdminController@listaCampus')->name('lis
 
 Route::post('/admin/alta_campus', 'AdminController@altaCampusForm')->name('altaCampusForm');
 
+Route::get('/admin/editar_campus/{id}', 'AdminController@editarCampus')->name('editarCampus');
+
+Route::put('/admin/editar_campus/datos/{id}', 'AdminController@datosEditarCampus')->name('datosEditarCampus');
+
+/*Planteles*/
+
 Route::get('/admin/alta_planteles', 'AdminController@altaPlanteles')->name('altaPlanteles');
 
 Route::post('/admin/alta_planteles', 'AdminController@altaPlantelesForm')->name('altaPlantelesForm');

@@ -8,6 +8,10 @@
 
 <h1>Lista de planteles</h1>
 	
+	@if (count($planteles) == 0)
+		<h4 class="orange-text text-darken-1"><i class="material-icons">info</i>No hay planteles registrados todavía</h4>
+
+	@else
 	<table class="bordered highlight centered responsive-table">
 		<thead>
 			<tr>
@@ -25,6 +29,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	@endif
 </div>
 
 @endsection

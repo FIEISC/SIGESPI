@@ -158,6 +158,26 @@ class AdminController extends Controller
             return view('admin.paginas.listaCampus', compact('campus'));
         }
 
+        public function editarCampus($id)
+        {
+            $campus = Campus::findOrFail($id);
+
+            return view('admin.paginas.editarCampus', compact('campus'));
+        }
+
+        public function datosEditarCampus(Request $request, $id)
+        {
+            DB::table('campus')->where('id', $id)->update([
+            'nom_campus' => $request->input('nom_campus'),
+            'delegacion' => $request->input('delegacion'),
+            'nom_universidad' => $request->input('nom_universidad')
+            ]);
+
+            Alert::success('El campus ha sido modificado exitosamente', 'Campus modificado');
+
+            return redirect()->route('listaCampus');
+        }
+
         //Dada de alta de los planteles
 
         public function altaPlanteles()
