@@ -12,15 +12,25 @@ use sigespi\User;
 
 use sigespi\Plantel;
 
+use sigespi\Campus;
+
 use Auth;
 
 use Alert;
 
 class AuthController extends Controller
 {
-    public function registro()
+    public function campusRegistro()
     {
-        $planteles = Plantel::all();
+        $campus = Campus::all();
+        return view('auth.campusRegistro', compact('campus'));
+    }
+
+    public function registro(Request $request)
+    {
+        $campus_id = $request->input('campus_id');
+        $planteles = Plantel::where('campus_id', $campus_id)->get();
+        
     	return view('auth.registro', compact('planteles'));
     }
 

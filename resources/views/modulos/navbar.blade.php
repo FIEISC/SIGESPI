@@ -33,7 +33,7 @@
     @endif --}}
     
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ route('registro') }}">Registro</a></li>
+        <li><a href="{{ route('campusRegistro') }}">Registro</a></li>
         <li><a href="{{ route('login') }}">Login</a></li> 
       </ul>  
          

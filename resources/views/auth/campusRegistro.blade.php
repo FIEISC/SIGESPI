@@ -8,7 +8,7 @@
 
 <h1>Elegir Campus</h1>
 
-<form action="{{ route('datoElegirCampusPlanteles') }}" method="POST">
+<form action="{{ route('registro') }}" method="POST">
 	{{ csrf_field() }}
 
 	<div class="input-field col s12">

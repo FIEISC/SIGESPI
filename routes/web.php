@@ -100,9 +100,11 @@ Route::put('/admin/editar_plantel/data/{id}', 'AdminController@datosPlantelModif
 
 //Rutas del sistema en general!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-Route::get('/registro', 'AuthController@registro')->name('registro');
+Route::get('/campus/registro', 'AuthController@campusRegistro')->name('campusRegistro');
 
-Route::post('/registro', 'AuthController@datosRegistro')->name('datosRegistro');
+Route::post('/registro', 'AuthController@registro')->name('registro');
+
+Route::post('/registro/datos', 'AuthController@datosRegistro')->name('datosRegistro');
 
 Route::get('/', 'AuthController@login')->name('login');
 
