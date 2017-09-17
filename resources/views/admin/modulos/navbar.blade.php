@@ -20,7 +20,7 @@
       <li><a href="{{ route('validarCoordinador') }}">Válidar Coordinador</a></li>
       <li><a href="{{ route('altaCampus') }}">Alta Campus</a></li>
       <li><a href="{{ route('altaPlanteles') }}">Alta Planteles</a></li>
-      <li><a href="{{ route('altaCarreras') }}">Crear Carreras</a></li>
+      <li><a href="{{ route('opcionesCampusCrearCarrera') }}">Crear Carreras</a></li>
       {{-- <li><a href="#">Crear Materias</a></li> --}}
       <li><a href="{{ route('altaCiclos') }}">Crear Ciclos</a></li>
     </ul>

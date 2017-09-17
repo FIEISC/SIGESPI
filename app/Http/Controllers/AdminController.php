@@ -253,11 +253,28 @@ class AdminController extends Controller
         }
 
         //Dada de alta de las carreras!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        public function altaCarreras()
+        
+        public function opcionesCampusCrearCarrera()
         {
-            $planteles = Plantel::all();
-            return view('admin.paginas.altaCarreras', compact('planteles'));
+            $campus = Campus::all();
+
+            return view('admin.paginas.opcionesCampusCrearCarrera', compact('campus'));
+        }
+
+        public function opcionesPlantelesCrearCarrera(Request $request)
+        {
+            $campus_id = $request->input('campus_id');
+            $planteles = Plantel::where('campus_id', $campus_id)->get();
+
+            return view('admin.paginas.opcionesPlantelesCrearCarrera', compact('planteles'));
+        }
+
+        public function altaCarreras(Request $request)
+        {
+            $plantel_id = $request->input('plantel_id');
+            $plantel = Plantel::where('id', $plantel_id)->first();
+
+            return view('admin.paginas.altaCarreras', compact('plantel'));
         }
         
         /*Datos del formulario para crear la carrera*/
@@ -272,13 +289,13 @@ class AdminController extends Controller
             
             $nom_carrera = strtoupper($request->input('nom_carrera'));
             $siglas = strtoupper($request->input('siglas'));
-            $grupo = $request->input('grupo');
+            $grupo = strtoupper($request->input('grupo'));
             $plantel_id = $request->input('plantel_id');
 
             Carrera::create(['nom_carrera' => $nom_carrera, 'siglas' => $siglas, 'grupo' => $grupo, 'plantel_id' => $plantel_id]);
             
             Alert::success('Carrera creada para el plantel', 'Carrera creada!');
-            return redirect()->route('altaCarrerasForm');
+            return redirect()->route('opcionesCampusCrearCarrera');
         }
 
         /*Ver lista de campus para ver la carreras de  cada plantel*/

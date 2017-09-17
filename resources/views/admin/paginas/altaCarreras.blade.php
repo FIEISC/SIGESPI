@@ -28,14 +28,17 @@
           <label for="grupo">Grupo</label>
         </div>
 
-		<div class="input-field col s12">
+	{{-- 	<div class="input-field col s12">
 			<select name="plantel_id">
 				@foreach ($planteles as $plantel)
 					<option value="{{ $plantel->id }}">{{ $plantel->nom_plantel }}</option>
 				@endforeach
 			</select>
 			<label>Plantel</label>
-		</div>
+		</div> --}}
+
+          <input name="plantel_id" type="hidden" value="{{ $plantel->id }}">
+         
 
 		<button class="btn waves-effect waves-light" type="submit">Registrar
 			<i class="material-icons right">send</i>

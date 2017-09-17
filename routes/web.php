@@ -56,7 +56,13 @@ Route::get('/admin/alta_planteles', 'AdminController@altaPlanteles')->name('alta
 
 Route::post('/admin/alta_planteles', 'AdminController@altaPlantelesForm')->name('altaPlantelesForm');
 
-Route::get('/admin/alta_carreras', 'AdminController@altaCarreras')->name('altaCarreras');
+/*Carreras*/
+
+Route::get('/admin/campus', 'AdminController@opcionesCampusCrearCarrera')->name('opcionesCampusCrearCarrera');
+
+Route::post('/admin/planteles', 'AdminController@opcionesPlantelesCrearCarrera')->name('opcionesPlantelesCrearCarrera');
+
+Route::post('/admin/alta_carreras/form', 'AdminController@altaCarreras')->name('altaCarreras');
 
 Route::post('/admin/alta_carreras', 'AdminController@altaCarrerasForm')->name('altaCarrerasForm');
 

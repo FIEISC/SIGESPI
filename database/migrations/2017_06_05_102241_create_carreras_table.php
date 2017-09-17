@@ -12,7 +12,7 @@ class CreateCarrerasTable extends Migration
             $table->increments('id');
             $table->string('nom_carrera');
             $table->string('siglas');
-            $table->string('grupo')->unique();
+            $table->string('grupo');
             $table->boolean('activo')->default(1);
             //Llave foranea de plantel
 
