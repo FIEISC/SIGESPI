@@ -17,6 +17,10 @@
 
 	<h4 class="center-align">Todos los Protocolos</h4>
 
+	@if (count($protocolos) == 0)
+		<h4 class="center orange-text text-darken-1"><i class="material-icons">info</i> No hay protocolos registrados todavía</h4>
+
+	@else
 	<table id="myTable" class="table table-responsive table-bordered table-hover">
 		
 		<thead>
@@ -54,6 +58,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	@endif
 </div>
 
 @endsection

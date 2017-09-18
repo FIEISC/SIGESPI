@@ -14,6 +14,8 @@ use DB;
 
 use Alert;
 
+use Auth;
+
 class CoordinadorController extends Controller
 {
     function __construct()
@@ -29,6 +31,7 @@ class CoordinadorController extends Controller
     //Para activar la cuenta de los usuarios!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public function validarAsignarUsuarios()
     {
+        /*$docentes = User::where('activo', 0)->where('plantel_id', Auth::user()->id)->get();*/
         $docentes = User::all();
         $noactivos = User::where('activo', '=', 0)->get();
         /*Para pasar solo los coordinadores de carrera y asi poder ocultar el boton de 'asignar' cuando esten todos los coordinadores asignados*/

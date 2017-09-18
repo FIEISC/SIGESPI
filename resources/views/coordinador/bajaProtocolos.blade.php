@@ -8,9 +8,14 @@
 	<div class="col s12">
 
 <div class="card-panel green lighten-4">
-		<h1>Baja de protocolos</h1>
+		<h2 class="center">Baja de protocolos</h2>
 	<hr>
 
+	@if (count($protocolos) == 0)
+
+	<h4 class="center orange-text text-darken-1"><i class="material-icons">info</i> No hay protocolos registrados todavía</h4>
+
+	@else
 	<table id="myTable" class="table table-responsive table-bordered table-hover">
 		
 		<thead>
@@ -92,6 +97,8 @@
 			@endforeach
 		</tbody>
 	</table>
+		
+	@endif
 </div>
 </div>
 </div>
