@@ -37,6 +37,8 @@
 			<label>Plantel</label>
 		</div> --}}
 
+		   <input type="text" value="{{ $plantel->nom_plantel }}" disabled>
+
           <input name="plantel_id" type="hidden" value="{{ $plantel->id }}">
          
 

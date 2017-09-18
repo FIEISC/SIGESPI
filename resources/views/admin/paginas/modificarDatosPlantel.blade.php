@@ -34,7 +34,7 @@
 
       <div class="input-field col s12">
       	<select name="campus_id">
-      	<option value="" disabled selected>Elegir Campus</option>
+      	{{-- <option value="" disabled selected>Elegir Campus</option> --}}
       		@foreach ($campus as $campu)
       			<option value="{{ $campu->id }}">{{ $campu->nom_campus }}</option>
       		@endforeach

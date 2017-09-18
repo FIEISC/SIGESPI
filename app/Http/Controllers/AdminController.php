@@ -344,7 +344,7 @@ class AdminController extends Controller
             ]);
           
           Alert::success('La carrera ha sido editada exitosamente', 'Carrera editada');
-          return redirect()->route('altaCarreras');
+          return redirect()->route('verCampusCarreras');
         }
 
      //Dada de alta de los ciclos escolares!!!!!!!!!!!!!!!!!!!!!!!!!
