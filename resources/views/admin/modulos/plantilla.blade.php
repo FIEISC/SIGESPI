@@ -41,10 +41,14 @@
 
 <footer class="footer-distributed">
   <div class="footer-left">
+  <p>SIGESPI 2017</p>
     <p class="footer-links">
-      <a href="#">Link1</a> - <a href="#">Link2</a> - <a href="#">Link3</a>
+      <ul>
+        <li><a href="#"><span class="glyphicon glyphicon-flag"></span> Facultad de Ingeniería Electromecánica</a></li>
+        <li><a href="http://portal.ucol.mx/fie/"><span class="glyphicon glyphicon-map-marker"></span> Dirección: Km 20, carretera Manzanillo-Cihuatlan Ejido El Naranjo Manzanillo, Colima</a></li>       
+      </ul>
     </p>
-    <p>SIGESPI 2017 | Developed by Naty <span class="glyphicon glyphicon-heart-empty"></span></p>
+    
   </div>
 </footer>
 

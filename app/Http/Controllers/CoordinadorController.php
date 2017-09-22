@@ -193,6 +193,24 @@ class CoordinadorController extends Controller
         return view('coordinador.verProtocolos', compact('protocolos'));
     }
 
+    public function verProtocoloCoordinador($id)
+    {
+        $protocolo = Protocolo::findOrFail($id);
+
+        return view('coordinador.verProtocolo', compact('protocolo'));
+    }
+
+    public function aceptarProtocolo(Request $request, $id)
+    {
+
+        $aceptado = $request->input('aceptado');
+
+        DB::table('protocolos')->where('id', $id)->update(['aceptado' => $aceptado]);
+
+        Alert::success('Protocolo dado aceptado exitosamente', 'Protocolo aceptado');
+       return redirect()->route('verProtocolosCoordinador');
+    }
+
     public function bajaProtocolos()
     {   
         $protocolos = Protocolo::all();

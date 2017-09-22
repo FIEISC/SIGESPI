@@ -10,13 +10,12 @@
 <div class="card-panel green lighten-4">
   @php
   $hoy = date('20y-m-d');
-  $mifecha = '2017-05-31';
 @endphp
  
-@if ($mifecha <= $protocolo->fec_fin || $protocolo->aceptado == 0)
+@if ($hoy <= $protocolo->fec_fin || $protocolo->aceptado == 0)
   <p>El protocolo no ha sido publicado aun, espera que lo publiquen</p>
 
-@elseif($mifecha > $protocolo->fec_fin && $protocolo->aceptado == 1)
+@elseif($hoy >= $protocolo->fec_fin && $protocolo->aceptado == 1)
   <table class="bordered highlight centered responsive-table">
     <thead>
       <th>Alumno</th>
@@ -52,6 +51,10 @@
 
          <div id="modal1" class="modal">
           <div class="modal-content">
+            <img style="width: 130px; height: 130px;" src="{{ url('images/fie.jpg') }}" alt="">
+            <img style="width: 130px; height: 130px; margin-left: 300px;" src="{{ url('images/ucol.jpg') }}" alt="">
+
+            <hr>
                   <h5 class="text-center">{{ $protocolo->universidad }}</h5>
                   <h5 class="text-center">{{ $protocolo->facultad }}</h5>
                   <h5 class="text-center">{{ $protocolo->carrera }}</h5>

@@ -6,9 +6,10 @@
 
 <div class="row">
 	<div class="col s10 offset-s1">
+
 		<div class="card-panel green lighten-4">
 			<h5 class="center-align">Crear Equipos</h5>
-			<p class="text-info">Da click sobre el equipo creado para asignarle un tutor de equipo de trabajo</p>
+			<p class="text-info">Da click sobre el equipo creado para asignarle a los alumnos</p>
 
 			@if (count($protocolos) === 0)
 				<h5 class="center-align blue-text">No hay protocolos creados todavía</h5>

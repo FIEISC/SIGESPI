@@ -13,7 +13,7 @@
 @endphp
 
 <div class="card-panel hoverable green lighten-4">
-	<h5>Editar Protocolo</h5>
+	<h3 class="center">Editar Protocolo</h3>
 
 @if ($hoy >= $protocolo->fec_ini && $hoy <= $protocolo->fec_fin)
 
@@ -46,7 +46,8 @@
 </form>
 
 @else
-<p>Ya no</p>
+<h4 class="red-text text-darken-4 text-justify">El tiempo para editar el protocolo ya ha pasado, ponte en contacto con el tutor de proyecto.</h4>
+
 @endif
 </div>
 </div>

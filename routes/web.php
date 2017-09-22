@@ -140,6 +140,10 @@ Route::put('/coordinador/alta_tutores/1x1/{id}', 'CoordinadorController@asignarT
 
 Route::get('/coordinador/protocolos', 'CoordinadorController@verProtocolos')->name('verProtocolosCoordinador');
 
+Route::get('/coordinador/protocolo/{id}', 'CoordinadorController@verProtocoloCoordinador')->name('verProtocoloCoordinador');
+
+Route::put('/coordinador/aceptar_protocolo/{id}', 'CoordinadorController@aceptarProtocolo')->name('aceptarProtocolo');
+
 Route::get('/coordinador/bajaProtocolos', 'CoordinadorController@bajaProtocolos')->name('bajaProtocolosCoordinador');
 
 Route::put('/coordinador/datos/baja_protocolos/{id}', 'CoordinadorController@datosProtocolosBaja')->name('datosProtocolosBaja');

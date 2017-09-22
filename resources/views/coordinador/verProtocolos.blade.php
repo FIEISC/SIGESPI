@@ -50,7 +50,7 @@
 					@endif
 					<td>
 						
-						<a href="#" style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></a>
+						<a href="{{ route('verProtocoloCoordinador', $protocolo->id) }}" style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventana">Ver  <span class="glyphicon glyphicon-eye-open"></span></a>
 
 					</td>
 				</tr>

@@ -9,6 +9,9 @@
 	
 	<div class="col s6 offset-s3">
 
+			<a class="waves-effect waves-light btn right" href="{{ route('crearEquipos') }}"><i class="material-icons left">arrow_back</i>Atrás</a>
+<br>
+<br>
       
       <div class="card-panel green lighten-4">
       	<h5>Asignar Alumnos</h5>

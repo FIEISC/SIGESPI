@@ -6,6 +6,10 @@
 
 <div class="col-md-10 col-md-offset-1">
 
+		<a class="waves-effect waves-light btn right" href="{{ route('verProtocolosCoordinador') }}"><i class="material-icons left">arrow_back</i>Atrás</a>
+<br>
+<br>
+
 	<div class="card-panel green lighten-4">
 
 		<h2 class="center">Eliminar protocolos</h2>
